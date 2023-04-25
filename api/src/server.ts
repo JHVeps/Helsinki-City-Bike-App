@@ -1,10 +1,12 @@
 import app from "./app";
+import config from "./utils/config";
+import logger from "./utils/logger";
 
-app.listen(app.get("port"), () => {
-  console.log(
-    "  App is running at http://localhost:%d in %s mode",
-    app.get("port"),
-    app.get("env")
+app.listen(config.PORT, () => {
+  logger.info(
+    `  App is running at http://localhost: ${config.PORT} in ${app.get(
+      "env"
+    )} mode`
   );
-  console.log("  Press CTRL-C to stop\n");
+  logger.info("  Press CTRL-C to stop\n");
 });
