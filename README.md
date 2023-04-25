@@ -17,7 +17,7 @@ IMPORT_CLIENT
 
 1. Add simple UI for adding files
 
-- add index.html
-- add journeys file import
-- add stations file import
+- add index.html - DONE
+- add journeys file import - DONE
+- add stations file import - DONE
 - add minimal styling
