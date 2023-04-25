@@ -1,6 +1,6 @@
 import { Document } from "mongoose";
 
-export type Journey = Document & {
+export type JourneyDocument = Document & {
   Departure: Date;
   Return: Date;
   DepartureStationId: number;

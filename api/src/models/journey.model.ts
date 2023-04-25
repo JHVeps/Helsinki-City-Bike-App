@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Journey } from "../types";
+import { JourneyDocument } from "../types";
 
 const JourneySchema = new mongoose.Schema({
   Departure: {
@@ -38,4 +38,4 @@ const JourneySchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model<Journey>("journey", JourneySchema);
+export default mongoose.model<JourneyDocument>("journey", JourneySchema);

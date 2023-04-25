@@ -9,7 +9,7 @@ IMPORT_API
 1. connect to mongoDB - DONE
 2. Journey model / types - DONE
 3. Station model / types - DONE
-4. Routes for importing journey/station - DONE
+4. Router for importing journey/station - DONE
 5. Logic for importing journey - DONE
 6. Logic for importing station - DONE
 
@@ -33,9 +33,11 @@ IMPORT_CLIENT
 1. connect to mongoDB - DONE
 2. Journey model / types - DONE
 3. Station model / types - DONE
-4. Route for journey data
-5. Route for station data
-6. Services for journey
-7. Services for station
+4. Services for journey
+5. Services for station
+6. Routers for journey data
+7. Routers for station data
+8. controller for journey
+9. Controller for station
 
 ### Implement CLIENT for Helsinki-City-Bike-App
