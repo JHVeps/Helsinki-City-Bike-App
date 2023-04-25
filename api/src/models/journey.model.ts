@@ -38,4 +38,12 @@ const JourneySchema = new mongoose.Schema({
   },
 });
 
+JourneySchema.set("toJSON", {
+  transform: (_document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+  },
+});
+
 export default mongoose.model<JourneyDocument>("journey", JourneySchema);
