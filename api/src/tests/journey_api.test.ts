@@ -48,7 +48,6 @@ test("journeys are returned as json", async () => {
 test("there are two journey documents", async () => {
   const response = await api.get("/api/v1/journeys");
 
-  //expect(response.body).toHaveLength(2);
   expect(response.body).toHaveLength(initialJourneys.length);
 });
 

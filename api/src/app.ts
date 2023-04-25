@@ -4,10 +4,10 @@ import mongoose from "mongoose";
 import logger from "./utils/logger";
 import cors from "cors";
 import journeyRouter from "./routers/journey.router";
+import middleware from "./utils/middleware";
 
 const app = express();
 
-// Express configuration
 app.set("port", config.PORT);
 
 const mongoUrl = config.MONGODB_URI;
@@ -25,8 +25,11 @@ if (mongoUrl) {
 }
 app.use(cors());
 app.use(express.json());
+app.use(middleware.requestLogger);
 
-// Set up routers
 app.use("/api/v1/journeys", journeyRouter);
+
+app.use(middleware.unknownEndpoint);
+app.use(middleware.errorHandler);
 
 export default app;
