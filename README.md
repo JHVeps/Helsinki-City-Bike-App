@@ -30,7 +30,7 @@ IMPORT_CLIENT
 
 ### Implement API for Helsinki-City-Bike-App
 
-1. connect to mongoDB
+1. connect to mongoDB - DONE
 2. Journey model / types
 3. Station model / types
 4. Route for journey data
