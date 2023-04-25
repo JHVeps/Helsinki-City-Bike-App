@@ -20,4 +20,5 @@ IMPORT_CLIENT
 - add index.html - DONE
 - add journeys file import - DONE
 - add stations file import - DONE
-- add minimal styling
+- add minimal styling - DONE
+- script for adding files - DONE
