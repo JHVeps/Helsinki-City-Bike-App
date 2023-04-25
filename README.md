@@ -1,5 +1,9 @@
 # Helsinki-City-Bike-App
 
-Helsinki City Bike App
+## TODO
 
-<checkbox> import csv to database
+### import csv to database
+
+1. connect to mongoDB - DONE
+2. Journey model / types
+3. Station model / types
