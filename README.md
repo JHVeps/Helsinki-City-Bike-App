@@ -5,5 +5,6 @@
 ### import csv to database
 
 1. connect to mongoDB - DONE
-2. Journey model / types
-3. Station model / types
+2. Journey model / types - DONE
+3. Station model / types - DONE
+4. Routes for importing journey/station
