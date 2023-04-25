@@ -22,3 +22,18 @@ IMPORT_CLIENT
 - add stations file import - DONE
 - add minimal styling - DONE
 - script for adding files - DONE
+
+2. Import file to MongoDB - DONE
+
+- Free Tier space did not allow all files to be imported !
+- .csv files (202105, 202106 and stations) imported to MongoDB Atlas
+
+### Implement API for Helsinki-City-Bike-App
+
+1. connect to mongoDB
+2. Journey model / types
+3. Station model / types
+4. Route for journey data
+5. Route for station data
+
+### Implement CLIENT for Helsinki-City-Bike-App
