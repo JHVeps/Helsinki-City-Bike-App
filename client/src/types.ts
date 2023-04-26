@@ -38,6 +38,13 @@ export interface EnhancedTableProps {
   rowCount: number;
 }
 
+export interface TableBodyHomeProps {
+  disablePadding: boolean;
+  id: keyof Data;
+  label: string;
+  numeric: boolean;
+}
+
 export interface HeadCell {
   disablePadding: boolean;
   id: keyof Data;
