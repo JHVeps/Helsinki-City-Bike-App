@@ -6,7 +6,7 @@
 
 #### IMPORT_API
 
-- [x] ~~connect to mongoDB~~
+- [x] ~~Connect to mongoDB~~
 - [x] ~~Journey model / types~~
 - [x] ~~Station model / types~~
 - [x] ~~Router for importing journey/station~~
@@ -16,11 +16,11 @@
 #### IMPORT_CLIENT
 
 - [x] ~~Add simple UI for adding files~~
-- [x] ~~add index.html~~
-- [x] ~~add journeys file import~~
-- [x] ~~add stations file import~~
-- [x] ~~add minimal styling~~
-- [x] ~~script for adding files~~
+- [x] ~~Add index.html~~
+- [x] ~~Add journeys file import~~
+- [x] ~~Add stations file import~~
+- [x] ~~Add minimal styling~~
+- [x] ~~Script for adding files~~
 
 - [x] ~~Import file to MongoDB~~
 
@@ -32,14 +32,14 @@
 
 #### Implement API for Helsinki-City-Bike-App
 
-- [x] ~~connect to mongoDB~~
+- [x] ~~Connect to mongoDB~~
 - [x] ~~Journey model / types~~
 - [x] ~~Station model / types~~
 - [ ] Services for journey
 - [ ] Services for station
 - [ ] Routers for journey data
 - [ ] Routers for station data
-- [ ] controller for journey
+- [ ] Controller for journey
 - [ ] Controller for station
 - [ ] Tests for API
 
