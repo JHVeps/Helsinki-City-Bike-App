@@ -11,7 +11,7 @@ const TableHeadHome = () => {
               align="center"
               sx={{
                 borderRight: "2px solid #363433",
-                fontSize: "1.3rem",
+                fontSize: "1.5rem",
                 color: "#fff",
               }}
               key={headCell.id}

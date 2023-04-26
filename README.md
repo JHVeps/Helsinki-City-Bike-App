@@ -47,7 +47,7 @@
 
 ##### Journey list view
 
-- [ ] List of journeys (departure and return stations, covered distance (km), duration (min))
+- [x] ~~List of journeys (departure and return stations, covered distance (km), duration (min))~~
 
 ##### Additional
 
