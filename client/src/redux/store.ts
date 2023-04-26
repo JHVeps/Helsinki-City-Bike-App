@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import journeysReducer from "features/journeySlice";
+import journeysReducer from "../features/journeySlice";
 
 export const store = configureStore({
   reducer: {

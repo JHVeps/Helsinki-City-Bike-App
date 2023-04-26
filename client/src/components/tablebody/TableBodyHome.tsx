@@ -1,6 +1,6 @@
 import { TableBody, TableRow, TableCell } from "@mui/material";
-import { useAppSelector } from "redux/hooks";
-import { RootState } from "redux/store";
+import { useAppSelector } from "../../redux/hooks";
+import { RootState } from "../../redux/store";
 
 const TableBodyHome = () => {
   const { journeys } = useAppSelector((state: RootState) => state);
@@ -42,7 +42,7 @@ const TableBodyHome = () => {
                 color: "#fff",
               }}
             >
-              {journey.CoveredDistance}
+              {(journey.CoveredDistance / 1000).toFixed(1)}
             </TableCell>
             <TableCell
               align="center"
@@ -52,7 +52,7 @@ const TableBodyHome = () => {
                 color: "#fff",
               }}
             >
-              {journey.Duration}
+              {Math.round(journey.Duration / 60)}
             </TableCell>
           </TableRow>
         );

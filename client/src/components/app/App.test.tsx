@@ -4,6 +4,6 @@ import App from "./App";
 
 test("renders content", () => {
   render(<App />);
-  const content = screen.getByText(/App/i);
+  const content = screen.getByText(/HELSINKI CITY BIKE APP/i);
   expect(content).toBeInTheDocument();
 });

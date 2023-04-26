@@ -1,6 +1,7 @@
 import { Box, Paper, TableContainer, Table } from "@mui/material";
 import TableBodyHome from "components/tablebody/TableBodyHome";
 import TableHeadHome from "components/tablehead/TableHeadHome";
+import React from "react";
 
 const JourneyTable = () => {
   return (
