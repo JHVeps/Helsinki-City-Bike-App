@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "";
+const url = "http://localhost:4000/api/v1";
 
 console.log("url: ", url);
 

@@ -84,12 +84,22 @@ const Home = () => {
         </Box>
         <Box sx={{ width: "100%" }}>
           <Paper sx={{ width: "100%", mb: 2 }}>
-            <TableContainer>
+            <TableContainer sx={{ backgroundColor: "#111" }}>
               <Table sx={{ minWidth: 750 }} size={"medium"}>
                 <TableHead>
                   <TableRow>
                     {headCells.map((headCell) => (
-                      <TableCell key={headCell.id}>{headCell.label}</TableCell>
+                      <TableCell
+                        align="center"
+                        sx={{
+                          borderRight: "2px solid #363433",
+                          fontSize: "1.3rem",
+                          color: "#fff",
+                        }}
+                        key={headCell.id}
+                      >
+                        {headCell.label}
+                      </TableCell>
                     ))}
                   </TableRow>
                 </TableHead>
@@ -110,13 +120,45 @@ const Home = () => {
                           id={labelId}
                           scope="row"
                           padding="none"
+                          align="center"
+                          sx={{
+                            borderRight: "2px solid #363433",
+                            fontSize: "1.3rem",
+                            color: "#fff",
+                          }}
                         >
                           {journey.DepartureStationName}
                         </TableCell>
-                        <TableCell>{journey.ReturnStationName}</TableCell>
-                        <TableCell>{journey.CoveredDistance}</TableCell>
-                        <TableCell>{journey.Duration}</TableCell>
-                        <TableCell align="right"></TableCell>
+                        <TableCell
+                          align="center"
+                          sx={{
+                            borderRight: "2px solid #363433",
+                            fontSize: "1.3rem",
+                            color: "#fff",
+                          }}
+                        >
+                          {journey.ReturnStationName}
+                        </TableCell>
+                        <TableCell
+                          align="center"
+                          sx={{
+                            borderRight: "2px solid #363433",
+                            fontSize: "1.3rem",
+                            color: "#fff",
+                          }}
+                        >
+                          {journey.CoveredDistance}
+                        </TableCell>
+                        <TableCell
+                          align="center"
+                          sx={{
+                            borderRight: "2px solid #363433",
+                            fontSize: "1.3rem",
+                            color: "#fff",
+                          }}
+                        >
+                          {journey.Duration}
+                        </TableCell>
                       </TableRow>
                     );
                   })}
