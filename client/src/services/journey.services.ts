@@ -3,7 +3,7 @@ import axios from "axios";
 
 const url = process.env.API_URL;
 
-export const getAllBooks = createAsyncThunk("journeys/fetch", async () => {
+export const getAllJourneys = createAsyncThunk("journeys/fetch", async () => {
   const config = {
     method: "GET",
     url: `${url}/journeys`,
