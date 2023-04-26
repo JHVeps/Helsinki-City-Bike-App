@@ -9,3 +9,10 @@ export type Journey = {
   CoveredDistance: number;
   Duration: number;
 };
+
+export interface journeysState {
+  items: Journey[];
+  isLoading: boolean;
+  error: boolean;
+  item: Journey;
+}
