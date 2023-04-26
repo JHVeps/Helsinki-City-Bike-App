@@ -1,7 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = process.env.API_URL;
+const url = "";
+
+console.log("url: ", url);
 
 export const getAllJourneys = createAsyncThunk("journeys/fetch", async () => {
   const config = {

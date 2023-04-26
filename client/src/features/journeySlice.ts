@@ -8,8 +8,8 @@ const initialState: journeysState = {
   error: false,
   item: {
     id: "",
-    Departure: new Date(),
-    Return: new Date(),
+    Departure: new Date().toISOString(), // Convert to ISO string
+    Return: new Date().toISOString(), // Convert to ISO string
     DepartureStationId: 0,
     DepartureStationName: "",
     ReturnStationName: "",

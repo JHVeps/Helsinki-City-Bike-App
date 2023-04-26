@@ -1,7 +1,7 @@
 export type Journey = {
-  id?: string;
-  Departure: Date;
-  Return: Date;
+  id: string;
+  Departure: string; // Store as ISO string
+  Return: string; // Store as ISO string
   DepartureStationId: number;
   DepartureStationName: string;
   ReturnStationName: string;
