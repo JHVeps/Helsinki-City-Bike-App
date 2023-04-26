@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
-import { RootState } from "../../../../redux/store";
 import {
   TableContainer,
   Paper,
@@ -9,55 +7,15 @@ import {
   TableCell,
   TableBody,
   Box,
-  AppBar,
-  Toolbar,
   TableHead,
-  Typography,
 } from "@mui/material";
 import { getAllJourneys } from "services/journey.services";
+import JourneyAppBar from "components/appbar/JourneyAppBar";
+import { headCells } from "types";
+import { useAppDispatch, useAppSelector } from "redux/hooks";
+import { RootState } from "redux/store";
 
 import "./Home.css";
-
-export interface Data {
-  DepartureStationName: string;
-  ReturnStationName: string;
-  CoveredDistance: number;
-  Duration: number;
-}
-
-export interface HeadCell {
-  disablePadding: boolean;
-  id: keyof Data;
-  label: string;
-  numeric: boolean;
-}
-
-export const headCells: readonly HeadCell[] = [
-  {
-    id: "DepartureStationName",
-    numeric: false,
-    disablePadding: false,
-    label: "Departure Station",
-  },
-  {
-    id: "ReturnStationName",
-    numeric: false,
-    disablePadding: false,
-    label: "Return Station",
-  },
-  {
-    id: "CoveredDistance",
-    numeric: true,
-    disablePadding: false,
-    label: "Distance traveled (km)",
-  },
-  {
-    id: "Duration",
-    numeric: true,
-    disablePadding: false,
-    label: "Travel time (min)",
-  },
-];
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -72,16 +30,7 @@ const Home = () => {
     <div className="home">
       <h1>Home</h1>
       <>
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar
-            position="static"
-            style={{ background: "#111", textAlign: "center" }}
-          >
-            <Toolbar>
-              <Typography variant="h4">Journeys</Typography>
-            </Toolbar>
-          </AppBar>
-        </Box>
+        <JourneyAppBar />
         <Box sx={{ width: "100%" }}>
           <Paper sx={{ width: "100%", mb: 2 }}>
             <TableContainer sx={{ backgroundColor: "#111" }}>
@@ -107,7 +56,6 @@ const Home = () => {
                 <TableBody>
                   {journeys.items.map((journey, index) => {
                     const labelId = `enhanced-table-checkbox-${index}`;
-
                     return (
                       <TableRow
                         hover

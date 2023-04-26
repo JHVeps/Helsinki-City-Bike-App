@@ -3,8 +3,6 @@ import axios from "axios";
 
 const url = "http://localhost:4000/api/v1";
 
-console.log("url: ", url);
-
 export const getAllJourneys = createAsyncThunk("journeys/fetch", async () => {
   const config = {
     method: "GET",

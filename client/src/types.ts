@@ -16,3 +16,44 @@ export interface journeysState {
   error: boolean;
   item: Journey;
 }
+
+export interface Data {
+  DepartureStationName: string;
+  ReturnStationName: string;
+  CoveredDistance: number;
+  Duration: number;
+}
+
+export interface HeadCell {
+  disablePadding: boolean;
+  id: keyof Data;
+  label: string;
+  numeric: boolean;
+}
+
+export const headCells: readonly HeadCell[] = [
+  {
+    id: "DepartureStationName",
+    numeric: false,
+    disablePadding: false,
+    label: "Departure Station",
+  },
+  {
+    id: "ReturnStationName",
+    numeric: false,
+    disablePadding: false,
+    label: "Return Station",
+  },
+  {
+    id: "CoveredDistance",
+    numeric: true,
+    disablePadding: false,
+    label: "Distance traveled (km)",
+  },
+  {
+    id: "Duration",
+    numeric: true,
+    disablePadding: false,
+    label: "Travel time (min)",
+  },
+];

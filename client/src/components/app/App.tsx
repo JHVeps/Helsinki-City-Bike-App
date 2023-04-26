@@ -1,5 +1,6 @@
+import Home from "components/pages/home/Home";
+
 import "./App.css";
-import Home from "./pages/home/Home";
 
 const App = () => {
   console.log("App here");
