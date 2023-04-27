@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import logger from "./utils/logger";
 import cors from "cors";
 import journeyRouter from "./routers/journey.router";
+import stationRouter from "./routers/station.router";
 import middleware from "./utils/middleware";
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(express.json());
 app.use(middleware.requestLogger);
 
 app.use("/api/v1/journeys", journeyRouter);
+app.use("/api/v1/stations", stationRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);

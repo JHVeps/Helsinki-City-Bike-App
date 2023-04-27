@@ -44,7 +44,7 @@ const StationSchema = new mongoose.Schema({
     required: true,
   },
   x: {
-    type: String,
+    type: Number,
     required: true,
   },
   y: {
