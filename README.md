@@ -30,6 +30,6 @@
 - [x] Recommended
 - [ ] Additional
 
-#### Bouns
+#### Bonus
 
 - [ ] E2E tests
