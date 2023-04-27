@@ -104,7 +104,7 @@ export type Station = {
   y: number;
 };
 
-export interface stationsState {
+export interface stationState {
   items: Station[];
   isLoading: boolean;
   error: boolean;
