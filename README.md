@@ -27,7 +27,7 @@
 
 #### Single station view
 
-- [ ] Recommended
+- [x] Recommended
 - [ ] Additional
 
 #### Bouns

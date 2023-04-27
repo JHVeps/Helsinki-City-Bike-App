@@ -21,18 +21,14 @@ const Station = () => {
 
     if (stationData) {
       let departures = 0;
+      let arrivals = 0;
 
       for (const obj of journeys.items) {
         if (obj.DepartureStationId === stationData.ID) {
           departures++;
         }
-      }
-
-      let arrives = 0;
-
-      for (const obj of journeys.items) {
         if (obj.ReturnStationId === stationData.ID) {
-          arrives++;
+          arrivals++;
         }
       }
 
@@ -117,7 +113,7 @@ const Station = () => {
                       fontSize: "1.3rem",
                     }}
                   >
-                    {arrives}
+                    {arrivals}
                   </TableCell>
                 </TableRow>
               </TableBody>
@@ -154,14 +150,6 @@ const Station = () => {
       <Button>
         <Link style={{ textDecoration: "none", color: "#FFF" }} to={`/`}>
           HOME
-        </Link>
-      </Button>
-      <Button>
-        <Link
-          style={{ textDecoration: "none", color: "#FFF" }}
-          to={`/journeys`}
-        >
-          JOURNEYS LIST
         </Link>
       </Button>
       <Button>
