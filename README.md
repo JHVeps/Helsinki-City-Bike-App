@@ -51,18 +51,18 @@
 
 ##### Additional
 
-- [ ] Pagination
-- [ ] Ordering per column
+- [x] ~~Pagination~~
+- [x] ~~Ordering per column~~
 - [ ] Seaching
 - [ ] Filtering
 
 ##### Station list view
 
-- [ ] List of all stations
+- [x] ~~List of all stations~~
 
 ##### Additional
 
-- [ ] Pagination
+- [x] ~~Pagination~~
 - [ ] Searching
 
 ##### Single Station view

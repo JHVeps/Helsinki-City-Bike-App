@@ -9,7 +9,7 @@ import "./Journeys.css";
 
 const Journeys = () => {
   const { journeys } = useAppSelector((state: RootState) => state);
-  console.log("journeys state: ", journeys);
+
   return (
     <div className="journey">
       <h1>Journeys</h1>

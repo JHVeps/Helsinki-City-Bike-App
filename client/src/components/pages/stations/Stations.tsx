@@ -10,7 +10,6 @@ import "./Stations.css";
 const Stations = () => {
   const { stations } = useAppSelector((state: RootState) => state);
 
-  console.log("stations state: ", stations);
   return (
     <div className="station">
       <h1>Stations</h1>

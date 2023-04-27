@@ -116,7 +116,7 @@ const StationTable = (props: stationTableProps) => {
                       hover
                       role="checkbox"
                       tabIndex={-1}
-                      key={station.id}
+                      key={station.FID}
                       selected={isItemSelected}
                       onClick={(event) =>
                         handleClick(event, station.id as string)
