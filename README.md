@@ -29,3 +29,7 @@
 
 - [ ] Recommended
 - [ ] Additional
+
+#### Bouns
+
+- [ ] E2E tests

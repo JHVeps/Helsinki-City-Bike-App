@@ -31,5 +31,4 @@
 
 ##### Bonus
 
-- [ ] E2E tests
 - [ ] UI has functionality for adding journeys or bicycle stations

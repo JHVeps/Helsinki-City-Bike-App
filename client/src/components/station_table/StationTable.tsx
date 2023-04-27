@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import TableHead from "components/tablehead/StationTableHead";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Order } from "types/general.types";
 import { Data, stationTableProps } from "types/station.types";
 import { getComparator } from "utils/utils";
@@ -133,7 +134,12 @@ const StationTable = (props: stationTableProps) => {
                           fontSize: "1.3rem",
                         }}
                       >
-                        {station.Nimi}
+                        <Link
+                          style={{ textDecoration: "none" }}
+                          to={`/stations/${station.FID}`}
+                        >
+                          {station.Nimi}
+                        </Link>
                       </TableCell>
                       <TableCell
                         align="center"
