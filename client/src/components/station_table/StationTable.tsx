@@ -1,8 +1,3 @@
-import { useState } from "react";
-import { Data, journeyTableProps } from "types/journey.types";
-import { Order } from "types/general.types";
-import { getComparator } from "utils/utils";
-import TableHead from "components/tablehead/JourneyTableHead";
 import {
   Box,
   Paper,
@@ -15,11 +10,16 @@ import {
   FormControlLabel,
   Switch,
 } from "@mui/material";
+import TableHead from "components/tablehead/StationTableHead";
+import { useState } from "react";
+import { Order } from "types/general.types";
+import { Data, stationTableProps } from "types/station.types";
+import { getComparator } from "utils/utils";
 
-const JourneyTable = (props: journeyTableProps) => {
-  const { journeys } = props;
+const StationTable = (props: stationTableProps) => {
+  const { stations } = props;
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("DepartureStationName");
+  const [orderBy, setOrderBy] = useState<keyof Data>("Nimi");
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
@@ -36,9 +36,7 @@ const JourneyTable = (props: journeyTableProps) => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = journeys.items.map(
-        (j: { DepartureStationName: any }) => j.DepartureStationName
-      );
+      const newSelected = stations.items.map((s: { Nimi: string }) => s.Nimi);
       setSelected(newSelected);
       return;
     }
@@ -85,7 +83,7 @@ const JourneyTable = (props: journeyTableProps) => {
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0
-      ? Math.max(0, (1 + page) * rowsPerPage - journeys.items.length)
+      ? Math.max(0, (1 + page) * rowsPerPage - stations.items.length)
       : 0;
 
   return (
@@ -99,20 +97,18 @@ const JourneyTable = (props: journeyTableProps) => {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={journeys.items.length}
-              journeys={journeys}
+              rowCount={stations.items.length}
+              stations={stations}
             />
 
             <TableBody>
-              {journeys.items
+              {stations.items
                 .slice()
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
-                .map((journey, index) => {
-                  const isItemSelected = isSelected(
-                    journey.DepartureStationName
-                  );
+                .map((station, index) => {
+                  const isItemSelected = isSelected(station.Nimi);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -120,10 +116,10 @@ const JourneyTable = (props: journeyTableProps) => {
                       hover
                       role="checkbox"
                       tabIndex={-1}
-                      key={journey.id}
+                      key={station.id}
                       selected={isItemSelected}
                       onClick={(event) =>
-                        handleClick(event, journey.id as string)
+                        handleClick(event, station.id as string)
                       }
                     >
                       <TableCell
@@ -137,7 +133,7 @@ const JourneyTable = (props: journeyTableProps) => {
                           fontSize: "1.3rem",
                         }}
                       >
-                        {journey.DepartureStationName}
+                        {station.Nimi}
                       </TableCell>
                       <TableCell
                         align="center"
@@ -146,7 +142,7 @@ const JourneyTable = (props: journeyTableProps) => {
                           fontSize: "1.3rem",
                         }}
                       >
-                        {journey.ReturnStationName}
+                        {station.Osoite}
                       </TableCell>
                       <TableCell
                         align="center"
@@ -155,16 +151,9 @@ const JourneyTable = (props: journeyTableProps) => {
                           fontSize: "1.3rem",
                         }}
                       >
-                        {(journey.CoveredDistance / 1000).toFixed(1)}
-                      </TableCell>
-                      <TableCell
-                        align="center"
-                        sx={{
-                          borderRight: "2px solid #363433",
-                          fontSize: "1.3rem",
-                        }}
-                      >
-                        {Math.round(journey.Duration / 60)}
+                        {station.Kaupunki !== ""
+                          ? station.Kaupunki
+                          : "Helsinki"}
                       </TableCell>
                     </TableRow>
                   );
@@ -184,7 +173,7 @@ const JourneyTable = (props: journeyTableProps) => {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25, 50, 100]}
           component="div"
-          count={journeys.items.length}
+          count={stations.items.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
@@ -201,4 +190,4 @@ const JourneyTable = (props: journeyTableProps) => {
   );
 };
 
-export default JourneyTable;
+export default StationTable;

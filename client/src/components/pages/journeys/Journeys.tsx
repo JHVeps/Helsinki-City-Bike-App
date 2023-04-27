@@ -11,8 +11,8 @@ const Journeys = () => {
   const { journeys } = useAppSelector((state: RootState) => state);
   console.log("journeys state: ", journeys);
   return (
-    <div className="home">
-      <h1>Home</h1>
+    <div className="journey">
+      <h1>Journeys</h1>
       <Button>
         <Link style={{ textDecoration: "none", color: "#FFF" }} to={`/`}>
           HOME

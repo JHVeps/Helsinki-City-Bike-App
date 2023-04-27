@@ -22,10 +22,6 @@ export interface journeyTableProps {
   journeys: journeysState;
 }
 
-export interface appBarProps {
-  title: string;
-}
-
 export interface Data {
   DepartureStationName: string;
   ReturnStationName: string;
@@ -35,7 +31,7 @@ export interface Data {
 
 export type Order = "asc" | "desc";
 
-export interface EnhancedTableProps {
+export interface JourneyEnhancedTableProps {
   numSelected: number;
   onRequestSort: (
     event: React.MouseEvent<unknown>,
@@ -48,7 +44,7 @@ export interface EnhancedTableProps {
   journeys: any;
 }
 
-export interface TableBodyHomeProps {
+export interface JourneyListTableBodyProps {
   disablePadding: boolean;
   id: keyof Data;
   label: string;
@@ -88,33 +84,3 @@ export const headCells: readonly HeadCell[] = [
     label: "Travel time (min)",
   },
 ];
-
-//Stations related types
-
-export type Station = {
-  id: string; //MongoDB generated id
-  FID: number;
-  ID: number;
-  Nimi: string;
-  Namn: string;
-  Name: string;
-  Osoite: string;
-  Adress: string;
-  Kaupunki: string;
-  Stad: string;
-  Operaattor: string;
-  Kapasiteet: number;
-  x: number;
-  y: number;
-};
-
-export interface stationsState {
-  items: Station[];
-  isLoading: boolean;
-  error: boolean;
-  item: Station;
-}
-
-export interface stationsProps {
-  stations: stationsState;
-}

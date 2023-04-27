@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { stationsState } from "types";
+import { stationsState } from "types/station.types";
 import { getAllStations } from "../services/station.services";
 
 const initialState: stationsState = {

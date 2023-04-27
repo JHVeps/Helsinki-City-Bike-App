@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { journeysState } from "types";
+import { journeysState } from "types/journey.types";
 import { getAllJourneys } from "../services/journey.services";
 
 const initialState: journeysState = {

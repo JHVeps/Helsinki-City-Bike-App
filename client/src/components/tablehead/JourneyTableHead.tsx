@@ -6,9 +6,13 @@ import {
   Box,
   TableSortLabel,
 } from "@mui/material";
-import { Data, EnhancedTableProps, headCells } from "types";
+import {
+  Data,
+  JourneyEnhancedTableProps,
+  headCells,
+} from "types/journey.types";
 
-const TableHeadHome = (props: EnhancedTableProps) => {
+const TableHeadHome = (props: JourneyEnhancedTableProps) => {
   const { order, orderBy, onRequestSort, journeys } = props;
 
   const createSortHandler =

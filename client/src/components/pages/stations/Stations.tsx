@@ -3,6 +3,7 @@ import { RootState } from "redux/store";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import AppBar from "components/appbar/AppBar";
+import StationTable from "components/station_table/StationTable";
 
 import "./Stations.css";
 
@@ -27,6 +28,7 @@ const Stations = () => {
         </Link>
       </Button>
       <AppBar title={"Stations List"} />
+      <StationTable stations={stations} />
     </div>
   );
 };

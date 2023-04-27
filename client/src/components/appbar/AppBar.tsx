@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
-import { appBarProps } from "types";
+import { appBarProps } from "types/general.types";
 
 const JAppBar = (props: appBarProps) => {
   const { title } = props;
