@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Station } from "../types";
+import { StationDocument } from "../types";
 
 const StationSchema = new mongoose.Schema({
   FID: {
@@ -61,4 +61,4 @@ StationSchema.set("toJSON", {
   },
 });
 
-export default mongoose.model<Station>("station", StationSchema);
+export default mongoose.model<StationDocument>("station", StationSchema);

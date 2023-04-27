@@ -11,7 +11,7 @@ export type JourneyDocument = Document & {
   Duration: number;
 };
 
-export type Station = Document & {
+export type StationDocument = Document & {
   FID: number;
   ID: number;
   Nimi: string;

@@ -2,11 +2,31 @@ import type { JourneyDocument } from "../types";
 import Journey from "../models/journey.model";
 
 const findAllJourneys = async (): Promise<JourneyDocument[]> => {
-  const foundJourney = await Journey.find().limit(1000);
-  if (!foundJourney) {
-    console.log("Journeys not found");
+  try {
+    const foundJourneys = await Journey.find().limit(1000);
+    if (!Array.isArray(foundJourneys) || foundJourneys.length === 0) {
+      throw new Error("Journeys not found");
+    }
+    return foundJourneys;
+  } catch (error: any) {
+    throw new Error("Error finding journeys: " + error.message);
   }
-  return foundJourney;
+};
+
+const findResentJourneys = async (): Promise<JourneyDocument[]> => {
+  try {
+    const foundJourneys = await Journey.find({
+      Departure: { $lte: new Date() }, // retrieve documents with departure date <= current date
+    })
+      .sort({ Departure: -1 })
+      .limit(1000);
+    if (!Array.isArray(foundJourneys) || foundJourneys.length === 0) {
+      throw new Error("Journeys not found");
+    }
+    return foundJourneys;
+  } catch (error: any) {
+    throw new Error("Error finding journeys: " + error.message);
+  }
 };
 
 export default { findAllJourneys };
