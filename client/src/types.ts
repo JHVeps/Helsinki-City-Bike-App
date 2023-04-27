@@ -17,6 +17,10 @@ export interface journeysState {
   item: Journey;
 }
 
+export interface journeyTableProps {
+  journeys: journeysState;
+}
+
 export interface Data {
   DepartureStationName: string;
   ReturnStationName: string;
@@ -36,6 +40,7 @@ export interface EnhancedTableProps {
   order: Order;
   orderBy: string;
   rowCount: number;
+  journeys: any;
 }
 
 export interface TableBodyHomeProps {

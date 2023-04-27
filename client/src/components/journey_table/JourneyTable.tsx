@@ -1,7 +1,5 @@
-import { useAppSelector } from "../../redux/hooks";
-import { RootState } from "../../redux/store";
 import { useState } from "react";
-import { Data, Order } from "types";
+import { Data, Order, journeyTableProps } from "types";
 import { getComparator } from "utils/utils";
 import TableHeadHome from "components/tablehead/TableHeadHome";
 import {
@@ -17,8 +15,8 @@ import {
   Switch,
 } from "@mui/material";
 
-const JourneyTable = () => {
-  const { journeys } = useAppSelector((state: RootState) => state);
+const JourneyTable = (props: journeyTableProps) => {
+  const { journeys } = props;
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("DepartureStationName");
   const [selected, setSelected] = useState<readonly string[]>([]);
@@ -37,7 +35,9 @@ const JourneyTable = () => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = journeys.items.map((j) => j.DepartureStationName);
+      const newSelected = journeys.items.map(
+        (j: { DepartureStationName: any }) => j.DepartureStationName
+      );
       setSelected(newSelected);
       return;
     }
@@ -99,6 +99,7 @@ const JourneyTable = () => {
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
               rowCount={journeys.items.length}
+              journeys={journeys}
             />
 
             <TableBody>

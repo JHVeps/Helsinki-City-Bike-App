@@ -6,19 +6,16 @@ import {
   Box,
   TableSortLabel,
 } from "@mui/material";
-import { useAppSelector } from "redux/hooks";
-import { RootState } from "redux/store";
 import { Data, EnhancedTableProps, headCells } from "types";
 
 const TableHeadHome = (props: EnhancedTableProps) => {
-  const { journeys } = useAppSelector((state: RootState) => state);
-  const { order, orderBy, onRequestSort } = props;
+  const { order, orderBy, onRequestSort, journeys } = props;
 
   const createSortHandler =
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
-
+  // Destructure to notification components
   if (journeys.isLoading) {
     return (
       <TableHead>
