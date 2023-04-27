@@ -1,6 +1,6 @@
 //Journeys related types
 export type Journey = {
-  id: string;
+  id: string; //MongoDB generated id
   Departure: string; // Store as ISO string
   Return: string; // Store as ISO string
   DepartureStationId: number;
@@ -88,6 +88,7 @@ export const headCells: readonly HeadCell[] = [
 //Stations related types
 
 export type Station = {
+  id: string; //MongoDB generated id
   FID: number;
   ID: number;
   Nimi: string;
