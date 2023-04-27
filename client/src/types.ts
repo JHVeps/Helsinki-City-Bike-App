@@ -22,6 +22,10 @@ export interface journeyTableProps {
   journeys: journeysState;
 }
 
+export interface appBarProps {
+  title: string;
+}
+
 export interface Data {
   DepartureStationName: string;
   ReturnStationName: string;
@@ -104,9 +108,13 @@ export type Station = {
   y: number;
 };
 
-export interface stationState {
+export interface stationsState {
   items: Station[];
   isLoading: boolean;
   error: boolean;
   item: Station;
+}
+
+export interface stationsProps {
+  stations: stationsState;
 }

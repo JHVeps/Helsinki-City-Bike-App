@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { stationState } from "types";
+import { stationsState } from "types";
 import { getAllStations } from "../services/station.services";
 
-const initialState: stationState = {
+const initialState: stationsState = {
   items: [],
   isLoading: false,
   error: false,

@@ -1,13 +1,15 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
+import { appBarProps } from "types";
 
-const JAppBar = () => {
+const JAppBar = (props: appBarProps) => {
+  const { title } = props;
   return (
     <AppBar
       position="static"
       style={{ background: "#111", textAlign: "center" }}
     >
       <Toolbar>
-        <Typography variant="h4">Journeys</Typography>
+        <Typography variant="h5">{title}</Typography>
       </Toolbar>
     </AppBar>
   );
