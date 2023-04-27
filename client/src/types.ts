@@ -1,3 +1,4 @@
+//Journeys related types
 export type Journey = {
   id: string;
   Departure: string; // Store as ISO string
@@ -83,3 +84,28 @@ export const headCells: readonly HeadCell[] = [
     label: "Travel time (min)",
   },
 ];
+
+//Stations related types
+
+export type Station = {
+  FID: number;
+  ID: number;
+  Nimi: string;
+  Namn: string;
+  Name: string;
+  Osoite: string;
+  Adress: string;
+  Kaupunki: string;
+  Stad: string;
+  Operaattor: string;
+  Kapasiteet: number;
+  x: number;
+  y: number;
+};
+
+export interface stationsState {
+  items: Station[];
+  isLoading: boolean;
+  error: boolean;
+  item: Station;
+}
