@@ -87,4 +87,4 @@
 - [ ] API Docker
 - [ ] API - cloud
 - [ ] E2E tests
-- [ ] UI has functionality for adding journeys or bicycles
+- [ ] UI has functionality for adding journeys or bicycle stations
