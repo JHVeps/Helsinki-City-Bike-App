@@ -15,10 +15,10 @@
 
 ##### Single Station view
 
-- [ ] Station name
-- [ ] Station address
-- [ ] Total number of journeys starting from the station
-- [ ] Total number of journeys ending at the station
+- [x] Station name
+- [x] Station address
+- [x] Total number of journeys starting from the station
+- [x] Total number of journeys ending at the station
 
 ##### Additional
 
