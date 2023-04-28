@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import JourneysNavigation from "components/navigation/JourneysNavigation";
 import AppBar from "components/appbar/AppBar";
 import JourneyTable from "components/journey_table/JourneyTable";
 
@@ -15,19 +14,7 @@ const Journeys = () => {
   return (
     <div className="journey">
       <h1>Journeys</h1>
-      <Button>
-        <Link style={{ textDecoration: "none", color: "#FFF" }} to={`/`}>
-          HOME
-        </Link>
-      </Button>
-      <Button>
-        <Link
-          style={{ textDecoration: "none", color: "#FFF" }}
-          to={`/stations`}
-        >
-          STATIONS LIST
-        </Link>
-      </Button>
+      <JourneysNavigation />
       <AppBar title={"Journeys List"} text={text} setText={setText} />
       <JourneyTable journeys={journeys} text={text} />
     </div>

@@ -9,7 +9,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { appBarProps } from "types/general.types";
 
-export const Search = styled("div")(({ theme }) => ({
+export const Filter = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -58,7 +58,7 @@ const JAppBar = (props: appBarProps) => {
     >
       <Toolbar>
         <Typography variant="h5">{title}</Typography>
-        <Search>
+        <Filter>
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
@@ -68,7 +68,7 @@ const JAppBar = (props: appBarProps) => {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-        </Search>
+        </Filter>
       </Toolbar>
     </AppBar>
   );
