@@ -17,13 +17,13 @@ import {
 } from "@mui/material";
 
 const JourneyTable = (props: journeyTableProps) => {
-  const { journeys } = props;
+  const { journeys, text } = props;
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("DepartureStationName");
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(25);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -105,6 +105,18 @@ const JourneyTable = (props: journeyTableProps) => {
 
             <TableBody>
               {journeys.items
+                .filter((journey) => {
+                  if (text === "") {
+                    return journey;
+                  } else if (
+                    journey.DepartureStationName.toLocaleLowerCase().includes(
+                      text.toLocaleLowerCase()
+                    )
+                  ) {
+                    return journey;
+                  }
+                  return null;
+                })
                 .slice()
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -182,7 +194,7 @@ const JourneyTable = (props: journeyTableProps) => {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25, 50, 100]}
+          rowsPerPageOptions={[25, 50, 100]}
           component="div"
           count={journeys.items.length}
           rowsPerPage={rowsPerPage}

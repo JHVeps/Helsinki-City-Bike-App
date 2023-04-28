@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
 import { Button } from "@mui/material";
@@ -9,6 +10,7 @@ import "./Stations.css";
 
 const Stations = () => {
   const { stations } = useAppSelector((state: RootState) => state);
+  const [text, setText] = useState("");
 
   return (
     <div className="station">
@@ -26,7 +28,7 @@ const Stations = () => {
           JOURNEYS LIST
         </Link>
       </Button>
-      <AppBar title={"Stations List"} />
+      <AppBar title={"Stations List"} text={text} setText={setText} />
       <StationTable stations={stations} />
     </div>
   );

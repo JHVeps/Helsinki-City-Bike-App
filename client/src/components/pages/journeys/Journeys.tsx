@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
 import { Button } from "@mui/material";
@@ -9,6 +10,7 @@ import "./Journeys.css";
 
 const Journeys = () => {
   const { journeys } = useAppSelector((state: RootState) => state);
+  const [text, setText] = useState("");
 
   return (
     <div className="journey">
@@ -26,8 +28,8 @@ const Journeys = () => {
           STATIONS LIST
         </Link>
       </Button>
-      <AppBar title={"Journeys List"} />
-      <JourneyTable journeys={journeys} />
+      <AppBar title={"Journeys List"} text={text} setText={setText} />
+      <JourneyTable journeys={journeys} text={text} />
     </div>
   );
 };

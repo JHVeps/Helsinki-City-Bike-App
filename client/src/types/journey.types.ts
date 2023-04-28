@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 //Journeys related types
 export type Journey = {
   id: string; //MongoDB generated id
@@ -20,6 +22,7 @@ export interface journeysState {
 
 export interface journeyTableProps {
   journeys: journeysState;
+  text: string;
 }
 
 export interface Data {
