@@ -23,7 +23,7 @@
 ##### Station list view
 
 - [x] ~~Recommended~~
-- [ ] Additional
+- [x] ~~Additional~~
 
 #### Single station view
 

@@ -27,7 +27,7 @@
 ##### Additional
 
 - [x] ~~Pagination~~
-- [ ] Searching
+- [x] ~~Searching~~
 
 #### Single Station view
 

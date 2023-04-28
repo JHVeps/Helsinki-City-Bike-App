@@ -20,7 +20,7 @@ const StationSearchBar = () => {
         onChange={onChangeStationName}
         placeholder="SEARCH..."
       />
-      <Link to={`/stations/${stationName}`}>
+      <Link to={`/stations/search/${stationName}`}>
         <button className="searchBar__btn">SEARCH</button>
       </Link>
     </div>

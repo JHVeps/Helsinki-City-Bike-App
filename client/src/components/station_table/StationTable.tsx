@@ -24,7 +24,7 @@ const StationTable = (props: stationTableProps) => {
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -177,7 +177,7 @@ const StationTable = (props: stationTableProps) => {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25, 50, 100]}
+          rowsPerPageOptions={[10, 25, 50, 100]}
           component="div"
           count={stations.items.length}
           rowsPerPage={rowsPerPage}
