@@ -10,24 +10,24 @@
 
 #### API
 
-- [x] Recommended
+- [x] ~~Recommended~~
 - [ ] Additional
 
 #### CLIENT
 
 ##### Journey list view
 
-- [x] Recommended
-- [ ] Additional
+- [x] ~~Recommended~~
+- [x] ~~Additional~~
 
 ##### Station list view
 
-- [x] Recommended
+- [x] ~~Recommended~~
 - [ ] Additional
 
 #### Single station view
 
-- [x] Recommended
+- [x] ~~Recommended~~
 - [ ] Additional
 
 #### Bonus

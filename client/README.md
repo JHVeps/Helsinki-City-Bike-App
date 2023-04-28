@@ -15,7 +15,7 @@
 
 - [x] ~~Pagination~~
 - [x] ~~Ordering per column~~
-- [ ] Searching
+- [x] ~~Searching~~
 - [x] ~~Filtering~~
 
 #### Station list view

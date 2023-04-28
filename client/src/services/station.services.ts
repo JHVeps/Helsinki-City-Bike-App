@@ -11,7 +11,7 @@ export const getAllStations = createAsyncThunk("stations/fetch", async () => {
   };
   try {
     let res = await axios(config);
-    console.log(res.data);
+    //console.log(res.data);
     return { data: res.data, status: res.status };
   } catch (error: any) {
     console.log("error", error.response.status);
