@@ -11,6 +11,9 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Map from "components/google-map/GoogleMap";
+
+import "./Station.css";
 
 const Station = () => {
   const { stations, journeys } = useAppSelector((state: RootState) => state);
@@ -120,6 +123,9 @@ const Station = () => {
               </TableBody>
             </Table>
           </TableContainer>
+          <div className="stations__map__container">
+            <Map lat={stationData.y} lng={stationData.x} />
+          </div>
         </div>
       );
     }

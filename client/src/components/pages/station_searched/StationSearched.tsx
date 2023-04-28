@@ -2,6 +2,7 @@ import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
 import { useParams } from "react-router-dom";
 import Navigation from "../../navigation/HomeNavigation";
+import Map from "../../google-map/GoogleMap";
 import {
   Paper,
   Table,
@@ -11,6 +12,8 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+
+import "./Station.css";
 
 const StationSearched = () => {
   const { stations, journeys } = useAppSelector((state: RootState) => state);
@@ -120,6 +123,9 @@ const StationSearched = () => {
               </TableBody>
             </Table>
           </TableContainer>
+          <div className="stations__map__container">
+            <Map lat={stationData.y} lng={stationData.x} />
+          </div>
         </div>
       );
     }

@@ -31,14 +31,14 @@
 
 #### Single Station view
 
-- [x] Station name
-- [x] Station address
-- [x] Total number of journeys starting from the station
-- [x] Total number of journeys ending at the station
+- [x] ~~Station name~~
+- [x] ~~Station address~~
+- [x] ~~Total number of journeys starting from the station~~
+- [x] ~~Total number of journeys ending at the station~~
 
 #### Additional
 
-- [ ] Station location on the map
+- [x] Station location on the map
 - [ ] The average distance of a journey starting from the station
 - [ ] The average distance of a journey ending at the station
 - [ ] Top 5 most popular return stations for journeys starting from the station

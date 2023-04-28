@@ -8,13 +8,16 @@ const StationsNavigation = () => {
   return (
     <div className="navbar">
       <Button>
-        <Link style={{ textDecoration: "none", color: "#FFF" }} to={`/`}>
+        <Link
+          style={{ textDecoration: "none", color: "#FFF", fontSize: "1.5rem" }}
+          to={`/`}
+        >
           HOME
         </Link>
       </Button>
       <Button>
         <Link
-          style={{ textDecoration: "none", color: "#FFF" }}
+          style={{ textDecoration: "none", color: "#FFF", fontSize: "1.5rem" }}
           to={`/journeys`}
         >
           JOURNEYS LIST

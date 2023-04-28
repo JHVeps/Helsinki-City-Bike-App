@@ -76,3 +76,8 @@ export const stationsListHeadCells: readonly HeadCell[] = [
     label: "City",
   },
 ];
+
+export interface MapProps {
+  lat: number;
+  lng: number;
+}
