@@ -1,6 +1,8 @@
 import { RootState } from "redux/store";
 import { useAppSelector } from "redux/hooks";
 import { Link, useParams } from "react-router-dom";
+import { Journey } from "types/journey.types";
+import Navigation from "components/navigation/HomeNavigation";
 import {
   Button,
   Paper,
@@ -11,7 +13,6 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { Journey } from "types/journey.types";
 
 const JourneysSearched = () => {
   const { journeys } = useAppSelector((state: RootState) => state);
@@ -32,6 +33,7 @@ const JourneysSearched = () => {
       return (
         <div>
           <h1>{`Journeys found from: ${stationName}`}</h1>
+          <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
               <TableHead>
@@ -118,27 +120,6 @@ const JourneysSearched = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          <Button>
-            <Link style={{ textDecoration: "none", color: "#FFF" }} to={`/`}>
-              HOME
-            </Link>
-          </Button>
-          <Button>
-            <Link
-              style={{ textDecoration: "none", color: "#FFF" }}
-              to={`/journeys`}
-            >
-              JOURNEYS LIST
-            </Link>
-          </Button>
-          <Button>
-            <Link
-              style={{ textDecoration: "none", color: "#FFF" }}
-              to={`/stations`}
-            >
-              STATIONS LIST
-            </Link>
-          </Button>
         </div>
       );
     }

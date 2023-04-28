@@ -1,8 +1,8 @@
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Navigation from "../../navigation/HomeNavigation";
 import {
-  Button,
   Paper,
   Table,
   TableBody,
@@ -35,6 +35,7 @@ const Station = () => {
       return (
         <div>
           <h1>Station info</h1>
+          <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
               <TableHead>
@@ -119,27 +120,6 @@ const Station = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          <Button>
-            <Link style={{ textDecoration: "none", color: "#FFF" }} to={`/`}>
-              HOME
-            </Link>
-          </Button>
-          <Button>
-            <Link
-              style={{ textDecoration: "none", color: "#FFF" }}
-              to={`/journeys`}
-            >
-              JOURNEYS LIST
-            </Link>
-          </Button>
-          <Button>
-            <Link
-              style={{ textDecoration: "none", color: "#FFF" }}
-              to={`/stations`}
-            >
-              STATIONS LIST
-            </Link>
-          </Button>
         </div>
       );
     }
@@ -147,19 +127,7 @@ const Station = () => {
   return (
     <div>
       <h1>NOT FOUND</h1>
-      <Button>
-        <Link style={{ textDecoration: "none", color: "#FFF" }} to={`/`}>
-          HOME
-        </Link>
-      </Button>
-      <Button>
-        <Link
-          style={{ textDecoration: "none", color: "#FFF" }}
-          to={`/stations`}
-        >
-          STATIONS LIST
-        </Link>
-      </Button>
+      <Navigation />
     </div>
   );
 };

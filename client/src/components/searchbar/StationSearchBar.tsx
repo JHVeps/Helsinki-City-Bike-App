@@ -1,9 +1,7 @@
 import { SetStateAction, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./searchBar.css";
-
-const JourneySearchBar = () => {
+const StationSearchBar = () => {
   const [stationName, setStationName] = useState("");
 
   const onChangeStationName = (e: {
@@ -22,11 +20,10 @@ const JourneySearchBar = () => {
         onChange={onChangeStationName}
         placeholder="SEARCH..."
       />
-      <Link to={`/journeys/${stationName}`}>
+      <Link to={`/stations/${stationName}`}>
         <button className="searchBar__btn">SEARCH</button>
       </Link>
     </div>
   );
 };
-
-export default JourneySearchBar;
+export default StationSearchBar;

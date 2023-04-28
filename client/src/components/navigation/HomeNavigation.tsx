@@ -1,10 +1,9 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import JourneySearchBar from "components/searchbar/JourneySearchBar";
 
 import "./navigation.css";
 
-const JourneysNavigation = () => {
+const HomeNavigation = () => {
   return (
     <div className="navbar">
       <Button>
@@ -15,14 +14,21 @@ const JourneysNavigation = () => {
       <Button>
         <Link
           style={{ textDecoration: "none", color: "#FFF" }}
+          to={`/journeys`}
+        >
+          JOURNEYS LIST
+        </Link>
+      </Button>
+      <Button>
+        <Link
+          style={{ textDecoration: "none", color: "#FFF" }}
           to={`/stations`}
         >
           STATIONS LIST
         </Link>
       </Button>
-      <JourneySearchBar />
     </div>
   );
 };
 
-export default JourneysNavigation;
+export default HomeNavigation;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
-import JourneysNavigation from "components/navigation/JourneysNavigation";
+import Navigation from "components/navigation/JourneysNavigation";
 import AppBar from "components/appbar/AppBar";
 import JourneyTable from "components/journey_table/JourneyTable";
 
@@ -14,7 +14,7 @@ const Journeys = () => {
   return (
     <div className="journey">
       <h1>Journeys</h1>
-      <JourneysNavigation />
+      <Navigation />
       <AppBar title={"Journeys List"} text={text} setText={setText} />
       <JourneyTable journeys={journeys} text={text} />
     </div>
