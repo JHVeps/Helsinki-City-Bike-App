@@ -1,6 +1,6 @@
 import { MapProps } from "types/station.types";
 import { useMemo } from "react";
-import { REACT_APP_GOOGLE_MAP_API } from "secrets.ts/secrets";
+import { REACT_APP_GOOGLE_MAP_API } from "secrets/secrets";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
 import "./mapStyle.css";
