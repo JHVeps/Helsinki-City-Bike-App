@@ -10,7 +10,7 @@ build
 
 .env
 
-src/secrets
+src/secrets/secrets.ts
 
 
 yarn-debug.log*
