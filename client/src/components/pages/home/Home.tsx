@@ -1,13 +1,12 @@
 import Navigation from "components/navigation/HomeNavigation";
-
-import "./Home.css";
+import { Box, Typography } from "@mui/material";
 
 const Home = () => {
   return (
-    <div className="home">
-      <h1>Home</h1>
+    <Box>
+      <Typography variant="h4">Home</Typography>
       <Navigation />
-    </div>
+    </Box>
   );
 };
 

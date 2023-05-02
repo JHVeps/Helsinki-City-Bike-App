@@ -1,7 +1,6 @@
 import { SetStateAction, useState } from "react";
+import { Box, Button, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
-
-import "./searchBar.css";
 
 const JourneySearchBar = () => {
   const [stationName, setStationName] = useState("");
@@ -13,9 +12,15 @@ const JourneySearchBar = () => {
   };
 
   return (
-    <div className="searchBar">
-      <input
-        className="searchBar__input"
+    <Box sx={{ "text-align": "center" }}>
+      <TextField
+        sx={{
+          "outline-width": 0,
+          width: "30%",
+          border: "none",
+          "max-width": "400px",
+          bgcolor: "background.paper",
+        }}
         type="text"
         name="stationName"
         value={stationName}
@@ -23,9 +28,21 @@ const JourneySearchBar = () => {
         placeholder="SEARCH..."
       />
       <Link to={`/journeys/${stationName}`}>
-        <button className="searchBar__btn">SEARCH</button>
+        <Button
+          sx={{
+            padding: "15px 18px",
+            "font-size": "1rem",
+            color: "#fff",
+            bgcolor: "#111",
+            border: "none",
+            "font-weight": 600,
+            cursor: "pointer",
+          }}
+        >
+          SEARCH
+        </Button>
       </Link>
-    </div>
+    </Box>
   );
 };
 

@@ -1,16 +1,15 @@
-import { getAllJourneys } from "services/journey.services";
 import { useEffect } from "react";
 import { useAppDispatch } from "redux/hooks";
+import { getAllJourneys } from "services/journey.services";
 import { getAllStations } from "services/station.services";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
 import Home from "components/pages/home/Home";
 import Journeys from "components/pages/journeys/Journeys";
 import JourneysSearched from "components/pages/journeys_searched/JourneysSearched";
 import Stations from "components/pages/stations/Stations";
 import Station from "components/pages/stations_single/Station";
 import StationSearched from "components/pages/station_searched/StationSearched";
-
-import "./App.css";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -22,8 +21,17 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="app">
-      <h1>HELSINKI CITY BIKE APP</h1>
+    <Box
+      sx={{
+        bgcolor: "#2b2b2b",
+        color: "white",
+        "margin-left": "20px",
+        "margin-right": "20px",
+      }}
+    >
+      <Typography sx={{ textAlign: "center" }} variant="h1">
+        HELSINKI CITY BIKE APP
+      </Typography>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -37,7 +45,7 @@ const App = () => {
           />
         </Routes>
       </BrowserRouter>
-    </div>
+    </Box>
   );
 };
 export default App;

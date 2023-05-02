@@ -19,41 +19,36 @@ const StationTableHead = (props: StationEnhancedTableProps) => {
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
-  // Destructure to notification components
   if (stations.isLoading) {
     return (
-      <TableHead>
-        <TableRow>
-          <TableCell>
-            <Typography
-              sx={{
-                borderRight: "2px solid #363433",
-                fontSize: "2rem",
-              }}
-            >
-              Loading...
-            </Typography>
-          </TableCell>
-        </TableRow>
-      </TableHead>
+      <Box>
+        <Typography
+          sx={{
+            borderRight: "2px solid #363433",
+            fontSize: "2rem",
+            color: "green",
+            padding: "20px",
+          }}
+        >
+          Loading...
+        </Typography>
+      </Box>
     );
   }
   if (stations.error) {
     return (
-      <TableHead>
-        <TableRow>
-          <TableCell>
-            <Typography
-              sx={{
-                borderRight: "2px solid #363433",
-                fontSize: "2rem",
-              }}
-            >
-              ERROR
-            </Typography>
-          </TableCell>
-        </TableRow>
-      </TableHead>
+      <Box>
+        <Typography
+          sx={{
+            borderRight: "2px solid #363433",
+            fontSize: "2rem",
+            color: "red",
+            padding: "20px",
+          }}
+        >
+          ERROR!
+        </Typography>
+      </Box>
     );
   }
 

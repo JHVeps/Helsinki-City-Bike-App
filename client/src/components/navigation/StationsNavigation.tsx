@@ -1,12 +1,10 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchbar/StationSearchBar";
 
-import "./navigation.css";
-
 const StationsNavigation = () => {
   return (
-    <div className="navbar">
+    <Box sx={{ margin: "auto", padding: "20px" }}>
       <Button>
         <Link
           style={{ textDecoration: "none", color: "#FFF", fontSize: "1.5rem" }}
@@ -24,7 +22,7 @@ const StationsNavigation = () => {
         </Link>
       </Button>
       <SearchBar />
-    </div>
+    </Box>
   );
 };
 

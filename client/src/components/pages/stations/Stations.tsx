@@ -4,19 +4,18 @@ import { RootState } from "redux/store";
 import Navigation from "../../navigation/StationsNavigation";
 import AppBar from "components/appbar/AppBar";
 import StationTable from "components/station_table/StationTable";
-
-import "./Stations.css";
+import { Box, Typography } from "@mui/material";
 
 const Stations = () => {
   const { stations } = useAppSelector((state: RootState) => state);
   const [text, setText] = useState("");
   return (
-    <div className="station">
-      <h1>Stations</h1>
+    <Box>
+      <Typography variant="h4">Stations</Typography>
       <Navigation />
       <AppBar title={"Stations List"} text={text} setText={setText} />
       <StationTable stations={stations} />
-    </div>
+    </Box>
   );
 };
 

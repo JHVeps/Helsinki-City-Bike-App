@@ -3,6 +3,7 @@ import { RootState } from "redux/store";
 import { useParams } from "react-router-dom";
 import Navigation from "../../navigation/HomeNavigation";
 import {
+  Box,
   Paper,
   Table,
   TableBody,
@@ -10,11 +11,10 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
 import Map from "components/google-map/GoogleMap";
 import InfoBoard from "components/infoboard/InfoBoard";
-
-import "./Station.css";
 
 const Station = () => {
   const { stations, journeys } = useAppSelector((state: RootState) => state);
@@ -37,8 +37,8 @@ const Station = () => {
       }
 
       return (
-        <div>
-          <h1>Station info</h1>
+        <Box sx={{ padding: "20px", "margin-block": "20px" }}>
+          <Typography variant="h4">Station info</Typography>
           <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
@@ -124,19 +124,26 @@ const Station = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          <div className="stations__info__container">
-            <InfoBoard journeys={journeys} stationName={stationData.Nimi} />
+          <Box
+            sx={{
+              display: "flex",
+              "justify-content": "center",
+              padding: "20px",
+              "margin-block": "20px",
+            }}
+          >
+            <InfoBoard journeys={journeys} stationData={stationData} />
             <Map lat={stationData.y} lng={stationData.x} />
-          </div>
-        </div>
+          </Box>
+        </Box>
       );
     }
   }
   return (
-    <div>
-      <h1>NOT FOUND</h1>
+    <Box>
+      <Typography variant="h2">NOT FOUND</Typography>
       <Navigation />
-    </div>
+    </Box>
   );
 };
 export default Station;

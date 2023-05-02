@@ -1,8 +1,8 @@
-import { Box, Typography } from "@mui/material";
 import { InfoBoardProps } from "types/station.types";
+import { Box, Typography } from "@mui/material";
 
 const InfoBoard = (props: InfoBoardProps) => {
-  const { journeys, stationName } = props;
+  const { journeys, stationData } = props;
 
   const style = {
     bgcolor: "background.paper",
@@ -12,11 +12,13 @@ const InfoBoard = (props: InfoBoardProps) => {
     "margin-right": "20px",
     textAlign: "center",
   };
+
+  let departing = [];
+  let arriving = [];
+
   return (
     <Box sx={style}>
-      <Typography variant="h4" component="h2">
-        DETAILS
-      </Typography>
+      <Typography variant="h4">DETAILS</Typography>
       <Typography sx={{ mt: 3 }} variant="h6">
         {`Average departing journey length: `}
       </Typography>

@@ -86,5 +86,5 @@ export interface MapProps {
 
 export interface InfoBoardProps {
   journeys: journeysState;
-  stationName: string;
+  stationData: Station;
 }
