@@ -7,16 +7,16 @@
 - [x] ~~Connect to mongoDB~~
 - [x] ~~Journey model / types~~
 - [x] ~~Station model / types~~
-- [ ] Services for journey
-- [x] Services for station
-- [ ] Routers for journey data
-- [x] Routers for station data
-- [ ] Controller for journey
-- [x] Controller for station
-- [ ] Tests for API
+- [x] ~~Services for journey
+- [x] ~~Services for station~~
+- [x] ~~Routers for journey data~~
+- [x] ~~Routers for station data~~
+- [x] ~~Controller for journey~~
+- [x] ~~Controller for station~~
+- [x] ~~Tests for API~~
 
 ##### Bonus
 
-- [x] POST journeys / stations
+- [x] POST journeys / ~~stations~~
 - [ ] API Docker
 - [ ] API - cloud

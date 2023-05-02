@@ -58,7 +58,7 @@ export const createStation = async (
     });
 
     await stationService.createStation(station);
-    res.json(station);
+    res.status(201).json(station);
   } catch (error) {
     if (error instanceof Error && error.name == "ValidationError") {
       console.log("Invalid Request", 400, error);
@@ -68,7 +68,7 @@ export const createStation = async (
   }
 };
 
-// GET /stations/:Nimi
+// GET /stations/:Name
 export const findByName = async (
   req: Request,
   res: Response,

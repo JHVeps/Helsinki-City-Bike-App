@@ -7,17 +7,6 @@ const api = supertest(app);
 
 const initialJourneys = [
   {
-    id: "644797e8e748236f7dd05b25",
-    Departure: "2021-05-31T20:57:25.000Z",
-    Return: "2021-05-31T21:05:46.000Z",
-    DepartureStationId: 94,
-    DepartureStationName: "Laajalahden aukio",
-    ReturnStationId: 100,
-    ReturnStationName: "Teljäntie",
-    CoveredDistance: 2043,
-    Duration: 500,
-  },
-  {
     id: "644797e8e748236f7dd05b26",
     Departure: "2021-05-31T20:56:59.000Z",
     Return: "2021-05-31T21:07:14.000Z",
@@ -28,45 +17,65 @@ const initialJourneys = [
     CoveredDistance: 1870,
     Duration: 611,
   },
+  {
+    id: "644797e8e748236f7dd05b25",
+    Departure: "2021-05-31T20:57:25.000Z",
+    Return: "2021-05-31T21:05:46.000Z",
+    DepartureStationId: 94,
+    DepartureStationName: "Laajalahden aukio",
+    ReturnStationId: 100,
+    ReturnStationName: "Teljäntie",
+    CoveredDistance: 2043,
+    Duration: 500,
+  },
 ];
 
-beforeEach(async () => {
-  await Journey.deleteMany({});
-  let noteObject = new Journey(initialJourneys[0]);
-  await noteObject.save();
-  noteObject = new Journey(initialJourneys[1]);
-  await noteObject.save();
+describe("when there is initially some journeys saved", () => {
+  beforeEach(async () => {
+    await Journey.deleteMany({});
+    let noteObject = new Journey(initialJourneys[0]);
+    await noteObject.save();
+    noteObject = new Journey(initialJourneys[1]);
+    await noteObject.save();
+  });
+
+  test("journeys are returned as json", async () => {
+    await api
+      .get("/api/v1/journeys")
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
+
+  test("there are two journey documents", async () => {
+    const response = await api.get("/api/v1/journeys");
+
+    expect(response.body).toHaveLength(initialJourneys.length);
+  });
+
+  test("the first journeys DepartureStationName is Töölöntulli", async () => {
+    const response = await api.get("/api/v1/journeys");
+
+    expect(response.body[0].DepartureStationName).toBe("Töölöntulli");
+  });
+
+  test("a specific DepartureStationName is within the returned journeys", async () => {
+    const response = await api.get("/api/v1/journeys");
+
+    const contents = response.body.map(
+      (r: { DepartureStationName: string }) => r.DepartureStationName
+    );
+
+    expect(contents).toContain("Laajalahden aukio");
+  });
+
+  describe("when initially saved journeys should be returned in specific order", () => {
+    test("Most recent journey is retuned first", async () => {
+      const response = await api.get("/api/v1/journeys/recent");
+
+      expect(response.body[0].DepartureStationName).toBe("Laajalahden aukio");
+    });
+  });
 });
-
-test("journeys are returned as json", async () => {
-  await api
-    .get("/api/v1/journeys")
-    .expect(200)
-    .expect("Content-Type", /application\/json/);
-});
-
-test("there are two journey documents", async () => {
-  const response = await api.get("/api/v1/journeys");
-
-  expect(response.body).toHaveLength(initialJourneys.length);
-});
-
-test("the first journeys DepartureStationName is Laajalahden aukio", async () => {
-  const response = await api.get("/api/v1/journeys");
-
-  expect(response.body[0].DepartureStationName).toBe("Laajalahden aukio");
-});
-
-test("a specific DepartureStationName is within the returned journeys", async () => {
-  const response = await api.get("/api/v1/journeys");
-
-  const contents = response.body.map(
-    (r: { DepartureStationName: string }) => r.DepartureStationName
-  );
-
-  expect(contents).toContain("Töölöntulli");
-});
-
 afterAll(async () => {
   await mongoose.connection.close();
 });

@@ -9,6 +9,6 @@ const router = express.Router();
 
 // Every path we define here will get /api/v1/journeys prefix
 router.get("/", findAllJourneys);
-router.get("/resent", findResentJourneys);
+router.get("/recent", findResentJourneys);
 
 export default router;

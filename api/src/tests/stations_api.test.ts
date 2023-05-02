@@ -36,39 +36,74 @@ const initialStations = [
   },
 ];
 
-beforeEach(async () => {
-  await Station.deleteMany({});
-  let noteObject = new Station(initialStations[0]);
-  await noteObject.save();
-  noteObject = new Station(initialStations[1]);
-  await noteObject.save();
-});
+describe("when there is initially some stations saved", () => {
+  beforeEach(async () => {
+    await Station.deleteMany({});
+    let noteObject = new Station(initialStations[0]);
+    await noteObject.save();
+    noteObject = new Station(initialStations[1]);
+    await noteObject.save();
+  });
 
-test("stations are returned as json", async () => {
-  await api
-    .get("/api/v1/stations")
-    .expect(200)
-    .expect("Content-Type", /application\/json/);
-});
+  test("stations are returned as json", async () => {
+    await api
+      .get("/api/v1/stations")
+      .expect(200)
+      .expect("Content-Type", /application\/json/);
+  });
 
-test("there are two station documents", async () => {
-  const response = await api.get("/api/v1/stations");
+  test("there are two station documents", async () => {
+    const response = await api.get("/api/v1/stations");
 
-  expect(response.body).toHaveLength(initialStations.length);
-});
+    expect(response.body).toHaveLength(initialStations.length);
+  });
 
-test("the first stations Name is Hanasaari", async () => {
-  const response = await api.get("/api/v1/stations");
+  test("the first stations Name is Hanasaari", async () => {
+    const response = await api.get("/api/v1/stations");
 
-  expect(response.body[0].Name).toBe("Hanasaari");
-});
+    expect(response.body[0].Name).toBe("Hanasaari");
+  });
 
-test("a specific Osoite is within the returned stations", async () => {
-  const response = await api.get("/api/v1/stations");
+  test("a specific Osoite is within the returned stations", async () => {
+    const response = await api.get("/api/v1/stations");
 
-  const contents = response.body.map((r: { Osoite: string }) => r.Osoite);
+    const contents = response.body.map((r: { Osoite: string }) => r.Osoite);
 
-  expect(contents).toContain("Keilalahdentie 2");
+    expect(contents).toContain("Keilalahdentie 2");
+  });
+
+  describe("addition of a new station", () => {
+    test("adding a new station", async () => {
+      const newStation = {
+        FID: 123,
+        ID: 777,
+        Nimi: "Testi POST",
+        Namn: "Test",
+        Name: "Test",
+        Osoite: "Test",
+        Adress: "Test",
+        Kaupunki: "Test",
+        Operaattor: "Test",
+        Kapasiteet: 0,
+        x: "00.00000",
+        y: "00.00000",
+      };
+
+      await api
+        .post("/api/v1/stations/addstation")
+        .send(newStation)
+        .expect(201)
+        .expect("Content-Type", /application\/json/);
+
+      const response = await api.get("/api/v1/stations");
+
+      expect(response.body).toHaveLength(initialStations.length + 1);
+
+      const names = response.body.map((r: { Nimi: string }) => r.Nimi);
+
+      expect(names).toContain("Testi POST");
+    });
+  });
 });
 
 afterAll(async () => {
