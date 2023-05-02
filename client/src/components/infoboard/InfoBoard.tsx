@@ -9,12 +9,27 @@ const InfoBoard = (props: InfoBoardProps) => {
     width: "50%",
     height: "40vh",
     color: "black",
-    "margin-right": "20px",
+    marginRight: "20px",
     textAlign: "center",
   };
 
   let departing = [];
   let arriving = [];
+
+  for (const obj of journeys.items) {
+    if (obj.DepartureStationName === stationData.Nimi) {
+      departing.push(obj);
+    }
+    if (obj.ReturnStationId === stationData.ID) {
+      arriving.push(obj);
+    }
+  }
+
+  console.log("journeys: ", journeys.items);
+
+  console.log("Departing: ", departing);
+
+  console.log("Arriving: ", arriving);
 
   return (
     <Box sx={style}>

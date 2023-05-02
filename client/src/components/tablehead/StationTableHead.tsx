@@ -1,11 +1,5 @@
-import {
-  TableHead,
-  TableRow,
-  TableCell,
-  Typography,
-  TableSortLabel,
-  Box,
-} from "@mui/material";
+import { TableHead, TableRow, TableCell, TableSortLabel } from "@mui/material";
+import TableHeadNotification from "components/notifications/TableHeadNotification";
 import {
   Data,
   StationEnhancedTableProps,
@@ -20,36 +14,10 @@ const StationTableHead = (props: StationEnhancedTableProps) => {
       onRequestSort(event, property);
     };
   if (stations.isLoading) {
-    return (
-      <Box>
-        <Typography
-          sx={{
-            borderRight: "2px solid #363433",
-            fontSize: "2rem",
-            color: "green",
-            padding: "20px",
-          }}
-        >
-          Loading...
-        </Typography>
-      </Box>
-    );
+    return <TableHeadNotification color={"green"} text={"Loading..."} />;
   }
   if (stations.error) {
-    return (
-      <Box>
-        <Typography
-          sx={{
-            borderRight: "2px solid #363433",
-            fontSize: "2rem",
-            color: "red",
-            padding: "20px",
-          }}
-        >
-          ERROR!
-        </Typography>
-      </Box>
-    );
+    return <TableHeadNotification color={"red"} text={"ERROR!"} />;
   }
 
   return (
@@ -72,9 +40,7 @@ const StationTableHead = (props: StationEnhancedTableProps) => {
             >
               {headCell.label}
               {orderBy === headCell.id ? (
-                <Box component="span">
-                  {order === "desc" ? ": sorted desc" : ": sorted asc"}
-                </Box>
+                <>{order === "desc" ? ": sorted desc" : ": sorted asc"}</>
               ) : null}
             </TableSortLabel>
           </TableCell>

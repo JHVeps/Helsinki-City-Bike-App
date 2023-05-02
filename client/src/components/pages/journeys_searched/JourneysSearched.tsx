@@ -28,8 +28,6 @@ const JourneysSearched = () => {
     }
 
     if (foundJourneys.length > 0) {
-      //console.log("foundjourneys: ", foundJourneys);
-
       return (
         <div>
           <h1>{`Journeys found from: ${stationName}`}</h1>

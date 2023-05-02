@@ -37,7 +37,7 @@ const StationSearched = () => {
       }
 
       return (
-        <Box sx={{ padding: "20px", "margin-block": "20px" }}>
+        <Box sx={{ padding: "20px", marginBlock: "20px" }}>
           <Typography variant="h4">Station info</Typography>
           <Navigation />
           <TableContainer component={Paper}>
@@ -128,9 +128,9 @@ const StationSearched = () => {
           <Box
             sx={{
               display: "flex",
-              "justify-content": "center",
+              justifyContent: "center",
               padding: "20px",
-              "margin-block": "20px",
+              marginBlock: "20px",
             }}
           >
             <InfoBoard journeys={journeys} stationData={stationData} />

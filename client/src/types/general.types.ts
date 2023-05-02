@@ -7,3 +7,8 @@ export interface appBarProps {
   text: string;
   setText: Dispatch<SetStateAction<string>>;
 }
+
+export interface tableHeadNotificationProps {
+  color: string;
+  text: string;
+}

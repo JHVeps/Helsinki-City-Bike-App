@@ -1,11 +1,5 @@
-import {
-  TableHead,
-  TableRow,
-  TableCell,
-  Typography,
-  Box,
-  TableSortLabel,
-} from "@mui/material";
+import { TableHead, TableRow, TableCell, TableSortLabel } from "@mui/material";
+import TableHeadNotification from "components/notifications/TableHeadNotification";
 import {
   Data,
   JourneyEnhancedTableProps,
@@ -19,38 +13,12 @@ const TableHeadHome = (props: JourneyEnhancedTableProps) => {
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
-  // Destructure to notification components
+
   if (journeys.isLoading) {
-    return (
-      <Box>
-        <Typography
-          sx={{
-            borderRight: "2px solid #363433",
-            fontSize: "2rem",
-            color: "green",
-            padding: "20px",
-          }}
-        >
-          Loading...
-        </Typography>
-      </Box>
-    );
+    return <TableHeadNotification color={"green"} text={"Loading..."} />;
   }
   if (journeys.error) {
-    return (
-      <Box>
-        <Typography
-          sx={{
-            borderRight: "2px solid #363433",
-            fontSize: "2rem",
-            color: "red",
-            padding: "20px",
-          }}
-        >
-          ERROR!
-        </Typography>
-      </Box>
-    );
+    return <TableHeadNotification color={"red"} text={"ERROR!"} />;
   }
 
   return (
@@ -73,9 +41,7 @@ const TableHeadHome = (props: JourneyEnhancedTableProps) => {
             >
               {headCell.label}
               {orderBy === headCell.id ? (
-                <Box component="span">
-                  {order === "desc" ? ": sorted desc" : ": sorted asc"}
-                </Box>
+                <>{order === "desc" ? ": sorted desc" : ": sorted asc"}</>
               ) : null}
             </TableSortLabel>
           </TableCell>

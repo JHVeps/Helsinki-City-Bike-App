@@ -25,8 +25,8 @@ const App = () => {
       sx={{
         bgcolor: "#2b2b2b",
         color: "white",
-        "margin-left": "20px",
-        "margin-right": "20px",
+        marginLeft: "20px",
+        marginRight: "20px",
       }}
     >
       <Typography sx={{ textAlign: "center" }} variant="h1">

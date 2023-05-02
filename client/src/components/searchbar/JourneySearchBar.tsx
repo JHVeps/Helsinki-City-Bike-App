@@ -12,13 +12,13 @@ const JourneySearchBar = () => {
   };
 
   return (
-    <Box sx={{ "text-align": "center" }}>
+    <Box sx={{ textAlign: "center" }}>
       <TextField
         sx={{
-          "outline-width": 0,
+          outlineWidth: 0,
           width: "30%",
           border: "none",
-          "max-width": "400px",
+          maxWidth: "400px",
           bgcolor: "background.paper",
         }}
         type="text"
@@ -31,11 +31,11 @@ const JourneySearchBar = () => {
         <Button
           sx={{
             padding: "15px 18px",
-            "font-size": "1rem",
+            fontSize: "1rem",
             color: "#fff",
             bgcolor: "#111",
             border: "none",
-            "font-weight": 600,
+            fontWeight: 600,
             cursor: "pointer",
           }}
         >
