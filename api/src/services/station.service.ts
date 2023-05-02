@@ -16,4 +16,26 @@ const findAllStations = async (): Promise<StationDocument[]> => {
   }
 };
 
-export default { findAllStations };
+const createStation = async (
+  station: StationDocument
+): Promise<StationDocument> => {
+  return station.save();
+};
+
+const findByName = async (Nimi: string): Promise<StationDocument> => {
+  try {
+    const foundStation = await Station.findOne({ Nimi });
+
+    if (!foundStation) {
+      throw new Error(`Station ${Nimi} not found`);
+    }
+    return foundStation;
+  } catch (error: any) {
+    if (error instanceof Error) {
+      throw new Error("Error finding station: " + error.message);
+    }
+    throw new Error("Error finding station");
+  }
+};
+
+export default { findAllStations, createStation, findByName };
