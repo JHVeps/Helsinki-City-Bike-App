@@ -16,3 +16,19 @@ export const findAllJourneys = async (
     next(error);
   }
 };
+
+// GET /journeys/resent
+export const findResentJourneys = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    res.json(await journeyService.findResentJourneys());
+  } catch (error) {
+    if (error instanceof Error && error.name == "ValidationError") {
+      console.log("Invalid Request", 400, error);
+    }
+    next(error);
+  }
+};

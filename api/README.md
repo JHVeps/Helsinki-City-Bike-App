@@ -8,15 +8,15 @@
 - [x] ~~Journey model / types~~
 - [x] ~~Station model / types~~
 - [ ] Services for journey
-- [ ] Services for station
+- [x] Services for station
 - [ ] Routers for journey data
-- [ ] Routers for station data
+- [x] Routers for station data
 - [ ] Controller for journey
-- [ ] Controller for station
+- [x] Controller for station
 - [ ] Tests for API
 
 ##### Bonus
 
-- [ ] POST journeys / stations
+- [x] POST journeys / stations
 - [ ] API Docker
 - [ ] API - cloud

@@ -19,7 +19,7 @@ const findResentJourneys = async (): Promise<JourneyDocument[]> => {
       Departure: { $lte: new Date() }, // retrieve documents with departure date <= current date
     })
       .sort({ Departure: -1 })
-      .limit(1000);
+      .limit(100);
     if (!Array.isArray(foundJourneys) || foundJourneys.length === 0) {
       throw new Error("Journeys not found");
     }
@@ -29,4 +29,4 @@ const findResentJourneys = async (): Promise<JourneyDocument[]> => {
   }
 };
 
-export default { findAllJourneys };
+export default { findAllJourneys, findResentJourneys };
