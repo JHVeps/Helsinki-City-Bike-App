@@ -6,22 +6,26 @@ const InfoBoard = (props: InfoBoardProps) => {
 
   const style = {
     bgcolor: "background.paper",
-    width: "50%",
+    width: "45%",
     height: "40vh",
     color: "black",
     marginRight: "20px",
     textAlign: "center",
   };
 
-  let departing = [];
-  let arriving = [];
+  let departing = 0;
+  let departingDivider = 0;
+  let arrivals = 0;
+  let arrivalDivider = 0;
 
   for (const obj of journeys.items) {
     if (obj.DepartureStationName === stationData.Nimi) {
-      departing.push(obj);
+      departing += obj.CoveredDistance;
+      departingDivider++;
     }
-    if (obj.ReturnStationId === stationData.ID) {
-      arriving.push(obj);
+    if (obj.ReturnStationName === stationData.Nimi) {
+      arrivals += obj.CoveredDistance;
+      arrivalDivider++;
     }
   }
 
@@ -29,16 +33,26 @@ const InfoBoard = (props: InfoBoardProps) => {
 
   console.log("Departing: ", departing);
 
-  console.log("Arriving: ", arriving);
+  console.log("Arriving: ", arrivals);
 
   return (
     <Box sx={style}>
-      <Typography variant="h4">DETAILS</Typography>
-      <Typography sx={{ mt: 3 }} variant="h6">
-        {`Average departing journey length: `}
+      <Typography sx={{ mt: 3 }} variant="h4">
+        DETAILS
       </Typography>
       <Typography sx={{ mt: 3 }} variant="h6">
-        {`Average returning journey length: `}
+        {`The average distance of a journey starting from the station: ${(
+          departing /
+          departingDivider /
+          1000
+        ).toFixed(1)} KM`}
+      </Typography>
+      <Typography sx={{ mt: 3 }} variant="h6">
+        {`The average distance of a journey ending at the station: ${(
+          arrivals /
+          arrivalDivider /
+          1000
+        ).toFixed(1)} KM`}
       </Typography>
       <Typography sx={{ mt: 3 }} variant="h6">
         {`Top 5 stations for departing journeys: `}

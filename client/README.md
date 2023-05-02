@@ -38,9 +38,9 @@
 
 #### Additional
 
-- [x] Station location on the map
-- [ ] The average distance of a journey starting from the station
-- [ ] The average distance of a journey ending at the station
+- [x] ~~Station location on the map~~
+- [x] ~~The average distance of a journey starting from the station~~
+- [x] ~~The average distance of a journey ending at the station~~
 - [ ] Top 5 most popular return stations for journeys starting from the station
 - [ ] Top 5 most popular departure stations for journeys ending at the station
 - [ ] Ability to filter all the calculations per month
