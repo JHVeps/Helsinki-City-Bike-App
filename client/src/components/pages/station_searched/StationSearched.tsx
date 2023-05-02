@@ -2,6 +2,7 @@ import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
 import { useParams } from "react-router-dom";
 import Navigation from "../../navigation/HomeNavigation";
+import InfoBoard from "components/infoboard/InfoBoard";
 import Map from "../../google-map/GoogleMap";
 import {
   Paper,
@@ -123,7 +124,9 @@ const StationSearched = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          <div className="stations__map__container">
+
+          <div className="stations__info__container">
+            <InfoBoard journeys={journeys} stationName={stationData.Nimi} />
             <Map lat={stationData.y} lng={stationData.x} />
           </div>
         </div>

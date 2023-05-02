@@ -1,4 +1,6 @@
-.stations__map__container {
+.stations__info__container {
+  display: flex;
+  justify-content: center;
   padding: 20px;
   margin-block: 20px;
 }

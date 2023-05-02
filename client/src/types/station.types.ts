@@ -1,5 +1,7 @@
 //Stations related types
 
+import { journeysState } from "./journey.types";
+
 export type Station = {
   id: string; //MongoDB generated id
   FID: number;
@@ -80,4 +82,9 @@ export const stationsListHeadCells: readonly HeadCell[] = [
 export interface MapProps {
   lat: number;
   lng: number;
+}
+
+export interface InfoBoardProps {
+  journeys: journeysState;
+  stationName: string;
 }

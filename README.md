@@ -11,7 +11,7 @@
 #### API
 
 - [x] ~~Recommended~~
-- [ ] Additional
+- [x] ~~Additional~~
 
 #### CLIENT
 

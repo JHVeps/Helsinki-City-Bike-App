@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@mui/material";
 import Map from "components/google-map/GoogleMap";
+import InfoBoard from "components/infoboard/InfoBoard";
 
 import "./Station.css";
 
@@ -123,7 +124,8 @@ const Station = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          <div className="stations__map__container">
+          <div className="stations__info__container">
+            <InfoBoard journeys={journeys} stationName={stationData.Nimi} />
             <Map lat={stationData.y} lng={stationData.x} />
           </div>
         </div>
