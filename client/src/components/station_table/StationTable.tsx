@@ -1,3 +1,9 @@
+import { Data, stationTableProps } from "types/station.types";
+import { useState } from "react";
+import { Order } from "types/general.types";
+import { getComparator } from "utils/utils";
+import TableHead from "components/tablehead/StationTableHead";
+import { Link } from "react-router-dom";
 import {
   Box,
   Paper,
@@ -10,15 +16,9 @@ import {
   FormControlLabel,
   Switch,
 } from "@mui/material";
-import TableHead from "components/tablehead/StationTableHead";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Order } from "types/general.types";
-import { Data, stationTableProps } from "types/station.types";
-import { getComparator } from "utils/utils";
 
 const StationTable = (props: stationTableProps) => {
-  const { stations } = props;
+  const { stations, text } = props;
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("Nimi");
   const [selected, setSelected] = useState<readonly string[]>([]);
@@ -104,6 +104,18 @@ const StationTable = (props: stationTableProps) => {
 
             <TableBody>
               {stations.items
+                .filter((station) => {
+                  if (text === "") {
+                    return station;
+                  } else if (
+                    station.Nimi.toLocaleLowerCase().includes(
+                      text.toLocaleLowerCase()
+                    )
+                  ) {
+                    return station;
+                  }
+                  return null;
+                })
                 .slice()
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)

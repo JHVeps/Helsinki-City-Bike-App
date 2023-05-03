@@ -1,8 +1,9 @@
 import { Data, journeyTableProps } from "types/journey.types";
-import { Order } from "types/general.types";
 import { useState } from "react";
+import { Order } from "types/general.types";
 import { getComparator } from "utils/utils";
 import TableHead from "components/tablehead/JourneyTableHead";
+import { Link } from "react-router-dom";
 import {
   Box,
   Paper,
@@ -17,7 +18,7 @@ import {
 } from "@mui/material";
 
 const JourneyTable = (props: journeyTableProps) => {
-  const { journeys } = props;
+  const { journeys, text } = props;
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("DepartureStationName");
   const [selected, setSelected] = useState<readonly string[]>([]);
@@ -105,6 +106,18 @@ const JourneyTable = (props: journeyTableProps) => {
 
             <TableBody>
               {journeys.items
+                .filter((journey) => {
+                  if (text === "") {
+                    return journey;
+                  } else if (
+                    journey.DepartureStationName.toLocaleLowerCase().includes(
+                      text.toLocaleLowerCase()
+                    )
+                  ) {
+                    return journey;
+                  }
+                  return null;
+                })
                 .slice()
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -137,7 +150,13 @@ const JourneyTable = (props: journeyTableProps) => {
                           fontSize: "1.3rem",
                         }}
                       >
-                        {journey.DepartureStationName}
+                        {" "}
+                        <Link
+                          style={{ textDecoration: "none" }}
+                          to={`/stations/${journey.DepartureStationId}`}
+                        >
+                          {journey.DepartureStationName}
+                        </Link>
                       </TableCell>
                       <TableCell
                         align="center"

@@ -14,7 +14,7 @@ const Stations = () => {
       <Typography variant="h4">Stations</Typography>
       <Navigation />
       <AppBar title={"Stations List"} text={text} setText={setText} />
-      <StationTable stations={stations} />
+      <StationTable stations={stations} text={text} />
     </Box>
   );
 };

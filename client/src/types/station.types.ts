@@ -28,6 +28,7 @@ export interface stationsState {
 
 export interface stationTableProps {
   stations: stationsState;
+  text: string;
 }
 
 export interface Data {
