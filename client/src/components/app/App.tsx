@@ -10,6 +10,7 @@ import JourneysSearched from "components/pages/journeys_searched/JourneysSearche
 import Stations from "components/pages/stations/Stations";
 import Station from "components/pages/stations_single/Station";
 import StationSearched from "components/pages/station_searched/StationSearched";
+import NewStation from "components/pages/newstation/NewStation";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -43,6 +44,7 @@ const App = () => {
             path="/stations/search/:stationName"
             element={<StationSearched />}
           />
+          <Route path="/stations/add_new_station" element={<NewStation />} />
         </Routes>
       </BrowserRouter>
     </Box>

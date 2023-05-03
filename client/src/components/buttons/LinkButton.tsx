@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 const LinkButton = (props: LinkButtonProps) => {
   const { textDecoration, color, fontSize, path, title } = props;
   return (
-    <Button>
+    <Button
+      sx={{
+        "&:hover": {
+          backgroundColor: "black",
+        },
+      }}
+    >
       <Link
         style={{
           textDecoration: textDecoration,

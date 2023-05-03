@@ -19,6 +19,13 @@ const StationsNavigation = () => {
         path="/journeys"
         title="JOURNEYS LIST"
       />
+      <LinkButton
+        textDecoration="none"
+        color="#FFF"
+        fontSize="1.5rem"
+        path="/stations/add_new_station"
+        title="ADD NEW STATION"
+      />
       <SearchBar />
     </Box>
   );
