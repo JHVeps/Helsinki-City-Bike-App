@@ -1,33 +1,30 @@
-import { Box, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
+import LinkButton from "components/buttons/LinkButton";
 
 const HomeNavigation = () => {
   return (
     <Box sx={{ margin: "auto", padding: "20px" }}>
-      <Button>
-        <Link
-          style={{ textDecoration: "none", color: "#FFF", fontSize: "1.5rem" }}
-          to={`/`}
-        >
-          HOME
-        </Link>
-      </Button>
-      <Button>
-        <Link
-          style={{ textDecoration: "none", color: "#FFF", fontSize: "1.5rem" }}
-          to={`/journeys`}
-        >
-          JOURNEYS LIST
-        </Link>
-      </Button>
-      <Button>
-        <Link
-          style={{ textDecoration: "none", color: "#FFF", fontSize: "1.5rem" }}
-          to={`/stations`}
-        >
-          STATIONS LIST
-        </Link>
-      </Button>
+      <LinkButton
+        textDecoration="none"
+        color="#FFF"
+        fontSize="1.5rem"
+        path="/"
+        title="HOME"
+      />
+      <LinkButton
+        textDecoration="none"
+        color="#FFF"
+        fontSize="1.5rem"
+        path="/journeys"
+        title="JOURNEYS LIST"
+      />
+      <LinkButton
+        textDecoration="none"
+        color="#FFF"
+        fontSize="1.5rem"
+        path="/stations"
+        title="STATIONS LIST"
+      />
     </Box>
   );
 };

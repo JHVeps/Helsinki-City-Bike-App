@@ -1,3 +1,4 @@
+import { appBarProps } from "types/general.types";
 import {
   AppBar,
   Toolbar,
@@ -7,7 +8,6 @@ import {
   styled,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { appBarProps } from "types/general.types";
 
 export const Filter = styled("div")(({ theme }) => ({
   position: "relative",

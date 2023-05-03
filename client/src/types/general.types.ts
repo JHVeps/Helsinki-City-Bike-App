@@ -12,3 +12,11 @@ export interface tableHeadNotificationProps {
   color: string;
   text: string;
 }
+
+export interface LinkButtonProps {
+  textDecoration: string;
+  color: string;
+  fontSize: string;
+  path: string;
+  title: string;
+}

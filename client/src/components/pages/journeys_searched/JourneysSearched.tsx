@@ -1,10 +1,10 @@
 import { RootState } from "redux/store";
 import { useAppSelector } from "redux/hooks";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Journey } from "types/journey.types";
 import Navigation from "components/navigation/HomeNavigation";
 import {
-  Button,
+  Box,
   Paper,
   Table,
   TableBody,
@@ -12,6 +12,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
 
 const JourneysSearched = () => {
@@ -29,8 +30,8 @@ const JourneysSearched = () => {
 
     if (foundJourneys.length > 0) {
       return (
-        <div>
-          <h1>{`Journeys found from: ${stationName}`}</h1>
+        <Box sx={{ padding: "20px", marginBlock: "20px" }}>
+          <Typography variant="h4">{`Journeys found from: ${stationName}`}</Typography>
           <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
@@ -118,27 +119,15 @@ const JourneysSearched = () => {
               </TableBody>
             </Table>
           </TableContainer>
-        </div>
+        </Box>
       );
     }
   }
   return (
-    <div>
-      <h1>NOT FOUND</h1>
-      <Button>
-        <Link style={{ textDecoration: "none", color: "#FFF" }} to={`/`}>
-          HOME
-        </Link>
-      </Button>
-      <Button>
-        <Link
-          style={{ textDecoration: "none", color: "#FFF" }}
-          to={`/stations`}
-        >
-          STATIONS LIST
-        </Link>
-      </Button>
-    </div>
+    <Box>
+      <Typography variant="h2">NOT FOUND</Typography>
+      <Navigation />
+    </Box>
   );
 };
 

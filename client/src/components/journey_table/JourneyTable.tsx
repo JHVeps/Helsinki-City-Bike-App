@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { Data, journeyTableProps } from "types/journey.types";
 import { Order } from "types/general.types";
+import { useState } from "react";
 import { getComparator } from "utils/utils";
 import TableHead from "components/tablehead/JourneyTableHead";
 import {
@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 
 const JourneyTable = (props: journeyTableProps) => {
-  const { journeys, text } = props;
+  const { journeys } = props;
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("DepartureStationName");
   const [selected, setSelected] = useState<readonly string[]>([]);
@@ -105,18 +105,6 @@ const JourneyTable = (props: journeyTableProps) => {
 
             <TableBody>
               {journeys.items
-                .filter((journey) => {
-                  if (text === "") {
-                    return journey;
-                  } else if (
-                    journey.DepartureStationName.toLocaleLowerCase().includes(
-                      text.toLocaleLowerCase()
-                    )
-                  ) {
-                    return journey;
-                  }
-                  return null;
-                })
                 .slice()
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
