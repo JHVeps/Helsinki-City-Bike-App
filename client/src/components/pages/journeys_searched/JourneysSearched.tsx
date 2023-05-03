@@ -31,7 +31,7 @@ const JourneysSearched = () => {
     if (foundJourneys.length > 0) {
       return (
         <Box sx={{ padding: "20px", marginBlock: "20px" }}>
-          <Typography variant="h4">{`Journeys found from: ${stationName}`}</Typography>
+          <Typography variant="h4">{`FOUND DEPARTED JOURNEYS FROM: ${stationName}`}</Typography>
           <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>

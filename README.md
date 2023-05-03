@@ -28,7 +28,7 @@
 #### Single station view
 
 - [x] ~~Recommended~~
-- [ ] Additional
+- [x] ~~Additional~~
 
 #### Bonus
 

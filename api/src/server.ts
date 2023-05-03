@@ -2,6 +2,10 @@ import app from "./app";
 import config from "./utils/config";
 import logger from "./utils/logger";
 
+process.on("SIGINT", () => {
+  process.exit();
+});
+
 app.listen(config.PORT, () => {
   logger.info(
     `  App is running at http://localhost: ${config.PORT} in ${app.get(

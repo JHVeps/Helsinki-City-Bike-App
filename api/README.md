@@ -18,5 +18,5 @@
 ##### Bonus
 
 - [x] POST journeys / ~~stations~~
-- [ ] API Docker
+- [x] ~~API Docker~~
 - [ ] API - cloud

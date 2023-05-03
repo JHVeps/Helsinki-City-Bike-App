@@ -13,7 +13,7 @@ const NewStation = () => {
 
   return (
     <Box>
-      <Typography variant="h4">Add New Station</Typography>
+      <Typography variant="h4">ADD NEW STATION</Typography>
       <Navigation />
       <Box className="addstation">
         <Formik

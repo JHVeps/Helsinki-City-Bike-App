@@ -38,7 +38,7 @@ const Station = () => {
 
       return (
         <Box sx={{ padding: "20px", marginBlock: "20px" }}>
-          <Typography variant="h4">Station info</Typography>
+          <Typography variant="h4">STATION INFO</Typography>
           <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>

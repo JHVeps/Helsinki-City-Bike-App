@@ -12,7 +12,7 @@ const Journeys = () => {
 
   return (
     <Box>
-      <Typography variant="h4">Journeys</Typography>
+      <Typography variant="h4">JOURNEYS</Typography>
       <Navigation />
       <AppBar title={"Journeys List"} text={text} setText={setText} />
       <JourneyTable journeys={journeys} text={text} />
