@@ -33,10 +33,12 @@ const JourneySearchBar = () => {
             padding: "15px 18px",
             fontSize: "1rem",
             color: "#fff",
-            bgcolor: "#111",
             border: "none",
             fontWeight: 600,
             cursor: "pointer",
+            "&:hover": {
+              backgroundColor: "#e50914",
+            },
           }}
         >
           SEARCH

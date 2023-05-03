@@ -47,4 +47,4 @@
 
 #### Bonus
 
-- [ ] UI has functionality for adding journeys or bicycle stations
+- [x] ~~UI has functionality for adding journeys or bicycle stations~~

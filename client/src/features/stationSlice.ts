@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { stationsState } from "types/station.types";
-import { getAllStations } from "../services/station.services";
+import { getAllStations, addNewStation } from "../services/station.services";
 
 const initialState: stationsState = {
   items: [],
@@ -42,6 +42,22 @@ const stationSlice = createSlice({
 
     builder.addCase(getAllStations.fulfilled, (state, action) => {
       state.items = action.payload?.data;
+      state.isLoading = false;
+      state.error = false;
+    });
+
+    builder.addCase(addNewStation.pending, (state) => {
+      state.isLoading = true;
+      state.error = false;
+    });
+
+    builder.addCase(addNewStation.rejected, (state) => {
+      state.isLoading = false;
+      state.error = true;
+    });
+
+    builder.addCase(addNewStation.fulfilled, (state, action) => {
+      state.items = [...state.items, action.payload?.data];
       state.isLoading = false;
       state.error = false;
     });

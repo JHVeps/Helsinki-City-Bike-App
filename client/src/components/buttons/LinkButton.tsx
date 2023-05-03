@@ -8,7 +8,7 @@ const LinkButton = (props: LinkButtonProps) => {
     <Button
       sx={{
         "&:hover": {
-          backgroundColor: "black",
+          backgroundColor: "#e50914",
         },
       }}
     >

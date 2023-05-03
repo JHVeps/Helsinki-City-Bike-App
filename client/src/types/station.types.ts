@@ -3,7 +3,7 @@
 import { journeysState } from "./journey.types";
 
 export type Station = {
-  id: string; //MongoDB generated id
+  id?: string; //MongoDB generated id
   FID: number;
   ID: number;
   Nimi: string;

@@ -1,7 +1,8 @@
+import { API_URL } from "secrets/secrets";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "http://localhost:4000/api/v1";
+const url = API_URL;
 
 export const getAllJourneys = createAsyncThunk("journeys/fetch", async () => {
   const config = {
