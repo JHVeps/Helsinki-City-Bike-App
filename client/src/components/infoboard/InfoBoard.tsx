@@ -34,15 +34,6 @@ const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
   const departuresDivider: number = distances.departing.count;
 
   // count average journey lengths
-  // const arrivingJourneys = (
-  //   totalArrivals /
-  //   (arrivalsDivider * distancePerKm)
-  // ).toFixed(1);
-  // const departingJourneys = (
-  //   totalDepartures /
-  //   (departuresDivider * distancePerKm)
-  // ).toFixed(1);
-
   const averageArrivingDistance: string = `${(
     totalArrivals /
     (arrivalsDivider * distancePerKm)
@@ -52,47 +43,50 @@ const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
     (departuresDivider * distancePerKm)
   ).toFixed(1)} km`;
 
-  // Filter trips by departure station and count departure stations
-  const journeysReturningFromStation = journeys.items.filter(
-    (journey) => journey.DepartureStationName === stationData.Nimi
+  interface StationCount {
+    station: string;
+    count: number;
+  }
+
+  const journeysReturningFromStation = journeys?.items?.filter(
+    ({ DepartureStationName }) => DepartureStationName === stationData?.Nimi
   );
 
-  const destinationStationCounts = journeysReturningFromStation.reduce(
-    (counts, journey) => {
-      const destinationStation = journey.ReturnStationName;
-      counts[destinationStation] = (counts[destinationStation] || 0) + 1;
+  const journeysStartingFromStation = journeys?.items?.filter(
+    ({ ReturnStationName }) => ReturnStationName === stationData?.Nimi
+  );
+
+  const destinationStationCounts = journeysReturningFromStation?.reduce(
+    (counts, { ReturnStationName }) => {
+      counts[ReturnStationName] = (counts[ReturnStationName] || 0) + 1;
       return counts;
     },
     {} as Record<string, number>
   );
 
-  // Filter trips by return station and count return stations
-  const journeysStartingFromStation = journeys.items.filter(
-    (journey) => journey.ReturnStationName === stationData.Nimi
-  );
-
-  const returnStationCounts = journeysStartingFromStation.reduce(
-    (counts, journey) => {
-      const returnStation = journey.DepartureStationName;
-      counts[returnStation] = (counts[returnStation] || 0) + 1;
+  const returnStationCounts = journeysStartingFromStation?.reduce(
+    (counts, { DepartureStationName }) => {
+      counts[DepartureStationName] = (counts[DepartureStationName] || 0) + 1;
       return counts;
     },
     {} as Record<string, number>
   );
 
-  // Sort return stations by popularity and get top 5
-  const sortedReturnStations = Object.entries(returnStationCounts).sort(
+  const sortedReturnStations = Object.entries(returnStationCounts || {}).sort(
     ([, count1], [, count2]) => count2 - count1
   );
 
-  const top5ReturnStations = sortedReturnStations.slice(0, 5);
+  const top5ReturnStations: StationCount[] = sortedReturnStations
+    .slice(0, 5)
+    .map(([station, count]) => ({ station, count }));
 
-  // Sort destination stations by popularity and get top 5
   const sortedDestinationStations = Object.entries(
-    destinationStationCounts
+    destinationStationCounts || {}
   ).sort(([, count1], [, count2]) => count2 - count1);
 
-  const top5DestinationStations = sortedDestinationStations.slice(0, 5);
+  const top5DestinationStations: StationCount[] = sortedDestinationStations
+    .slice(0, 5)
+    .map(([station, count]) => ({ station, count }));
 
   return (
     <Box sx={style}>
@@ -108,18 +102,18 @@ const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
         {`Top 5 stations for destination journeys: `}
       </Typography>
-      {top5DestinationStations.map(([name, count], i) => (
-        <Typography sx={{ paddingLeft: "40px" }} key={name}>
-          {i + 1}. {name}: {count}
+      {top5DestinationStations.map(({ station, count }, i) => (
+        <Typography sx={{ paddingLeft: "40px" }} key={station}>
+          {i + 1}. {station}: {count}
         </Typography>
       ))}
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
         {`Top 5 stations for arriving journeys: `}
       </Typography>
-      {top5ReturnStations.map(([name, count], i) => (
-        <Typography sx={{ paddingLeft: "40px" }} key={name}>{`${
-          i + 1
-        }. ${name}: ${count}`}</Typography>
+      {top5ReturnStations.map(({ station, count }, i) => (
+        <Typography sx={{ paddingLeft: "40px" }} key={station}>
+          {i + 1}. {station}: {count}
+        </Typography>
       ))}
     </Box>
   );

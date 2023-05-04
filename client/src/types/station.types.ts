@@ -89,3 +89,8 @@ export interface InfoBoardProps {
   journeys: journeysState;
   stationData: Station;
 }
+
+export interface StationCount {
+  station: string;
+  count: number;
+}
