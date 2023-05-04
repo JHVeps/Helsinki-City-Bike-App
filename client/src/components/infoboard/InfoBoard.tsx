@@ -12,21 +12,45 @@ const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
 
   const distancePerKm = 1000;
 
-  let departing = 0;
-  let departingDivider = 0;
-  let arrivals = 0;
-  let arrivalDivider = 0;
+  let distances = {
+    departing: { total: 0, count: 0 },
+    arrivals: { total: 0, count: 0 },
+  };
 
-  for (const obj of journeys.items) {
+  journeys.items.forEach((obj) => {
     if (obj.DepartureStationName === stationData.Nimi) {
-      departing += obj.CoveredDistance;
-      departingDivider++;
+      distances.departing.total += obj.CoveredDistance;
+      distances.departing.count++;
     }
     if (obj.ReturnStationName === stationData.Nimi) {
-      arrivals += obj.CoveredDistance;
-      arrivalDivider++;
+      distances.arrivals.total += obj.CoveredDistance;
+      distances.arrivals.count++;
     }
-  }
+  });
+
+  const totalArrivals: number = distances.arrivals.total;
+  const arrivalsDivider: number = distances.arrivals.count;
+  const totalDepartures: number = distances.departing.total;
+  const departuresDivider: number = distances.departing.count;
+
+  // count average journey lengths
+  // const arrivingJourneys = (
+  //   totalArrivals /
+  //   (arrivalsDivider * distancePerKm)
+  // ).toFixed(1);
+  // const departingJourneys = (
+  //   totalDepartures /
+  //   (departuresDivider * distancePerKm)
+  // ).toFixed(1);
+
+  const averageArrivingDistance: string = `${(
+    totalArrivals /
+    (arrivalsDivider * distancePerKm)
+  ).toFixed(1)} km`;
+  const averageDepartingDistance: string = `${(
+    totalDepartures /
+    (departuresDivider * distancePerKm)
+  ).toFixed(1)} km`;
 
   // Filter trips by departure station and count departure stations
   const journeysReturningFromStation = journeys.items.filter(
@@ -70,26 +94,16 @@ const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
 
   const top5DestinationStations = sortedDestinationStations.slice(0, 5);
 
-  // count average journey lengths
-  const arrivingJourneys = (
-    arrivals /
-    (arrivalDivider * distancePerKm)
-  ).toFixed(1);
-  const departingJourneys = (
-    departing /
-    (departingDivider * distancePerKm)
-  ).toFixed(1);
-
   return (
     <Box sx={style}>
       <Typography sx={{ textAlign: "center", mt: 3 }} variant="h4">
         DETAILS
       </Typography>
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
-        {`The average distance of a journey starting from the station: ${departingJourneys} KM`}
+        {`The average distance of a journey starting from the station: ${averageDepartingDistance} KM`}
       </Typography>
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
-        {`The average distance of a journey ending at the station: ${arrivingJourneys} KM`}
+        {`The average distance of a journey ending at the station: ${averageArrivingDistance} KM`}
       </Typography>
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
         {`Top 5 stations for destination journeys: `}
