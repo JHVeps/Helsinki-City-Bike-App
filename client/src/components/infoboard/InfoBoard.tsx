@@ -1,9 +1,7 @@
 import { InfoBoardProps } from "types/station.types";
 import { Box, Typography } from "@mui/material";
 
-const InfoBoard = (props: InfoBoardProps) => {
-  const { journeys, stationData } = props;
-
+const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
   const style = {
     bgcolor: "background.paper",
     width: "45%",
@@ -11,6 +9,8 @@ const InfoBoard = (props: InfoBoardProps) => {
     color: "black",
     marginRight: "20px",
   };
+
+  const distancePerKm = 1000;
 
   let departing = 0;
   let departingDivider = 0;
@@ -71,8 +71,14 @@ const InfoBoard = (props: InfoBoardProps) => {
   const top5DestinationStations = sortedDestinationStations.slice(0, 5);
 
   // count average journey lengths
-  const arrivingJourneys = (arrivals / arrivalDivider / 1000).toFixed(1);
-  const departingJourneys = (departing / departingDivider / 1000).toFixed(1);
+  const arrivingJourneys = (
+    arrivals /
+    (arrivalDivider * distancePerKm)
+  ).toFixed(1);
+  const departingJourneys = (
+    departing /
+    (departingDivider * distancePerKm)
+  ).toFixed(1);
 
   return (
     <Box sx={style}>

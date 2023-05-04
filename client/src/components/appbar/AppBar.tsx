@@ -48,9 +48,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const JAppBar = (props: appBarProps) => {
-  const { title, text, setText } = props;
-
+const JAppBar = ({ title, text, setText }: appBarProps) => {
   return (
     <AppBar
       position="static"

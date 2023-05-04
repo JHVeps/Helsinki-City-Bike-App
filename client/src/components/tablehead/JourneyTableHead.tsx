@@ -6,9 +6,12 @@ import {
   headCells,
 } from "types/journey.types";
 
-const TableHeadHome = (props: JourneyEnhancedTableProps) => {
-  const { order, orderBy, onRequestSort, journeys } = props;
-
+const TableHeadHome = ({
+  order,
+  orderBy,
+  onRequestSort,
+  journeys,
+}: JourneyEnhancedTableProps) => {
   const createSortHandler =
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);

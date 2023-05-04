@@ -17,8 +17,7 @@ import {
   Switch,
 } from "@mui/material";
 
-const StationTable = (props: stationTableProps) => {
-  const { stations, text } = props;
+const StationTable = ({ stations, text }: stationTableProps) => {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("Nimi");
   const [selected, setSelected] = useState<readonly string[]>([]);

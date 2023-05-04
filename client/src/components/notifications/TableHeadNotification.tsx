@@ -1,8 +1,7 @@
 import { tableHeadNotificationProps } from "types/general.types";
 import { TableHead, TableRow, TableCell, Typography } from "@mui/material";
 
-const TableHeadNotification = (props: tableHeadNotificationProps) => {
-  const { color, text } = props;
+const TableHeadNotification = ({ color, text }: tableHeadNotificationProps) => {
   return (
     <TableHead>
       <TableRow>

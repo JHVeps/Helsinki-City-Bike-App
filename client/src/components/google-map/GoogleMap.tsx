@@ -6,8 +6,7 @@ import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
 import "./mapStyle.css";
 
-const Map = (props: MapProps) => {
-  const { lat, lng } = props;
+const Map = ({ lat, lng }: MapProps) => {
   const center = useMemo(() => ({ lat: lat, lng: lng }), []);
 
   const url = REACT_APP_GOOGLE_MAP_API;

@@ -2,8 +2,13 @@ import { LinkButtonProps } from "types/general.types";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const LinkButton = (props: LinkButtonProps) => {
-  const { textDecoration, color, fontSize, path, title } = props;
+const LinkButton = ({
+  textDecoration,
+  color,
+  fontSize,
+  path,
+  title,
+}: LinkButtonProps) => {
   return (
     <Button
       sx={{

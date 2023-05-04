@@ -1,9 +1,13 @@
-import "@testing-library/jest-dom/extend-expect";
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 import Home from "./Home";
 
 test("renders content", () => {
-  render(<Home />);
-  const content = screen.getByText(/Home/i);
-  expect(content).toBeInTheDocument();
+  render(
+    <Router basename="/">
+      <Home />
+    </Router>
+  );
+  const headlines = screen.getAllByText("HOME");
+  expect(headlines).toHaveLength(2);
 });

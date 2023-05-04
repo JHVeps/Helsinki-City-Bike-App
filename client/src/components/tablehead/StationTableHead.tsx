@@ -6,9 +6,12 @@ import {
   stationsListHeadCells,
 } from "types/station.types";
 
-const StationTableHead = (props: StationEnhancedTableProps) => {
-  const { order, orderBy, onRequestSort, stations } = props;
-
+const StationTableHead = ({
+  order,
+  orderBy,
+  onRequestSort,
+  stations,
+}: StationEnhancedTableProps) => {
   const createSortHandler =
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);

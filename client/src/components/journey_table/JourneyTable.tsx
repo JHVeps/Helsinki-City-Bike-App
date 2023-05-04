@@ -17,8 +17,7 @@ import {
   Switch,
 } from "@mui/material";
 
-const JourneyTable = (props: journeyTableProps) => {
-  const { journeys, text } = props;
+const JourneyTable = ({ journeys, text }: journeyTableProps) => {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("DepartureStationName");
   const [selected, setSelected] = useState<readonly string[]>([]);

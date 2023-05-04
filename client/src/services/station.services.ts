@@ -15,9 +15,7 @@ export const getAllStations = createAsyncThunk("stations/fetch", async () => {
     let res = await axios(config);
     return { data: res.data, status: res.status };
   } catch (error: any) {
-    console.log("error", error.response.status);
-    alert(error);
-    return;
+    throw new Error("Failed to GET stations");
   }
 });
 
@@ -34,9 +32,7 @@ export const addNewStation = createAsyncThunk(
       let res = await axios(config);
       return { data: res.data, status: res.status };
     } catch (error: any) {
-      console.log("error", error.response.status);
-      alert(error);
-      return;
+      throw new Error("Failed to add new station");
     }
   }
 );
