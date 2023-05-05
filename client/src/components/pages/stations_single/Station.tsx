@@ -133,7 +133,7 @@ const Station = () => {
             }}
           >
             <InfoBoard
-              journeys={journeys.items}
+              journeys={journeys}
               stationData={stationData}
               title={"DETAILED INFORMATION"}
             />

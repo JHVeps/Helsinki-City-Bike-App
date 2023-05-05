@@ -1,6 +1,6 @@
 //Stations related types
 
-import { Journey, journeysState } from "./journey.types";
+import { journeysState } from "./journey.types";
 
 export type Station = {
   id?: string; //MongoDB generated id
@@ -86,7 +86,7 @@ export interface MapProps {
 }
 
 export interface InfoBoardProps {
-  journeys: Journey[];
+  journeys: journeysState;
   stationData: Station;
   title: string;
 }

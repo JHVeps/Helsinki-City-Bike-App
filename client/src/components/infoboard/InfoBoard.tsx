@@ -15,7 +15,7 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
     arrivals: { total: 0, count: 0 },
   };
 
-  journeys.forEach((journey) => {
+  journeys.items.forEach((journey) => {
     if (journey.DepartureStationName === stationData.Nimi) {
       distances.departing.total += journey.CoveredDistance;
       distances.departing.count++;
@@ -42,11 +42,11 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
     (departuresDivider * DISTANCE_PER_KM)
   ).toFixed(1)} km`;
 
-  const journeysReturningFromStation = journeys?.filter(
+  const journeysReturningFromStation = journeys?.items?.filter(
     ({ DepartureStationName }) => DepartureStationName === stationData?.Nimi
   );
 
-  const journeysStartingFromStation = journeys?.filter(
+  const journeysStartingFromStation = journeys?.items?.filter(
     ({ ReturnStationName }) => ReturnStationName === stationData?.Nimi
   );
 
@@ -87,11 +87,19 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
       <Typography sx={{ textAlign: "center", mt: 3 }} variant="h4">
         {title}
       </Typography>
-      <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
-        {`The average distance of a journey starting from the station: ${averageDepartingDistance}`}
+      <Typography
+        data-testid="avg_departing"
+        sx={{ paddingLeft: "20px", mt: 2 }}
+        variant="h6"
+      >
+        {`The average distance of a journey departing from this station: ${averageDepartingDistance}`}
       </Typography>
-      <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
-        {`The average distance of a journey ending at the station: ${averageArrivingDistance}`}
+      <Typography
+        data-testid="avg_returning"
+        sx={{ paddingLeft: "20px", mt: 2 }}
+        variant="h6"
+      >
+        {`The average distance of a journey returning to this station: ${averageArrivingDistance}`}
       </Typography>
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
         {`Top 5 stations for destination journeys: `}
