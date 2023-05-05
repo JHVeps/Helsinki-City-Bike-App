@@ -16,11 +16,17 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
   };
 
   journeys.items.forEach((journey) => {
-    if (journey.DepartureStationName === stationData.Nimi) {
+    if (
+      journey.DepartureStationName === stationData.Nimi &&
+      journey.CoveredDistance !== 0
+    ) {
       distances.departing.total += journey.CoveredDistance;
       distances.departing.count++;
     }
-    if (journey.ReturnStationName === stationData.Nimi) {
+    if (
+      journey.ReturnStationName === stationData.Nimi &&
+      journey.CoveredDistance !== 0
+    ) {
       distances.arrivals.total += journey.CoveredDistance;
       distances.arrivals.count++;
     }
@@ -105,7 +111,11 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
         {`Top 5 stations for destination journeys: `}
       </Typography>
       {top5DestinationStations.map(({ station, count }, i) => (
-        <Typography sx={{ paddingLeft: "40px" }} key={station}>
+        <Typography
+          data-testid="top5_destination_stations"
+          sx={{ paddingLeft: "40px" }}
+          key={station}
+        >
           {i + 1}. {station}: {count}
         </Typography>
       ))}
@@ -113,7 +123,11 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
         {`Top 5 stations for arriving journeys: `}
       </Typography>
       {top5ReturnStations.map(({ station, count }, i) => (
-        <Typography sx={{ paddingLeft: "40px" }} key={station}>
+        <Typography
+          data-testid="top5_arriving_stations"
+          sx={{ paddingLeft: "40px" }}
+          key={station}
+        >
           {i + 1}. {station}: {count}
         </Typography>
       ))}
