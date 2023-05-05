@@ -115,7 +115,6 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
                   }
                   return null;
                 })
-                .slice()
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
@@ -147,7 +146,6 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
                           fontSize: "1.3rem",
                         }}
                       >
-                        {" "}
                         <Link
                           style={{ textDecoration: "none" }}
                           to={`/stations/${journey.DepartureStationId}`}

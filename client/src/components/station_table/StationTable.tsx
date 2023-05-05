@@ -115,7 +115,6 @@ const StationTable = ({ stations, text }: stationTableProps) => {
                   }
                   return null;
                 })
-                .slice()
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
