@@ -44,7 +44,7 @@ const StationTable = ({ stations, text }: stationTableProps) => {
   };
 
   const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
-    const selectedIndex = selected.indexOf(name);
+    const selectedIndex: number = selected.indexOf(name);
     let newSelected: readonly string[] = [];
 
     if (selectedIndex === -1) {
@@ -81,7 +81,7 @@ const StationTable = ({ stations, text }: stationTableProps) => {
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
+  const emptyRows: number =
     page > 0
       ? Math.max(0, (1 + page) * rowsPerPage - stations.items.length)
       : 0;
@@ -118,14 +118,11 @@ const StationTable = ({ stations, text }: stationTableProps) => {
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
-                .map((station, index) => {
-                  const isItemSelected = isSelected(station.Nimi);
-                  const labelId = `enhanced-table-checkbox-${index}`;
+                .map((station) => {
+                  const isItemSelected: boolean = isSelected(station.Nimi);
 
                   return (
                     <TableRow
-                      hover
-                      role="checkbox"
                       tabIndex={-1}
                       key={station.FID}
                       selected={isItemSelected}
@@ -134,8 +131,6 @@ const StationTable = ({ stations, text }: stationTableProps) => {
                       }
                     >
                       <TableCell
-                        component="th"
-                        id={labelId}
                         scope="row"
                         padding="none"
                         align="center"

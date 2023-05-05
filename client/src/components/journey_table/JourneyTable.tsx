@@ -24,9 +24,11 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(25);
+  const DURATION_PER_MINUTE = 60;
+  const DISTANCE_PER_KM = 1000;
 
   const handleRequestSort = (
-    event: React.MouseEvent<unknown>,
+    _event: React.MouseEvent<unknown>,
     property: keyof Data
   ) => {
     const isAsc = orderBy === property && order === "asc";
@@ -46,7 +48,7 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
   };
 
   const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
-    const selectedIndex = selected.indexOf(name);
+    const selectedIndex: number = selected.indexOf(name);
     let newSelected: readonly string[] = [];
 
     if (selectedIndex === -1) {
@@ -83,7 +85,7 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
+  const emptyRows: number =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - journeys.length) : 0;
 
   return (
@@ -119,15 +121,22 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
                 .map((journey, index) => {
-                  const isItemSelected = isSelected(
+                  const isItemSelected: boolean = isSelected(
                     journey.DepartureStationName
                   );
-                  const labelId = `enhanced-table-checkbox-${index}`;
+
+                  const departureStation: string = journey.DepartureStationName;
+                  const returnStation: string = journey.ReturnStationName;
+                  const distance: string = (
+                    journey.CoveredDistance / DISTANCE_PER_KM
+                  ).toFixed(1);
+                  const duration: number = Math.round(
+                    journey.Duration / DURATION_PER_MINUTE
+                  );
 
                   return (
                     <TableRow
-                      hover
-                      role="checkbox"
+                      data-testid={`journey_info_row ${index + 1}`}
                       tabIndex={-1}
                       key={journey.id}
                       selected={isItemSelected}
@@ -136,8 +145,7 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
                       }
                     >
                       <TableCell
-                        component="th"
-                        id={labelId}
+                        data-testid={`journey_departure_station ${index + 1}`}
                         scope="row"
                         padding="none"
                         align="center"
@@ -150,35 +158,38 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
                           style={{ textDecoration: "none" }}
                           to={`/stations/${journey.DepartureStationId}`}
                         >
-                          {journey.DepartureStationName}
+                          {departureStation}
                         </Link>
                       </TableCell>
                       <TableCell
+                        data-testid={`journey_return_station ${index + 1}`}
                         align="center"
                         sx={{
                           borderRight: "2px solid #363433",
                           fontSize: "1.3rem",
                         }}
                       >
-                        {journey.ReturnStationName}
+                        {returnStation}
                       </TableCell>
                       <TableCell
+                        data-testid={`journey_distance ${index + 1}`}
                         align="center"
                         sx={{
                           borderRight: "2px solid #363433",
                           fontSize: "1.3rem",
                         }}
                       >
-                        {(journey.CoveredDistance / 1000).toFixed(1)}
+                        {distance}
                       </TableCell>
                       <TableCell
+                        data-testid={`journey_duration ${index + 1}`}
                         align="center"
                         sx={{
                           borderRight: "2px solid #363433",
                           fontSize: "1.3rem",
                         }}
                       >
-                        {Math.round(journey.Duration / 60)}
+                        {duration}
                       </TableCell>
                     </TableRow>
                   );
