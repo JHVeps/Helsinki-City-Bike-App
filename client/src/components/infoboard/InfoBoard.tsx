@@ -15,7 +15,7 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
     arrivals: { total: 0, count: 0 },
   };
 
-  journeys.items.forEach((journey) => {
+  journeys.forEach((journey) => {
     if (
       journey.DepartureStationName === stationData.Nimi &&
       journey.CoveredDistance !== 0
@@ -48,11 +48,11 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
     (departuresDivider * DISTANCE_PER_KM)
   ).toFixed(1)} km`;
 
-  const journeysReturningFromStation = journeys?.items?.filter(
+  const journeysReturningFromStation = journeys?.filter(
     ({ DepartureStationName }) => DepartureStationName === stationData?.Nimi
   );
 
-  const journeysStartingFromStation = journeys?.items?.filter(
+  const journeysStartingFromStation = journeys?.filter(
     ({ ReturnStationName }) => ReturnStationName === stationData?.Nimi
   );
 

@@ -134,7 +134,7 @@ const StationSearched = () => {
             }}
           >
             <InfoBoard
-              journeys={journeys}
+              journeys={journeys.items}
               stationData={stationData}
               title={"DETAILED INFORMATION"}
             />
