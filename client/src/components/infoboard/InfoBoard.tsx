@@ -112,7 +112,7 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
       </Typography>
       {top5DestinationStations.map(({ station, count }, i) => (
         <Typography
-          data-testid="top5_destination_stations"
+          data-testid={`top5_destination_stations ${i + 1}`}
           sx={{ paddingLeft: "40px" }}
           key={station}
         >

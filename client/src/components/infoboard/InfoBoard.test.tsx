@@ -44,4 +44,26 @@ describe("<InfoBoard />", () => {
       "The average distance of a journey returning to this station: 5.1 km"
     );
   });
+  test("<InfoBoard /> renders top destination stations correctly", () => {
+    render(
+      <InfoBoard
+        journeys={journeys}
+        stationData={stationData}
+        title="Test Board"
+      />
+    );
+    const mostJourneysDepartedTo = screen.getByTestId(
+      "top5_destination_stations 1"
+    );
+    expect(mostJourneysDepartedTo).toBeInTheDocument();
+    expect(mostJourneysDepartedTo.textContent).toBe("1. Viiskulma: 2");
+
+    const secondMostJourneysDepartedTo = screen.getByTestId(
+      "top5_destination_stations 2"
+    );
+    expect(secondMostJourneysDepartedTo).toBeInTheDocument();
+    expect(secondMostJourneysDepartedTo.textContent).toBe(
+      "2. Hernesaarenranta: 1"
+    );
+  });
 });
