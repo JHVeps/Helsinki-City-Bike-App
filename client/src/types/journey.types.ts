@@ -19,7 +19,7 @@ export interface journeysState {
 }
 
 export interface journeyTableProps {
-  journeys: journeysState;
+  journeys: Journey[];
   text: string;
 }
 

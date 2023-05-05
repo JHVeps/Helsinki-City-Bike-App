@@ -15,7 +15,7 @@ const Journeys = () => {
       <Typography variant="h4">JOURNEYS</Typography>
       <Navigation />
       <AppBar title={"Journeys List"} text={text} setText={setText} />
-      <JourneyTable journeys={journeys} text={text} />
+      <JourneyTable journeys={journeys.items} text={text} />
     </Box>
   );
 };

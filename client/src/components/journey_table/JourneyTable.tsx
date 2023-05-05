@@ -36,7 +36,7 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = journeys.items.map(
+      const newSelected = journeys.map(
         (j: { DepartureStationName: any }) => j.DepartureStationName
       );
       setSelected(newSelected);
@@ -84,9 +84,7 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0
-      ? Math.max(0, (1 + page) * rowsPerPage - journeys.items.length)
-      : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - journeys.length) : 0;
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -99,12 +97,12 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={journeys.items.length}
+              rowCount={journeys.length}
               journeys={journeys}
             />
 
             <TableBody>
-              {journeys.items
+              {journeys
                 .filter((journey) => {
                   if (text === "") {
                     return journey;
@@ -202,7 +200,7 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
         <TablePagination
           rowsPerPageOptions={[25, 50, 100]}
           component="div"
-          count={journeys.items.length}
+          count={journeys.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
