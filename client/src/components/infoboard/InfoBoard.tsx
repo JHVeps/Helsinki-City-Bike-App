@@ -1,7 +1,7 @@
-import { InfoBoardProps } from "types/station.types";
+import { InfoBoardProps, StationCount } from "types/station.types";
 import { Box, Typography } from "@mui/material";
 
-const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
+const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
   const style = {
     bgcolor: "background.paper",
     width: "45%",
@@ -10,24 +10,23 @@ const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
     marginRight: "20px",
   };
 
-  const distancePerKm = 1000;
-
   let distances = {
     departing: { total: 0, count: 0 },
     arrivals: { total: 0, count: 0 },
   };
 
-  journeys.items.forEach((obj) => {
-    if (obj.DepartureStationName === stationData.Nimi) {
-      distances.departing.total += obj.CoveredDistance;
+  journeys.forEach((journey) => {
+    if (journey.DepartureStationName === stationData.Nimi) {
+      distances.departing.total += journey.CoveredDistance;
       distances.departing.count++;
     }
-    if (obj.ReturnStationName === stationData.Nimi) {
-      distances.arrivals.total += obj.CoveredDistance;
+    if (journey.ReturnStationName === stationData.Nimi) {
+      distances.arrivals.total += journey.CoveredDistance;
       distances.arrivals.count++;
     }
   });
 
+  const DISTANCE_PER_KM = 1000;
   const totalArrivals: number = distances.arrivals.total;
   const arrivalsDivider: number = distances.arrivals.count;
   const totalDepartures: number = distances.departing.total;
@@ -36,23 +35,18 @@ const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
   // count average journey lengths
   const averageArrivingDistance: string = `${(
     totalArrivals /
-    (arrivalsDivider * distancePerKm)
+    (arrivalsDivider * DISTANCE_PER_KM)
   ).toFixed(1)} km`;
   const averageDepartingDistance: string = `${(
     totalDepartures /
-    (departuresDivider * distancePerKm)
+    (departuresDivider * DISTANCE_PER_KM)
   ).toFixed(1)} km`;
 
-  interface StationCount {
-    station: string;
-    count: number;
-  }
-
-  const journeysReturningFromStation = journeys?.items?.filter(
+  const journeysReturningFromStation = journeys?.filter(
     ({ DepartureStationName }) => DepartureStationName === stationData?.Nimi
   );
 
-  const journeysStartingFromStation = journeys?.items?.filter(
+  const journeysStartingFromStation = journeys?.filter(
     ({ ReturnStationName }) => ReturnStationName === stationData?.Nimi
   );
 
@@ -91,13 +85,13 @@ const InfoBoard = ({ journeys, stationData }: InfoBoardProps) => {
   return (
     <Box sx={style}>
       <Typography sx={{ textAlign: "center", mt: 3 }} variant="h4">
-        DETAILS
+        {title}
       </Typography>
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
-        {`The average distance of a journey starting from the station: ${averageDepartingDistance} KM`}
+        {`The average distance of a journey starting from the station: ${averageDepartingDistance}`}
       </Typography>
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
-        {`The average distance of a journey ending at the station: ${averageArrivingDistance} KM`}
+        {`The average distance of a journey ending at the station: ${averageArrivingDistance}`}
       </Typography>
       <Typography sx={{ paddingLeft: "20px", mt: 2 }} variant="h6">
         {`Top 5 stations for destination journeys: `}

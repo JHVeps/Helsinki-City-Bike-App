@@ -133,7 +133,11 @@ const StationSearched = () => {
               marginBlock: "20px",
             }}
           >
-            <InfoBoard journeys={journeys} stationData={stationData} />
+            <InfoBoard
+              journeys={journeys.items}
+              stationData={stationData}
+              title={"DETAILED INFORMATION"}
+            />
             <Map lat={stationData.y} lng={stationData.x} />
           </Box>
         </Box>

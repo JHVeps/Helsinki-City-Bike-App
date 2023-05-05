@@ -1,5 +1,21 @@
 # Helsinki-City-Bike-App
 
+## Commands
+
+### API
+
+- yarn test: run tests for API
+
+- yarn run dev: run in development enviroment
+
+- yarn start: run in production enviroment
+
+### CLIENT
+
+- yarn test: run tests for CLIENT
+
+- yarn start: start client
+
 ## TODO
 
 ### import csv to database, CSV importer app
