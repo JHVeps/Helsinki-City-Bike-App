@@ -35,8 +35,8 @@ const NewStation = () => {
     FID: "FID",
     ID: "ID",
     CAPACITY: "CAPACITY",
-    LONGITUDE: "GOOGLE MAP LONGITUDE",
-    LATITUDE: "GOOGLE MAP LATITUDE",
+    LONGITUDE: "GOOGLE MAPS LONGITUDE",
+    LATITUDE: "GOOGLE MAPS LATITUDE",
   };
 
   const formOptions: addStationFormOptions = {
@@ -46,6 +46,8 @@ const NewStation = () => {
     selectOperator: "SELECT OPERATOR",
     cityBikeFin: "City Bike Finland",
   };
+
+  const addStationBtnTitle: string = "ADD STATION";
 
   return (
     <Box>
@@ -63,16 +65,22 @@ const NewStation = () => {
         >
           <Form>
             <FormLabel sx={{ color: "white" }}>{formLabels.FID}</FormLabel>
-            <Field name="FID" type="text" placeholder="FID" required />
-            <FormLabel sx={{ color: "white" }}>{formLabels.ID}</FormLabel>
-            <Field name="ID" type="text" placeholder="ID" required />
             <Field
-              data-testid="station_nimi_value"
-              name="Nimi"
+              data-testid="station_FID_input"
+              name="FID"
               type="text"
-              placeholder="NIMI"
+              placeholder="FID"
               required
             />
+            <FormLabel sx={{ color: "white" }}>{formLabels.ID}</FormLabel>
+            <Field
+              data-testid="station_ID_input"
+              name="ID"
+              type="text"
+              placeholder="ID"
+              required
+            />
+            <Field name="Nimi" type="text" placeholder="NIMI" required />
             <Field name="Namn" type="text" placeholder="NAMN" required />
             <Field name="Name" type="text" placeholder="NAME" required />
             <Field name="Osoite" type="text" placeholder="OSOITE" required />
@@ -94,7 +102,7 @@ const NewStation = () => {
               </option>
             </Field>
             <FormLabel sx={{ color: "white" }}>{formLabels.CAPACITY}</FormLabel>
-            <Field name="Kapasiteet" type="text" placeholder="KAPASITEET" />
+            <Field name="Kapasiteet" type="text" placeholder="CAPACITY" />
             <FormLabel sx={{ color: "white" }}>
               {formLabels.LONGITUDE}
             </FormLabel>
@@ -118,7 +126,7 @@ const NewStation = () => {
               }}
               type="submit"
             >
-              ADD STATION
+              {addStationBtnTitle}
             </Button>
           </Form>
         </Formik>

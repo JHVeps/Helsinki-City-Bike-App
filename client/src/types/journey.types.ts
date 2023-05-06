@@ -29,14 +29,14 @@ export interface journeyTableProps {
   error: boolean;
 }
 
+export type Order = "asc" | "desc";
+
 export interface Data {
   DepartureStationName: string;
   ReturnStationName: string;
   CoveredDistance: number;
   Duration: number;
 }
-
-export type Order = "asc" | "desc";
 
 export interface JourneyEnhancedTableProps {
   numSelected: number;
