@@ -1,25 +1,23 @@
 import { TableHead, TableRow, TableCell, TableSortLabel } from "@mui/material";
 import {
   Data,
-  JourneyEnhancedTableProps,
-  headCells,
-} from "types/journey.types";
+  StationEnhancedTableProps,
+  stationsListHeadCells,
+} from "types/station.types";
 
-const TableHeadHome = ({
+const StationTableHead = ({
   order,
   orderBy,
   onRequestSort,
-  journeys,
-}: JourneyEnhancedTableProps) => {
+}: StationEnhancedTableProps) => {
   const createSortHandler =
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
-
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell) => (
+        {stationsListHeadCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align="center"
@@ -46,4 +44,4 @@ const TableHeadHome = ({
   );
 };
 
-export default TableHeadHome;
+export default StationTableHead;

@@ -5,17 +5,23 @@ import { Box, Typography } from "@mui/material";
 import Navigation from "../../navigation/StationsNavigation";
 import AppBar from "components/appbar/AppBar";
 import StationTable from "components/station_table/StationTable";
+import { StationsListPageProps } from "types/station.types";
 
-const Stations = () => {
+const Stations = ({ title }: StationsListPageProps) => {
   const { stations } = useAppSelector((state: RootState) => state);
-  const title: string = "STATIONS";
+  const stationsPageTitle: string = title;
   const [text, setText] = useState("");
   return (
     <Box>
-      <Typography variant="h4">{title}</Typography>
+      <Typography variant="h4">{stationsPageTitle}</Typography>
       <Navigation />
       <AppBar title={"Stations List"} text={text} setText={setText} />
-      <StationTable stations={stations} text={text} />
+      <StationTable
+        stations={stations.items}
+        text={text}
+        pending={stations.isLoading}
+        error={stations.error}
+      />
     </Box>
   );
 };

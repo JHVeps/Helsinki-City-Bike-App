@@ -2,8 +2,9 @@ import { Data, stationTableProps } from "types/station.types";
 import { useState } from "react";
 import { Order } from "types/general.types";
 import { getComparator } from "utils/utils";
-import TableHead from "components/tablehead/StationTableHead";
+import TableHead from "components/tablehead/stations/TableHead";
 import { Link } from "react-router-dom";
+import Notification from "components/notifications/ListNotification";
 import {
   Box,
   Paper,
@@ -17,7 +18,12 @@ import {
   Switch,
 } from "@mui/material";
 
-const StationTable = ({ stations, text }: stationTableProps) => {
+const StationTable = ({
+  stations,
+  text,
+  pending,
+  error,
+}: stationTableProps) => {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("Nimi");
   const [selected, setSelected] = useState<readonly string[]>([]);
@@ -36,7 +42,7 @@ const StationTable = ({ stations, text }: stationTableProps) => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = stations.items.map((s: { Nimi: string }) => s.Nimi);
+      const newSelected = stations.map((s: { Nimi: string }) => s.Nimi);
       setSelected(newSelected);
       return;
     }
@@ -82,9 +88,14 @@ const StationTable = ({ stations, text }: stationTableProps) => {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows: number =
-    page > 0
-      ? Math.max(0, (1 + page) * rowsPerPage - stations.items.length)
-      : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - stations.length) : 0;
+
+  if (pending) {
+    return <Notification color={"green"} text={"Loading..."} />;
+  }
+  if (error) {
+    return <Notification color={"red"} text={"ERROR!"} />;
+  }
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -97,12 +108,11 @@ const StationTable = ({ stations, text }: stationTableProps) => {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={stations.items.length}
-              stations={stations}
+              rowCount={stations.length}
             />
 
             <TableBody>
-              {stations.items
+              {stations
                 .filter((station) => {
                   if (text === "") {
                     return station;
@@ -118,11 +128,12 @@ const StationTable = ({ stations, text }: stationTableProps) => {
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
-                .map((station) => {
+                .map((station, index) => {
                   const isItemSelected: boolean = isSelected(station.Nimi);
 
                   return (
                     <TableRow
+                      data-testid={`station_info_row ${index + 1}`}
                       tabIndex={-1}
                       key={station.FID}
                       selected={isItemSelected}
@@ -131,6 +142,7 @@ const StationTable = ({ stations, text }: stationTableProps) => {
                       }
                     >
                       <TableCell
+                        data-testid={`station_name ${index + 1}`}
                         scope="row"
                         padding="none"
                         align="center"
@@ -147,6 +159,7 @@ const StationTable = ({ stations, text }: stationTableProps) => {
                         </Link>
                       </TableCell>
                       <TableCell
+                        data-testid={`station_address ${index + 1}`}
                         align="center"
                         sx={{
                           borderRight: "2px solid #363433",
@@ -156,6 +169,7 @@ const StationTable = ({ stations, text }: stationTableProps) => {
                         {station.Osoite}
                       </TableCell>
                       <TableCell
+                        data-testid={`station_city ${index + 1}`}
                         align="center"
                         sx={{
                           borderRight: "2px solid #363433",
@@ -184,7 +198,7 @@ const StationTable = ({ stations, text }: stationTableProps) => {
         <TablePagination
           rowsPerPageOptions={[10, 25, 50, 100]}
           component="div"
-          count={stations.items.length}
+          count={stations.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

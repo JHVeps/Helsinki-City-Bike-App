@@ -20,3 +20,8 @@ export interface LinkButtonProps {
   path: string;
   title: string;
 }
+
+export interface SearchBarProps {
+  url: string;
+  buttonTitle: string;
+}

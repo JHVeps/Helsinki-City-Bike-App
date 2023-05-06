@@ -43,7 +43,7 @@ const App = () => {
             path="/journeys/search/:stationName"
             element={<JourneysSearched />}
           />
-          <Route path="/stations" element={<Stations />} />
+          <Route path="/stations" element={<Stations title={"STATIONS"} />} />
           <Route path="/stations/:FID" element={<Station />} />
           <Route
             path="/stations/search/:stationName"

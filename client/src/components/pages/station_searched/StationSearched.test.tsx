@@ -2,14 +2,14 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "redux/store";
 import { BrowserRouter as Router } from "react-router-dom";
-import JourneysSearched from "./JourneysSearched";
+import StationSearched from "./StationSearched";
 
-describe("<JourneySearched />", () => {
+describe("<StationSearched />", () => {
   it("renders NOT FOUND text", () => {
     render(
       <Provider store={store}>
         <Router basename="/">
-          <JourneysSearched />
+          <StationSearched />
         </Router>
       </Provider>
     );

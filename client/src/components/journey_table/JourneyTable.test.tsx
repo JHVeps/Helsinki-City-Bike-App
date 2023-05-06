@@ -4,7 +4,7 @@ import JourneyTable from "./JourneyTable";
 import { journeys } from "utils/test_helper";
 
 describe("<JourneyTable />", () => {
-  test("<JourneyTable /> renders first row of table table", () => {
+  it("renders first row of table", () => {
     render(
       <BrowserRouter basename="/">
         <JourneyTable
@@ -18,7 +18,7 @@ describe("<JourneyTable />", () => {
     const firstTableRow = screen.getByTestId("journey_info_row 1");
     expect(firstTableRow).toBeInTheDocument();
   });
-  test("<JourneyTable /> renders all rows", () => {
+  it("renders all rows", () => {
     render(
       <BrowserRouter basename="/">
         <JourneyTable
@@ -33,7 +33,7 @@ describe("<JourneyTable />", () => {
     expect(tableRows.length).toBe(journeys.length);
   });
 
-  it("<JourneyTable /> renders first row correctly", () => {
+  it("renders first row correctly", () => {
     render(
       <BrowserRouter basename="/">
         <JourneyTable

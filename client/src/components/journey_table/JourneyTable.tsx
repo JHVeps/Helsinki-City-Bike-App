@@ -2,9 +2,9 @@ import { Data, journeyTableProps } from "types/journey.types";
 import { useState } from "react";
 import { Order } from "types/general.types";
 import { getComparator } from "utils/utils";
-import TableHead from "components/tablehead/JourneyTableHead";
+import TableHead from "components/tablehead/journeys/TableHead";
 import { Link } from "react-router-dom";
-import Notification from "components/notifications/JourneyListNotification";
+import Notification from "components/notifications/ListNotification";
 import {
   Box,
   Paper,
@@ -113,7 +113,6 @@ const JourneyTable = ({
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
               rowCount={journeys.length}
-              journeys={journeys}
             />
 
             <TableBody>

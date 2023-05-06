@@ -27,6 +27,7 @@ const StationSearched = () => {
     departures: "Journeys departing",
     arrivals: "Journeys arriving",
   };
+  const notFound: string = "NOT FOUND";
 
   if (stationName) {
     const stationData = stations.items.find((s) => s.Nimi === stationName);
@@ -154,7 +155,7 @@ const StationSearched = () => {
   }
   return (
     <Box>
-      <Typography variant="h2">NOT FOUND</Typography>
+      <Typography variant="h2">{notFound}</Typography>
       <Navigation />
     </Box>
   );

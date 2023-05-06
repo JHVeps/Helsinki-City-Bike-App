@@ -26,8 +26,14 @@ export interface stationsState {
 }
 
 export interface stationTableProps {
-  stations: stationsState;
+  stations: Station[];
   text: string;
+  pending: boolean;
+  error: boolean;
+}
+
+export interface StationsListPageProps {
+  title: string;
 }
 
 export interface Data {
@@ -48,7 +54,6 @@ export interface StationEnhancedTableProps {
   order: Order;
   orderBy: string;
   rowCount: number;
-  stations: any;
 }
 
 export interface HeadCell {

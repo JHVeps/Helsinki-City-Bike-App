@@ -48,7 +48,6 @@ export interface JourneyEnhancedTableProps {
   order: Order;
   orderBy: string;
   rowCount: number;
-  journeys: any;
 }
 
 export interface JourneyListTableBodyProps {
@@ -56,10 +55,6 @@ export interface JourneyListTableBodyProps {
   id: keyof Data;
   label: string;
   numeric: boolean;
-}
-
-export interface JourneySearchBarProps {
-  searched: string;
 }
 
 export interface HeadCell {

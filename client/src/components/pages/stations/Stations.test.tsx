@@ -1,19 +1,20 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import Journeys from "./Journeys";
-import { store } from "redux/store";
+import Stations from "./Stations";
 
-describe("<Journeys />", () => {
+import { store } from "redux/store";
+describe("<Stations />", () => {
   it("has correct title", () => {
     render(
       <Provider store={store}>
         <Router basename="/">
-          <Journeys title="test title" />
+          <Stations title="test title" />
         </Router>
       </Provider>
     );
     const title = screen.getAllByText("test title");
+
     expect(title).toBeDefined();
   });
 });

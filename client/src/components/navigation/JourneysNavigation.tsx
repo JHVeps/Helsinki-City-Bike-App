@@ -19,7 +19,7 @@ const JourneysNavigation = () => {
         path="/stations"
         title="STATIONS LIST"
       />
-      <SearchBar searched={"/journeys/search/"} />
+      <SearchBar url={"/journeys/search/"} buttonTitle="SEARCH" />
     </Box>
   );
 };

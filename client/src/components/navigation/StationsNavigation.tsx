@@ -26,7 +26,7 @@ const StationsNavigation = () => {
         path="/stations/add_new_station"
         title="ADD NEW STATION"
       />
-      <SearchBar searched={"/stations/search/"} />
+      <SearchBar url={"/stations/search/"} buttonTitle="SEARCH" />
     </Box>
   );
 };

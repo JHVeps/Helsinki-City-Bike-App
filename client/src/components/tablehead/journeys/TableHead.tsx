@@ -1,32 +1,24 @@
 import { TableHead, TableRow, TableCell, TableSortLabel } from "@mui/material";
-import TableHeadNotification from "components/notifications/JourneyListNotification";
 import {
   Data,
-  StationEnhancedTableProps,
-  stationsListHeadCells,
-} from "types/station.types";
+  JourneyEnhancedTableProps,
+  headCells,
+} from "types/journey.types";
 
-const StationTableHead = ({
+const TableHeadHome = ({
   order,
   orderBy,
   onRequestSort,
-  stations,
-}: StationEnhancedTableProps) => {
+}: JourneyEnhancedTableProps) => {
   const createSortHandler =
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
-  if (stations.isLoading) {
-    return <TableHeadNotification color={"green"} text={"Loading..."} />;
-  }
-  if (stations.error) {
-    return <TableHeadNotification color={"red"} text={"ERROR!"} />;
-  }
 
   return (
     <TableHead>
       <TableRow>
-        {stationsListHeadCells.map((headCell) => (
+        {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align="center"
@@ -53,4 +45,4 @@ const StationTableHead = ({
   );
 };
 
-export default StationTableHead;
+export default TableHeadHome;

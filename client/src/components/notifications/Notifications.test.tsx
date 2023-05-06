@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import TableHeadNotification from "./JourneyListNotification";
+import TableHeadNotification from "./ListNotification";
 
 describe("<TableHeadNotification />", () => {
   test("<TableHeadNotification /> has correct color", () => {
