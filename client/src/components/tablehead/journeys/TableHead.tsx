@@ -18,8 +18,9 @@ const TableHeadHome = ({
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell) => (
+        {headCells.map((headCell, index) => (
           <TableCell
+            data-testid={`journeys_table_header ${index + 1}`}
             key={headCell.id}
             align="center"
             sx={{

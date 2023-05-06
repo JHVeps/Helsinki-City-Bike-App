@@ -17,8 +17,9 @@ const StationTableHead = ({
   return (
     <TableHead>
       <TableRow>
-        {stationsListHeadCells.map((headCell) => (
+        {stationsListHeadCells.map((headCell, index) => (
           <TableCell
+            data-testid={`station_table_header ${index + 1}`}
             key={headCell.id}
             align="center"
             sx={{

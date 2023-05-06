@@ -114,7 +114,6 @@ const JourneyTable = ({
               onRequestSort={handleRequestSort}
               rowCount={journeys.length}
             />
-
             <TableBody>
               {journeys
                 .filter((journey) => {
