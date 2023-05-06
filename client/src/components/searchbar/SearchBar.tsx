@@ -1,9 +1,12 @@
+import { JourneySearchBarProps } from "types/journey.types";
 import { SetStateAction, useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const JourneySearchBar = () => {
+const SearchBar = ({ searched }: JourneySearchBarProps) => {
   const [stationName, setStationName] = useState("");
+  const url: string = searched;
+  const buttonTitle: string = "SEARCH";
 
   const onChangeStationName = (e: {
     target: { value: SetStateAction<string> };
@@ -27,7 +30,7 @@ const JourneySearchBar = () => {
         onChange={onChangeStationName}
         placeholder="SEARCH..."
       />
-      <Link to={`/journeys/${stationName}`}>
+      <Link to={`${url}${stationName}`}>
         <Button
           sx={{
             padding: "15px 18px",
@@ -41,11 +44,11 @@ const JourneySearchBar = () => {
             },
           }}
         >
-          SEARCH
+          {buttonTitle}
         </Button>
       </Link>
     </Box>
   );
 };
 
-export default JourneySearchBar;
+export default SearchBar;

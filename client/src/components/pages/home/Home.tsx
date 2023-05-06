@@ -2,9 +2,12 @@ import Navigation from "components/navigation/HomeNavigation";
 import { Box, Typography } from "@mui/material";
 
 const Home = () => {
+  const title: string = "HOME";
   return (
     <Box>
-      <Typography variant="h4">HOME</Typography>
+      <Typography sx={{ padding: "20px" }} variant="h4">
+        {title}
+      </Typography>
       <Navigation />
     </Box>
   );

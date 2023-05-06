@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import LinkButton from "components/buttons/LinkButton";
-import JourneySearchBar from "components/searchbar/JourneySearchBar";
+import SearchBar from "components/searchbar/SearchBar";
 
 const JourneysNavigation = () => {
   return (
@@ -19,7 +19,7 @@ const JourneysNavigation = () => {
         path="/stations"
         title="STATIONS LIST"
       />
-      <JourneySearchBar />
+      <SearchBar searched={"/journeys/search/"} />
     </Box>
   );
 };

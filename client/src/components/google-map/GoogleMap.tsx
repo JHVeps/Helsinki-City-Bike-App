@@ -10,15 +10,16 @@ const Map = ({ lat, lng }: MapProps) => {
   const center = useMemo(() => ({ lat: lat, lng: lng }), []);
 
   const url = REACT_APP_GOOGLE_MAP_API;
+  const loadingInfo: string = "LOADING...";
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: url,
+    googleMapsApiKey: url as string,
   });
 
   if (!isLoaded)
     return (
       <Box>
-        <Typography variant="h2">LOADING...</Typography>
+        <Typography variant="h2">{loadingInfo}</Typography>
       </Box>
     );
 

@@ -1,7 +1,7 @@
 import { RootState } from "redux/store";
 import { useAppSelector } from "redux/hooks";
 import { useParams } from "react-router-dom";
-import { Journey } from "types/journey.types";
+import { Journey, journeySearchedHeaders } from "types/journey.types";
 import Navigation from "components/navigation/HomeNavigation";
 import {
   Box,
@@ -18,6 +18,16 @@ import {
 const JourneysSearched = () => {
   const { journeys } = useAppSelector((state: RootState) => state);
   const { stationName } = useParams<{ stationName: string }>();
+  const title: string = `FOUND DEPARTED JOURNEYS FROM: ${stationName}`;
+  const headers: journeySearchedHeaders = {
+    departureStation: "Departure Station",
+    returnStation: "Return Station",
+    distance: "Distance traveled (KM)",
+    duration: "Travel time (min)",
+  };
+  const notFound: string = "NOT FOUND";
+  const DURATION_PER_MINUTE: number = 60;
+  const DISTANCE_PER_KM: number = 1000;
 
   if (stationName) {
     const foundJourneys = [] as Journey[];
@@ -31,7 +41,7 @@ const JourneysSearched = () => {
     if (foundJourneys.length > 0) {
       return (
         <Box sx={{ padding: "20px", marginBlock: "20px" }}>
-          <Typography variant="h4">{`FOUND DEPARTED JOURNEYS FROM: ${stationName}`}</Typography>
+          <Typography variant="h4">{title}</Typography>
           <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
@@ -44,7 +54,7 @@ const JourneysSearched = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Departure Station
+                    {headers.departureStation}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -53,7 +63,7 @@ const JourneysSearched = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Return Station
+                    {headers.returnStation}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -62,7 +72,7 @@ const JourneysSearched = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Distance traveled (KM)
+                    {headers.distance}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -71,7 +81,7 @@ const JourneysSearched = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Travel time (min)
+                    {headers.duration}
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -103,7 +113,7 @@ const JourneysSearched = () => {
                         fontSize: "1.3rem",
                       }}
                     >
-                      {(journey.CoveredDistance / 1000).toFixed(1)}
+                      {(journey.CoveredDistance / DISTANCE_PER_KM).toFixed(1)}
                     </TableCell>
                     <TableCell
                       align="center"
@@ -112,7 +122,7 @@ const JourneysSearched = () => {
                         fontSize: "1.3rem",
                       }}
                     >
-                      {Math.round(journey.Duration / 60)}
+                      {Math.round(journey.Duration / DURATION_PER_MINUTE)}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -125,7 +135,7 @@ const JourneysSearched = () => {
   }
   return (
     <Box>
-      <Typography variant="h2">NOT FOUND</Typography>
+      <Typography variant="h2">{notFound}</Typography>
       <Navigation />
     </Box>
   );

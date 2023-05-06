@@ -1,5 +1,4 @@
 import { TableHead, TableRow, TableCell, TableSortLabel } from "@mui/material";
-import TableHeadNotification from "components/notifications/TableHeadNotification";
 import {
   Data,
   JourneyEnhancedTableProps,
@@ -16,13 +15,6 @@ const TableHeadHome = ({
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
-
-  if (journeys.isLoading) {
-    return <TableHeadNotification color={"green"} text={"Loading..."} />;
-  }
-  if (journeys.error) {
-    return <TableHeadNotification color={"red"} text={"ERROR!"} />;
-  }
 
   return (
     <TableHead>

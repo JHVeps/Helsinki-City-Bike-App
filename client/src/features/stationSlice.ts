@@ -16,7 +16,6 @@ const initialState: stationsState = {
     Osoite: "",
     Adress: "",
     Kaupunki: "",
-    Stad: "",
     Operaattor: "",
     Kapasiteet: 0,
     x: 0,

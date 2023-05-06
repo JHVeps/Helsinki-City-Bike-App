@@ -20,7 +20,6 @@ export type StationDocument = Document & {
   Osoite: string;
   Adress: string;
   Kaupunki: string;
-  Stad: string;
   Operaattor: string;
   Kapasiteet: number;
   x: number;

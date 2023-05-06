@@ -8,10 +8,11 @@ import StationTable from "components/station_table/StationTable";
 
 const Stations = () => {
   const { stations } = useAppSelector((state: RootState) => state);
+  const title: string = "STATIONS";
   const [text, setText] = useState("");
   return (
     <Box>
-      <Typography variant="h4">STATIONS</Typography>
+      <Typography variant="h4">{title}</Typography>
       <Navigation />
       <AppBar title={"Stations List"} text={text} setText={setText} />
       <StationTable stations={stations} text={text} />

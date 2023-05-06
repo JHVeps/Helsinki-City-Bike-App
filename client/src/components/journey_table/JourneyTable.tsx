@@ -4,6 +4,7 @@ import { Order } from "types/general.types";
 import { getComparator } from "utils/utils";
 import TableHead from "components/tablehead/JourneyTableHead";
 import { Link } from "react-router-dom";
+import Notification from "components/notifications/JourneyListNotification";
 import {
   Box,
   Paper,
@@ -17,15 +18,20 @@ import {
   Switch,
 } from "@mui/material";
 
-const JourneyTable = ({ journeys, text }: journeyTableProps) => {
+const JourneyTable = ({
+  journeys,
+  text,
+  pending,
+  error,
+}: journeyTableProps) => {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("DepartureStationName");
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(25);
-  const DURATION_PER_MINUTE = 60;
-  const DISTANCE_PER_KM = 1000;
+  const DURATION_PER_MINUTE: number = 60;
+  const DISTANCE_PER_KM: number = 1000;
 
   const handleRequestSort = (
     _event: React.MouseEvent<unknown>,
@@ -39,7 +45,7 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
       const newSelected = journeys.map(
-        (j: { DepartureStationName: any }) => j.DepartureStationName
+        (j: { DepartureStationName: string }) => j.DepartureStationName
       );
       setSelected(newSelected);
       return;
@@ -87,6 +93,13 @@ const JourneyTable = ({ journeys, text }: journeyTableProps) => {
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows: number =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - journeys.length) : 0;
+
+  if (pending) {
+    return <Notification color={"green"} text={"Loading..."} />;
+  }
+  if (error) {
+    return <Notification color={"red"} text={"ERROR!"} />;
+  }
 
   return (
     <Box sx={{ width: "100%" }}>

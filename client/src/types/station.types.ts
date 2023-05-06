@@ -1,6 +1,6 @@
 //Stations related types
 
-import { Journey, journeysState } from "./journey.types";
+import { Journey } from "./journey.types";
 
 export type Station = {
   id?: string; //MongoDB generated id
@@ -12,7 +12,6 @@ export type Station = {
   Osoite: string;
   Adress: string;
   Kaupunki: string;
-  Stad?: string;
   Operaattor: string;
   Kapasiteet: number;
   x: number;
@@ -95,3 +94,26 @@ export interface StationCount {
   station: string;
   count: number;
 }
+
+export type addStationFormlabels = {
+  FID: string;
+  ID: string;
+  CAPACITY: string;
+  LONGITUDE: string;
+  LATITUDE: string;
+};
+
+export type addStationFormOptions = {
+  selectCity: string;
+  helsinki: string;
+  espoo: string;
+  selectOperator: string;
+  cityBikeFin: string;
+};
+
+export type stationSearchedHeaders = {
+  name: string;
+  address: string;
+  departures: string;
+  arrivals: string;
+};

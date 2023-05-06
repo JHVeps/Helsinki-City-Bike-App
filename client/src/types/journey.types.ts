@@ -11,6 +11,10 @@ export type Journey = {
   Duration: number;
 };
 
+export interface journeysListPageProps {
+  title: string;
+}
+
 export interface journeysState {
   items: Journey[];
   isLoading: boolean;
@@ -21,6 +25,8 @@ export interface journeysState {
 export interface journeyTableProps {
   journeys: Journey[];
   text: string;
+  pending: boolean;
+  error: boolean;
 }
 
 export interface Data {
@@ -50,6 +56,10 @@ export interface JourneyListTableBodyProps {
   id: keyof Data;
   label: string;
   numeric: boolean;
+}
+
+export interface JourneySearchBarProps {
+  searched: string;
 }
 
 export interface HeadCell {
@@ -85,3 +95,10 @@ export const headCells: readonly HeadCell[] = [
     label: "Travel time (min)",
   },
 ];
+
+export type journeySearchedHeaders = {
+  departureStation: string;
+  returnStation: string;
+  distance: string;
+  duration: string;
+};

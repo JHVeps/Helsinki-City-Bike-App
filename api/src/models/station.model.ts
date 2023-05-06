@@ -33,9 +33,6 @@ const StationSchema = new mongoose.Schema({
   Kaupunki: {
     type: String,
   },
-  Stad: {
-    type: String,
-  },
   Operaattor: {
     type: String,
   },

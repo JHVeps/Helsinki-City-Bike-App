@@ -3,7 +3,7 @@ import Journey from "../models/journey.model";
 
 const findAllJourneys = async (): Promise<JourneyDocument[]> => {
   try {
-    const foundJourneys = await Journey.find().limit(1000);
+    const foundJourneys = await Journey.find().limit(50000);
     if (!Array.isArray(foundJourneys) || foundJourneys.length === 0) {
       throw new Error("Journeys not found");
     }

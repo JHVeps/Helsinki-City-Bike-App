@@ -2,14 +2,6 @@ import { InfoBoardProps, StationCount } from "types/station.types";
 import { Box, Typography } from "@mui/material";
 
 const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
-  const style = {
-    bgcolor: "background.paper",
-    width: "45%",
-    height: "50vh",
-    color: "black",
-    marginRight: "20px",
-  };
-
   let distances = {
     departing: { total: 0, count: 0 },
     arrivals: { total: 0, count: 0 },
@@ -89,7 +81,15 @@ const InfoBoard = ({ journeys, stationData, title }: InfoBoardProps) => {
     .map(([station, count]) => ({ station, count }));
 
   return (
-    <Box sx={style}>
+    <Box
+      sx={{
+        bgcolor: "background.paper",
+        width: "45%",
+        height: "50vh",
+        color: "black",
+        marginRight: "20px",
+      }}
+    >
       <Typography sx={{ textAlign: "center", mt: 3 }} variant="h4">
         {title}
       </Typography>

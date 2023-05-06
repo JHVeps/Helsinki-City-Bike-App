@@ -21,6 +21,8 @@ const App = () => {
     dispatch(getAllStations());
   }, [dispatch]);
 
+  const homeTitle: string = "HELSINKI CITY BIKE APP";
+
   return (
     <Box
       sx={{
@@ -31,13 +33,16 @@ const App = () => {
       }}
     >
       <Typography sx={{ textAlign: "center" }} variant="h1">
-        HELSINKI CITY BIKE APP
+        {homeTitle}
       </Typography>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/journeys" element={<Journeys />} />
-          <Route path="/journeys/:stationName" element={<JourneysSearched />} />
+          <Route path="/journeys" element={<Journeys title={"JOURNEYS"} />} />
+          <Route
+            path="/journeys/search/:stationName"
+            element={<JourneysSearched />}
+          />
           <Route path="/stations" element={<Stations />} />
           <Route path="/stations/:FID" element={<Station />} />
           <Route

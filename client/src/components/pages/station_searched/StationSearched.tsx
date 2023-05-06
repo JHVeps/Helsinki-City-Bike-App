@@ -1,6 +1,7 @@
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
 import { useParams } from "react-router-dom";
+import { stationSearchedHeaders } from "types/station.types";
 import Navigation from "../../navigation/HomeNavigation";
 import InfoBoard from "components/infoboard/InfoBoard";
 import Map from "../../google-map/GoogleMap";
@@ -19,13 +20,20 @@ import {
 const StationSearched = () => {
   const { stations, journeys } = useAppSelector((state: RootState) => state);
   const { stationName } = useParams<{ stationName: string }>();
+  const title: string = "STATION INFO";
+  const headers: stationSearchedHeaders = {
+    name: "Name",
+    address: "Address",
+    departures: "Journeys departing",
+    arrivals: "Journeys arriving",
+  };
 
   if (stationName) {
     const stationData = stations.items.find((s) => s.Nimi === stationName);
 
     if (stationData) {
-      let departures = 0;
-      let arrivals = 0;
+      let departures: number = 0;
+      let arrivals: number = 0;
 
       for (const obj of journeys.items) {
         if (obj.DepartureStationId === stationData.ID) {
@@ -38,7 +46,7 @@ const StationSearched = () => {
 
       return (
         <Box sx={{ padding: "20px", marginBlock: "20px" }}>
-          <Typography variant="h4">STATION INFO</Typography>
+          <Typography variant="h4">{title}</Typography>
           <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
@@ -51,7 +59,7 @@ const StationSearched = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Name
+                    {headers.name}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -60,7 +68,7 @@ const StationSearched = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Address
+                    {headers.address}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -69,7 +77,7 @@ const StationSearched = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Journeys departing
+                    {headers.departures}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -78,7 +86,7 @@ const StationSearched = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Journeys arriving
+                    {headers.arrivals}
                   </TableCell>
                 </TableRow>
               </TableHead>

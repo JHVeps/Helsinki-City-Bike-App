@@ -1,6 +1,7 @@
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
 import { useParams } from "react-router-dom";
+import { stationSearchedHeaders } from "types/station.types";
 import Navigation from "../../navigation/HomeNavigation";
 import {
   Box,
@@ -19,13 +20,21 @@ import InfoBoard from "components/infoboard/InfoBoard";
 const Station = () => {
   const { stations, journeys } = useAppSelector((state: RootState) => state);
   const { FID } = useParams<{ FID: string }>();
+  const title: string = "STATION INFO";
+  const headers: stationSearchedHeaders = {
+    name: "Name",
+    address: "Address",
+    departures: "Journeys departing",
+    arrivals: "Journeys arriving",
+  };
+  const notFound: string = "NOT FOUND";
 
   if (FID) {
     const stationData = stations.items.find((s) => s.FID === parseInt(FID));
 
     if (stationData) {
-      let departures = 0;
-      let arrivals = 0;
+      let departures: number = 0;
+      let arrivals: number = 0;
 
       for (const obj of journeys.items) {
         if (obj.DepartureStationId === stationData.ID) {
@@ -38,7 +47,7 @@ const Station = () => {
 
       return (
         <Box sx={{ padding: "20px", marginBlock: "20px" }}>
-          <Typography variant="h4">STATION INFO</Typography>
+          <Typography variant="h4">{title}</Typography>
           <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
@@ -51,7 +60,7 @@ const Station = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Name
+                    {headers.name}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -60,7 +69,7 @@ const Station = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Address
+                    {headers.address}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -69,7 +78,7 @@ const Station = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Journeys departing
+                    {headers.departures}
                   </TableCell>
                   <TableCell
                     align="center"
@@ -78,7 +87,7 @@ const Station = () => {
                       fontSize: "1.5rem",
                     }}
                   >
-                    Journeys arriving
+                    {headers.arrivals}
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -145,7 +154,7 @@ const Station = () => {
   }
   return (
     <Box>
-      <Typography variant="h2">NOT FOUND</Typography>
+      <Typography variant="h2">{notFound}</Typography>
       <Navigation />
     </Box>
   );

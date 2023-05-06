@@ -1,5 +1,5 @@
 import { TableHead, TableRow, TableCell, TableSortLabel } from "@mui/material";
-import TableHeadNotification from "components/notifications/TableHeadNotification";
+import TableHeadNotification from "components/notifications/JourneyListNotification";
 import {
   Data,
   StationEnhancedTableProps,
