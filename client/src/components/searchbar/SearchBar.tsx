@@ -14,6 +14,7 @@ const SearchBar = ({ url, buttonTitle }: SearchBarProps) => {
   return (
     <Box sx={{ textAlign: "center" }}>
       <TextField
+        data-cy="search-input"
         sx={{
           outlineWidth: 0,
           width: "30%",

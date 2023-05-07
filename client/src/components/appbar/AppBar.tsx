@@ -61,6 +61,7 @@ const JAppBar = ({ title, text, setText }: appBarProps) => {
             <SearchIcon />
           </SearchIconWrapper>
           <StyledInputBase
+            data-cy="filter-input"
             type="text"
             placeholder="Filter list"
             value={text}

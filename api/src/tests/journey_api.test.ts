@@ -28,6 +28,17 @@ const initialJourneys = [
     CoveredDistance: 2043,
     Duration: 500,
   },
+  {
+    id: "64579c0441a33bcd24b14102",
+    Departure: "2021-05-31T20:14:11.000+00:00",
+    Return: "2021-05-31T20:23:28.000+00:00",
+    DepartureStationId: 2,
+    DepartureStationName: "Keilalahti",
+    ReturnStationId: 513,
+    ReturnStationName: "Hakalehto",
+    CoveredDistance: 2532,
+    Duration: 556,
+  },
 ];
 
 describe("when there is initially some journeys saved", () => {
