@@ -22,23 +22,23 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] yarn install
 
-- [ ] add .env file to api folder with following:
+- [ ] add `.env` file to api folder with following:
 
-- `MONGODB_URI="MONGO URI HERE"`
-- `TEST_MONGODB_URI="MONGO TEST URI HERE"`
-- `PORT="PORT HERE"`
+- `MONGODB_URI` = `"MONGO URI HERE"`
+- `TEST_MONGODB_URI` = `"MONGO TEST URI HERE"`
+- `PORT`= `"PORT HERE"`
 
-- [ ] Docker image https://hub.docker.com/r/jhveps/helsinki-city-bike-app/tags
+- [ ] Docker image url: https://hub.docker.com/r/jhveps/helsinki-city-bike-app/tags
 
 <br/>
 
-- [ ] yarn test, run tests for API
+- [ ] `yarn test`, run tests for API
 
-- [ ] yarn run dev, run in development environment
+- [ ] `yarn run dev`, run in development environment
 
-- [ ] yarn start, run in production environment
+- [ ] `yarn start`, run in production environment
 
-- [ ] yart start:test, run in test environment (for E2E testing)
+- [ ] `yart start:test`, run in test environment (for E2E testing)
 
 ### CLIENT
 
@@ -46,31 +46,31 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] yarn install
 
-- [ ] add secrets folder to client folder
+- [ ] add `secrets` folder to client folder
 
-- [ ] add secrets.ts file in secrets folder with following:
+- [ ] add `secrets.ts` file to `secrets` folder with following:
 
-- `export const API_URL = "API URL HERE";`
+- `export const API_URL` = `"API URL HERE";`
 
-- `export const CLIENT_URL = "CLIENT URL HERE";`
-
-<br/>
-
-- [ ] add secrets folder to src folder
-
-- [ ] add secrets.ts file in secrets folder with following:
-
-- `export const REACT_APP_GOOGLE_MAP_API = "GOOGLE MAPS API KEY HERE";`
-
-- `export const API_URL = "API URL HERE>;`
+- `export const CLIENT_URL` = `"CLIENT URL HERE";`
 
 <br/>
 
-- [ ] yarn test, run tests for CLIENT
+- [ ] add `secrets` folder to src folder
 
-- [ ] yarn start, run in production environment
+- [ ] add `secrets.ts` file in `secrets` folder with following:
 
-- [ ] yarn run cypress:open, (when client running and api running in test environment)
+- `export const REACT_APP_GOOGLE_MAP_API` = `"GOOGLE MAPS API KEY HERE";`
+
+- `export const API_URL` = `"API URL HERE>;`
+
+<br/>
+
+- [ ] `yarn test`, run tests for CLIENT
+
+- [ ] `yarn start`, run in production environment
+
+- [ ] `yarn run cypress:open`, (when client running and api running in test environment)
 
 ### IMPORTER
 
@@ -78,11 +78,17 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] yarn install
 
-- [ ] yarn start run in production enviroment
+- [ ] add `.env` file to import_api folder with following:
 
-- [ ] yarn start dev, run in development environment
+- `MONGODB_URI`=`"MONGO URI HERE"`
 
-- [ ] run index.html in import_client folder
+- `PORT`=`"PORT HERE"`
+
+- [ ] `yarn start`, run in production enviroment
+
+- [ ] `yarn start dev`, run in development environment
+
+- [ ] run `index.html` in import_client folder
 
 > select correct CSV files to import
 
