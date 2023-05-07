@@ -1,7 +1,8 @@
 # Helsinki-City-Bike-App CLIENT
 
+HOME
+![image](https://user-images.githubusercontent.com/90003389/236700223-216d708d-bc4c-49e7-9d91-4822ac8d88bf.png)
 
-https://github.com/JHVeps/Helsinki-City-Bike-App/blob/main/pictures/Home.PNG?raw=true
 
 ## TODO
 
