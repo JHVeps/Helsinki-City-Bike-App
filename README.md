@@ -2,6 +2,8 @@
 
 https://user-images.githubusercontent.com/90003389/236701014-1c9c4e66-be4d-472a-bbab-7a27f72366f9.mp4
 
+<br/>
+
 Backround picture from unsplash.com license: https://unsplash.com/license
 
 ## Description
@@ -24,6 +26,8 @@ The application uses MongoBb Atlas's cloud database to retrieve and store data.
 
 Cypress was used for testing the E2E application because it is easy to use and requires little configuration.
 
+<br/>
+
 ## Technologies
 
 ### CLIENT / FRONTEND
@@ -35,6 +39,8 @@ Cypress was used for testing the E2E application because it is easy to use and r
 - formik for handling forms https://formik.org/
 - jest for unit testing https://jestjs.io/
 
+<br/>
+
 ### API / BACKEND
 
 - Typescript
@@ -43,13 +49,19 @@ Cypress was used for testing the E2E application because it is easy to use and r
 - jest/supertest for testing https://jestjs.io/
 - backend also runs in Docker: https://hub.docker.com/r/jhveps/helsinki-city-bike-app/tags
 
+<br/>
+
 ### E2E Testing
 
 - cypress https://docs.cypress.io/guides/overview/why-cypress
 
+<br/>
+
 ### DATABASE
 
 - MongoDB Atlas cloud database https://account.mongodb.com/account/login
+
+<br/>
 
 ## Instructions
 
@@ -62,6 +74,8 @@ you have three different folders:
 3. `importer:` App to import CSV data to MongoDB
 
 > importer is NOT needed when testing/reviewing this App
+
+<br/>
 
 To install, you need to go to correct directories and install their packages:
 
@@ -88,6 +102,8 @@ To install, you need to go to correct directories and install their packages:
 - [ ] `yarn start`, run in production environment
 
 - [ ] `yart start:test`, run in test environment `(use this command when running E2E tests)`
+
+<br/>
 
 ### CLIENT
 
@@ -121,6 +137,8 @@ To install, you need to go to correct directories and install their packages:
 
 - [ ] `yarn run cypress:open`, (when client running and api running in test environment)
 
+<br/>
+
 ### E2E Testing with
 
 1. in one terminal RUN API with: `yart start:test`
@@ -128,6 +146,8 @@ To install, you need to go to correct directories and install their packages:
 2. in another terminal RUN CLIENT with: `yart start`
 
 3. in yet another terminal RUN E2E tests while CLIENT and API are running with: `yarn run cypress:open`
+
+<br/>
 
 ### IMPORTER
 
@@ -140,6 +160,8 @@ To install, you need to go to correct directories and install their packages:
 - MONGODB_URI = "MONGO URI HERE"
 
 - PORT = "PORT HERE"
+
+<br/>
 
 - [ ] `yarn start`, run in production enviroment
 
