@@ -46,7 +46,7 @@ const Station = () => {
       }
 
       return (
-        <Box sx={{ padding: "20px", marginBlock: "20px" }}>
+        <Box sx={{ padding: "100px" }}>
           <Typography sx={{ padding: "20px" }} variant="h4">
             {title}
           </Typography>
