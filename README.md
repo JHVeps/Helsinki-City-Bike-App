@@ -54,9 +54,9 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] add secrets.ts file in secrets folder with following:
 
-`export const REACT_APP_GOOGLE_MAP_API = "GOOGLE MAPS API KEY HERE";`
+- `export const REACT_APP_GOOGLE_MAP_API = "GOOGLE MAPS API KEY HERE";`
 
-`export const API_URL = "API URL HERE>;`
+- `export const API_URL = "API URL HERE>;`
 
 <br/>
 
