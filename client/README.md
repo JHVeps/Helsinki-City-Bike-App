@@ -2,6 +2,8 @@
 
 HOME
 ![image](https://user-images.githubusercontent.com/90003389/236700223-216d708d-bc4c-49e7-9d91-4822ac8d88bf.png)
+JOURNEYS
+![image](https://user-images.githubusercontent.com/90003389/236700271-92909621-174f-492e-af1e-084934abbae8.png)
 
 
 ## TODO
