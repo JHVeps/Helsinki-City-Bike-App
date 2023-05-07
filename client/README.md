@@ -9,8 +9,11 @@ JOURNEYS LIST VIEW
 JOURNEYS SEARCHED
 ![image](https://user-images.githubusercontent.com/90003389/236700299-7b335fd1-9119-4464-a487-4d49481a5e0a.png)
 
-STATIONS LIST
+STATIONS LIST VIEW
 ![image](https://user-images.githubusercontent.com/90003389/236700407-3e0bae74-9f7a-493f-9ddd-ed6bbc0a4dff.png)
+
+SINGLE STATION VIEW
+![image](https://user-images.githubusercontent.com/90003389/236700454-e24542fa-86f4-402b-aafa-bea869ff1d3c.png)
 
 ADD NEW STATION
 ![image](https://user-images.githubusercontent.com/90003389/236700271-92909621-174f-492e-af1e-084934abbae8.png)
