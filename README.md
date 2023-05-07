@@ -40,7 +40,7 @@ you have three different folders:
 
 3. `importer:` App to import CSV data to MongoDB
 
-> importer is needed when testing/reviewing this App
+> importer is NOT needed when testing/reviewing this App
 
 To install, you need to go to correct directories and install their packages:
 
