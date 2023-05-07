@@ -18,6 +18,7 @@ HOME
 - change list padding
 - select how many rows are shown
 - click Departure Station to see more info
+  <br/>
   JOURNEYS SEARCHED
   <br/>
   ![image](https://user-images.githubusercontent.com/90003389/236700299-7b335fd1-9119-4464-a487-4d49481a5e0a.png)
