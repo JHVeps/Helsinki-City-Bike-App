@@ -4,6 +4,32 @@ https://user-images.githubusercontent.com/90003389/236701014-1c9c4e66-be4d-472a-
 
 Backround picture from unsplash.com license: https://unsplash.com/license
 
+## Description
+
+Helsinki City Bike App is a web application that allows the user to browse information about bicycle journeys and stations stored in the mongodb atlas database. The user can also add new bicycle stations to the mongodb database.
+
+## Technologies
+
+### CLIENT
+
+- React
+- Typescript
+- Redux/Redux Toolkit for state managing
+- https://mui.com/ components & styling
+- formik for handling forms
+- jest for unit testing
+
+### API
+
+- Typescript
+- Node.js/express.js
+- mongoose for handling MongoDB connection and documents
+- jest/supertest for testing
+
+### E2E Testing
+
+- cypress, easy to configure
+
 ## Instructions
 
 you have three different folders:
@@ -14,7 +40,7 @@ you have three different folders:
 
 3. `importer:` App to import CSV data to MongoDB
 
-To install, you need to go to both directories and install their packages as such:
+To install, you need to go to correct directories and install their packages:
 
 ### API
 
@@ -28,7 +54,7 @@ To install, you need to go to both directories and install their packages as suc
 - TEST_MONGODB_URI = "MONGO TEST URI HERE"
 - PORT= "PORT HERE"
 
-- [ ] Docker image url: https://hub.docker.com/r/jhveps/helsinki-city-bike-app/tags
+- [ ] Docker image for API: https://hub.docker.com/r/jhveps/helsinki-city-bike-app/tags
 
 <br/>
 
