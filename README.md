@@ -18,11 +18,13 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] yarn install
 
-- [ ] add .env file to root with following:
+- [ ] add .env file to api folder with following:
 
 - `MONGODB_URI="MONGO URI HERE"`
 - `TEST_MONGODB_URI="MONGO TEST URI HERE"`
 - `PORT="PORT HERE"`
+
+- [ ] Docker image https://hub.docker.com/r/jhveps/helsinki-city-bike-app/tags
 
 <br/>
 
@@ -40,7 +42,7 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] yarn install
 
-- [ ] add secrets folder to root
+- [ ] add secrets folder to client folder
 
 - [ ] add secrets.ts file in secrets folder with following:
 
