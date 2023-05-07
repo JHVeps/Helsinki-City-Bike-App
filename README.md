@@ -42,21 +42,21 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] add secrets.ts file in secrets folder with following:
 
-> export const API_URL = <API URL HERE>;
+`export const API_URL = "API URL HERE";`
 
 <br/>
 
-> export const CLIENT_URL = <LIENT URL HERE>;
+`export const CLIENT_URL = "CLIENT URL HERE";`
 
 - [ ] add secrets folder to src folder
 
 - [ ] add secrets.ts file in secrets folder with following:
 
-> export const REACT_APP_GOOGLE_MAP_API = <GOOGLE MAPS API KEY HERE>";
+`export const REACT_APP_GOOGLE_MAP_API = "GOOGLE MAPS API KEY HERE";`
 
 <br/>
 
-> export const API_URL = <API URL HERE>;
+`export const API_URL = "API URL HERE>;`
 
 - [ ] yarn test, run tests for CLIENT
 
