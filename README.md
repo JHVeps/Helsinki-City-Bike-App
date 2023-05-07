@@ -20,9 +20,11 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] add .env file to root with following:
 
-> MONGODB_URI=<--MONGO URI HERE-->
-> TEST_MONGODB_URI=<--MONGO TEST URI HERE-->
-> PORT=<--PORT HERE-->
+- `MONGODB_URI="MONGO URI HERE"`
+- `TEST_MONGODB_URI="MONGO TEST URI HERE"`
+- `PORT="PORT HERE"`
+
+<br/>
 
 - [ ] yarn test, run tests for API
 
@@ -42,11 +44,11 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] add secrets.ts file in secrets folder with following:
 
-`export const API_URL = "API URL HERE";`
+- `export const API_URL = "API URL HERE";`
+
+- `export const CLIENT_URL = "CLIENT URL HERE";`
 
 <br/>
-
-`export const CLIENT_URL = "CLIENT URL HERE";`
 
 - [ ] add secrets folder to src folder
 
@@ -54,9 +56,9 @@ To install, you need to go to both directories and install their packages as suc
 
 `export const REACT_APP_GOOGLE_MAP_API = "GOOGLE MAPS API KEY HERE";`
 
-<br/>
-
 `export const API_URL = "API URL HERE>;`
+
+<br/>
 
 - [ ] yarn test, run tests for CLIENT
 
