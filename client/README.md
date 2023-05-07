@@ -2,6 +2,10 @@
 
 HOME
 ![image](https://user-images.githubusercontent.com/90003389/236700223-216d708d-bc4c-49e7-9d91-4822ac8d88bf.png)
+
+JOURNEYS LIST VIEW
+![image](https://user-images.githubusercontent.com/90003389/236700373-2327f3d8-9f00-480d-a2c5-9fe63f998a61.png)
+
 JOURNEYS SEARCHED
 ![image](https://user-images.githubusercontent.com/90003389/236700299-7b335fd1-9119-4464-a487-4d49481a5e0a.png)
 
