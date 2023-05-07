@@ -16,19 +16,19 @@ Helsinki City Bike App is a web application that allows the user to browse infor
 - Typescript
 - Redux/Redux Toolkit for state managing
 - https://mui.com/ components & styling
-- formik for handling forms
-- jest for unit testing
+- formik for handling forms https://formik.org/
+- jest for unit testing https://jestjs.io/
 
 ### API
 
 - Typescript
-- Node.js/express.js
-- mongoose for handling MongoDB connection and documents
-- jest/supertest for testing
+- Node.js/express.js https://nodejs.org/en https://expressjs.com/
+- mongoose for handling MongoDB connection and documents https://mongoosejs.com/
+- jest/supertest for testing https://jestjs.io/
 
 ### E2E Testing
 
-- cypress
+- cypress https://docs.cypress.io/guides/overview/why-cypress
 
 ## Instructions
 
