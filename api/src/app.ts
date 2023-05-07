@@ -5,6 +5,7 @@ import logger from "./utils/logger";
 import cors from "cors";
 import journeyRouter from "./routers/journey.router";
 import stationRouter from "./routers/station.router";
+import testingRouter from "./routers/testing.router";
 import middleware from "./utils/middleware";
 
 const app = express();
@@ -30,6 +31,10 @@ app.use(middleware.requestLogger);
 
 app.use("/api/v1/journeys", journeyRouter);
 app.use("/api/v1/stations", stationRouter);
+
+if (process.env.NODE_ENV === "test") {
+  app.use("/api/v1/testing", testingRouter);
+}
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);

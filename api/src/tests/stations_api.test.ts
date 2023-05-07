@@ -39,10 +39,10 @@ const initialStations = [
 describe("when there is initially some stations saved", () => {
   beforeEach(async () => {
     await Station.deleteMany({});
-    let noteObject = new Station(initialStations[0]);
-    await noteObject.save();
-    noteObject = new Station(initialStations[1]);
-    await noteObject.save();
+    let stationObject = new Station(initialStations[0]);
+    await stationObject.save();
+    stationObject = new Station(initialStations[1]);
+    await stationObject.save();
   });
 
   test("stations are returned as json", async () => {

@@ -66,6 +66,7 @@ const NewStation = () => {
           <Form>
             <FormLabel sx={{ color: "white" }}>{formLabels.FID}</FormLabel>
             <Field
+              data-cy="station-FID-input"
               data-testid="station_FID_input"
               name="FID"
               type="text"
@@ -74,23 +75,57 @@ const NewStation = () => {
             />
             <FormLabel sx={{ color: "white" }}>{formLabels.ID}</FormLabel>
             <Field
+              data-cy="station-ID-input"
               data-testid="station_ID_input"
               name="ID"
               type="text"
               placeholder="ID"
               required
             />
-            <Field name="Nimi" type="text" placeholder="NIMI" required />
-            <Field name="Namn" type="text" placeholder="NAMN" required />
-            <Field name="Name" type="text" placeholder="NAME" required />
-            <Field name="Osoite" type="text" placeholder="OSOITE" required />
-            <Field name="Adress" type="text" placeholder="ADRESS" required />
-            <Field name="Kaupunki" type="text" as="select" required>
+            <Field
+              data-cy="station-Nimi-input"
+              name="Nimi"
+              type="text"
+              placeholder="NIMI"
+              required
+            />
+            <Field
+              data-cy="station-Namn-input"
+              name="Namn"
+              type="text"
+              placeholder="NAMN"
+            />
+            <Field
+              data-cy="station-Name-input"
+              name="Name"
+              type="text"
+              placeholder="NAME"
+            />
+            <Field
+              data-cy="station-Osoite-input"
+              name="Osoite"
+              type="text"
+              placeholder="OSOITE"
+              required
+            />
+            <Field
+              data-cy="station-Adress-input"
+              name="Adress"
+              type="text"
+              placeholder="ADRESS"
+            />
+            <Field
+              data-cy="station-Kaupunki-input"
+              name="Kaupunki"
+              type="text"
+              as="select"
+            >
               <option value="select">{formOptions.selectCity}</option>
               <option value="Helsinki">{formOptions.helsinki}</option>
               <option value="Espoo">{formOptions.espoo}</option>
             </Field>
             <Field
+              data-cy="station-Operaattor-input"
               name="Operaattor"
               type="tetx"
               as="select"
@@ -110,6 +145,7 @@ const NewStation = () => {
             <FormLabel sx={{ color: "white" }}>{formLabels.LATITUDE}</FormLabel>
             <Field name="y" type="text" placeholder="LATITUDE" />
             <Button
+              data-cy="add-station-button"
               data-testid="add_station_button"
               sx={{
                 padding: "15px 20px",

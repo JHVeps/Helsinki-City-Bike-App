@@ -5,10 +5,12 @@ const StationSchema = new mongoose.Schema({
   FID: {
     type: Number,
     required: true,
+    unique: true,
   },
   ID: {
     type: Number,
     required: true,
+    unique: true,
   },
   Nimi: {
     type: String,
@@ -16,11 +18,9 @@ const StationSchema = new mongoose.Schema({
   },
   Namn: {
     type: String,
-    required: true,
   },
   Name: {
     type: String,
-    required: true,
   },
   Osoite: {
     type: String,
@@ -28,7 +28,6 @@ const StationSchema = new mongoose.Schema({
   },
   Adress: {
     type: String,
-    required: true,
   },
   Kaupunki: {
     type: String,
@@ -42,11 +41,9 @@ const StationSchema = new mongoose.Schema({
   },
   x: {
     type: Number,
-    required: true,
   },
   y: {
     type: Number,
-    required: true,
   },
 });
 
