@@ -7,12 +7,21 @@ Backround picture from unsplash.com license: https://unsplash.com/license
 ## Description
 
 Helsinki City Bike App is a simple fullstack application that allows the user to browse information about bicycle journeys and stations stored in database. The user can also add new bicycle stations to the database.
+
 <br/>
-The application has a frontend / UI which is done with React TypeScript and it is run on a browser. Frontend state management was implemented using redux/redux Toolkit. Frontend utilizes many ready-made components of material ui because they are easy to configure and with them you can easily make the application modular.<br/>
+
+The application has a frontend / UI which is done with React TypeScript and it is run on a browser. Frontend state management was implemented using redux/redux Toolkit. Frontend utilizes many ready-made components of material ui because they are easy to configure and with them you can easily make the application modular.
+
+<br/>
+
 The implementation environment of the application's backend is node.js and it uses the express.js framework because it is very easy to use and configure. The backend is also made with typescript.
+
 <br/>
+
 The application uses MongoBb Atlas's cloud database to retrieve and store data.
+
 <br/>
+
 Cypress was used for testing the E2E application because it is easy to use and requires little configuration.
 
 ## Technologies
