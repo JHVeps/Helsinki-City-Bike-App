@@ -121,6 +121,14 @@ To install, you need to go to correct directories and install their packages:
 
 - [ ] `yarn run cypress:open`, (when client running and api running in test environment)
 
+### E2E Testing with
+
+1. in one terminal RUN API with: `yart start:test`
+
+2. in another terminal RUN CLIENT with: `yart start`
+
+3. in yet another terminal RUN E2E tests while CLIENT and API are running with: `yarn run cypress:open`
+
 ### IMPORTER
 
 - [ ] cd import_api
