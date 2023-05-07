@@ -44,10 +44,12 @@ const initialJourneys = [
 describe("when there is initially some journeys saved", () => {
   beforeEach(async () => {
     await Journey.deleteMany({});
-    let noteObject = new Journey(initialJourneys[0]);
-    await noteObject.save();
-    noteObject = new Journey(initialJourneys[1]);
-    await noteObject.save();
+    let journeyObject = new Journey(initialJourneys[0]);
+    await journeyObject.save();
+    journeyObject = new Journey(initialJourneys[1]);
+    await journeyObject.save();
+    journeyObject = new Journey(initialJourneys[2]);
+    await journeyObject.save();
   });
 
   test("journeys are returned as json", async () => {

@@ -86,33 +86,15 @@ const NewStation = () => {
               data-cy="station-Nimi-input"
               name="Nimi"
               type="text"
-              placeholder="NIMI"
+              placeholder="STATION NAME"
               required
-            />
-            <Field
-              data-cy="station-Namn-input"
-              name="Namn"
-              type="text"
-              placeholder="NAMN"
-            />
-            <Field
-              data-cy="station-Name-input"
-              name="Name"
-              type="text"
-              placeholder="NAME"
             />
             <Field
               data-cy="station-Osoite-input"
               name="Osoite"
               type="text"
-              placeholder="OSOITE"
+              placeholder="ADDRESS"
               required
-            />
-            <Field
-              data-cy="station-Adress-input"
-              name="Adress"
-              type="text"
-              placeholder="ADRESS"
             />
             <Field
               data-cy="station-Kaupunki-input"

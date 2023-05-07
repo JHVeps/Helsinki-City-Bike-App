@@ -40,8 +40,10 @@ const JourneysSearched = () => {
 
     if (foundJourneys.length > 0) {
       return (
-        <Box sx={{ padding: "20px", marginBlock: "20px" }}>
-          <Typography variant="h4">{title}</Typography>
+        <Box sx={{ padding: "100px" }}>
+          <Typography sx={{ padding: "20px" }} variant="h4">
+            {title}
+          </Typography>
           <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>

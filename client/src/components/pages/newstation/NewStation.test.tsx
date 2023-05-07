@@ -29,20 +29,11 @@ describe("<NewStation />", () => {
     const idInput = screen.getByPlaceholderText("ID");
     expect(idInput).toBeDefined();
 
-    const nimiInput = screen.getByPlaceholderText("NIMI");
-    expect(nimiInput).toBeDefined();
-
-    const namnInput = screen.getByPlaceholderText("NAMN");
-    expect(namnInput).toBeDefined();
-
-    const nameInput = screen.getByPlaceholderText("NAME");
+    const nameInput = screen.getByPlaceholderText("STATION NAME");
     expect(nameInput).toBeDefined();
 
-    const osoiteInput = screen.getByPlaceholderText("OSOITE");
+    const osoiteInput = screen.getByPlaceholderText("ADDRESS");
     expect(osoiteInput).toBeDefined();
-
-    const addresInput = screen.getByPlaceholderText("ADRESS");
-    expect(addresInput).toBeDefined();
 
     const cityInput = screen.getAllByText("SELECT CITY");
     expect(cityInput).toBeDefined();

@@ -13,7 +13,7 @@ const Journeys = ({ title }: journeysListPageProps) => {
   const journeysPageTitle: string = title;
 
   return (
-    <Box>
+    <Box sx={{ padding: "100px" }}>
       <Typography sx={{ padding: "20px" }} variant="h4">
         {journeysPageTitle}
       </Typography>

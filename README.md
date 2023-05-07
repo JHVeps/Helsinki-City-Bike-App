@@ -4,17 +4,28 @@
 
 ### API
 
-- yarn test: run tests for API
+- [ ] yarn install
 
-- yarn run dev: run in development enviroment
+- [ ] yarn test, run tests for API
 
-- yarn start: run in production enviroment
+- [ ] yarn run dev, run in development enviroment
+
+- [ ] yarn start, run in production enviroment
+
+- [ ] yart start:test, run in test enviroment (for E2E testing)
 
 ### CLIENT
 
-- yarn test: run tests for CLIENT
+- [ ] yarn install
 
-- yarn start: start client
+- [ ] yarn test, run tests for CLIENT
+
+- [ ] yarn start, start client
+
+- [ ] yarn run cypress:open, (when client running and api running in test environment)
+
+<br/>
+Backround picture from unsplash.com license: https://unsplash.com/license
 
 ## TODO
 
@@ -48,4 +59,4 @@
 
 #### Bonus
 
-- [ ] E2E tests
+- [x] ~~E2E tests~~

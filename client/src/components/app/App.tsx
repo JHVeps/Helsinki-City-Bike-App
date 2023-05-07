@@ -12,6 +12,8 @@ import Station from "components/pages/stations_single/Station";
 import StationSearched from "components/pages/station_searched/StationSearched";
 import NewStation from "components/pages/newstation/NewStation";
 
+import "./App.css";
+
 const App = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -28,30 +30,43 @@ const App = () => {
       sx={{
         bgcolor: "#2b2b2b",
         color: "white",
-        marginLeft: "20px",
-        marginRight: "20px",
+        // marginLeft: "20px",
+        // marginRight: "20px",
       }}
     >
-      <Typography sx={{ textAlign: "center" }} variant="h1">
-        {homeTitle}
-      </Typography>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/journeys" element={<Journeys title={"JOURNEYS"} />} />
-          <Route
-            path="/journeys/search/:stationName"
-            element={<JourneysSearched />}
-          />
-          <Route path="/stations" element={<Stations title={"STATIONS"} />} />
-          <Route path="/stations/:FID" element={<Station />} />
-          <Route
-            path="/stations/search/:stationName"
-            element={<StationSearched />}
-          />
-          <Route path="/stations/add_new_station" element={<NewStation />} />
-        </Routes>
-      </BrowserRouter>
+      <Box className="img__container">
+        <Box className="img__container__gradient">
+          <Typography sx={{ textAlign: "center" }} variant="h1">
+            {homeTitle}
+          </Typography>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/journeys"
+                element={<Journeys title={"JOURNEYS"} />}
+              />
+              <Route
+                path="/journeys/search/:stationName"
+                element={<JourneysSearched />}
+              />
+              <Route
+                path="/stations"
+                element={<Stations title={"STATIONS"} />}
+              />
+              <Route path="/stations/:FID" element={<Station />} />
+              <Route
+                path="/stations/search/:stationName"
+                element={<StationSearched />}
+              />
+              <Route
+                path="/stations/add_new_station"
+                element={<NewStation />}
+              />
+            </Routes>
+          </BrowserRouter>
+        </Box>
+      </Box>
     </Box>
   );
 };

@@ -12,8 +12,10 @@ const Stations = ({ title }: StationsListPageProps) => {
   const stationsPageTitle: string = title;
   const [text, setText] = useState("");
   return (
-    <Box>
-      <Typography variant="h4">{stationsPageTitle}</Typography>
+    <Box sx={{ padding: "100px" }}>
+      <Typography sx={{ padding: "20px" }} variant="h4">
+        {stationsPageTitle}
+      </Typography>
       <Navigation />
       <AppBar title={"Stations List"} text={text} setText={setText} />
       <StationTable
