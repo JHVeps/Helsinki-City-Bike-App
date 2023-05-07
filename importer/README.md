@@ -1,10 +1,17 @@
 # CSV Data Importer App
 
-## TODO
+## COMMANDS
 
-### Implement IMPORTER APP to import CSV csv data to MongoDB
+- [ ] cd import_client
+- [ ] yarn install
+- [ ] yarn start, run in production environment
+- [ ] yarn start:dev, run in development environment
 
-#### IMPORT_API
+### TODO
+
+#### Implement IMPORTER APP to import CSV csv data to MongoDB
+
+##### IMPORT_API
 
 - [x] ~~Connect to mongoDB~~
 - [x] ~~Journey model / types~~
@@ -13,7 +20,7 @@
 - [x] ~~Logic for importing journey~~
 - [x] ~~Logic for importing station~~
 
-#### IMPORT_CLIENT
+##### IMPORT_CLIENT
 
 - [x] ~~Add simple UI for adding files~~
 - [x] ~~Add index.html~~
