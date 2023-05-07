@@ -1,11 +1,9 @@
 # Helsinki-City-Bike-App
 
-
 https://user-images.githubusercontent.com/90003389/236701014-1c9c4e66-be4d-472a-bbab-7a27f72366f9.mp4
 
-
-
 Backround picture from unsplash.com license: https://unsplash.com/license
+
 ## Instructions
 
 you have three different folders:
@@ -76,11 +74,19 @@ To install, you need to go to both directories and install their packages as suc
 
 ### IMPORTER
 
+- [ ] cd import_api
+
+- [ ] yarn install
+
 - [ ] yarn start run in production enviroment
+
 - [ ] yarn start dev, run in development environment
 
-<br/>
+- [ ] run index.html in import_client folder
 
+> select correct CSV files to import
+
+<br/>
 
 ## TODO
 
