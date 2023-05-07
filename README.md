@@ -38,7 +38,7 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] `yarn start`, run in production environment
 
-- [ ] `yart start:test`, run in test environment (for E2E testing)
+- [ ] `yart start:test`, run in test environment `(use this command when running E2E tests)`
 
 ### CLIENT
 
@@ -78,11 +78,11 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] yarn install
 
-- [ ] add `.env` file to import_api folder with following:
+- [ ] add `.env` file to `import_api` folder with following:
 
-- `MONGODB_URI`=`"MONGO URI HERE"`
+- MONGODB_URI = "MONGO URI HERE"
 
-- `PORT`=`"PORT HERE"`
+- PORT = "PORT HERE"
 
 - [ ] `yarn start`, run in production enviroment
 
@@ -90,7 +90,7 @@ To install, you need to go to both directories and install their packages as suc
 
 - [ ] run `index.html` in import_client folder
 
-> select correct CSV files to import
+> you can select only specific CSV files to import
 
 <br/>
 
