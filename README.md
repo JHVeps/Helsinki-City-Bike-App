@@ -6,11 +6,18 @@ Backround picture from unsplash.com license: https://unsplash.com/license
 
 ## Description
 
-Helsinki City Bike App is a web application that allows the user to browse information about bicycle journeys and stations stored in the mongodb atlas database. The user can also add new bicycle stations to the mongodb database.
+Helsinki City Bike App is a simple fullstack application that allows the user to browse information about bicycle journeys and stations stored in database. The user can also add new bicycle stations to the database.
+<br/>
+The application has a frontend / UI which is done with React TypeScript and it is run on a browser. Frontend utilizes many ready-made components of material ui because they are easy to configure and with them you can easily make the application modular.<br/>
+The implementation environment of the application's backend is node.js and it uses the express.js framework because it is very easy to use and configure. The backend is also made with typescript.
+<br/>
+The application uses MongoBb Atlas's cloud database to retrieve and store data.
+<br/>
+Cypress was used for testing the E2E application because it is easy to use and requires little configuration.
 
 ## Technologies
 
-### CLIENT
+### CLIENT / FRONTEND
 
 - React
 - Typescript
@@ -19,16 +26,21 @@ Helsinki City Bike App is a web application that allows the user to browse infor
 - formik for handling forms https://formik.org/
 - jest for unit testing https://jestjs.io/
 
-### API
+### API / BACKEND
 
 - Typescript
 - Node.js/express.js https://nodejs.org/en https://expressjs.com/
 - mongoose for handling MongoDB connection and documents https://mongoosejs.com/
 - jest/supertest for testing https://jestjs.io/
+- backend also runs in Docker: https://hub.docker.com/r/jhveps/helsinki-city-bike-app/tags
 
 ### E2E Testing
 
 - cypress https://docs.cypress.io/guides/overview/why-cypress
+
+### DATABASE
+
+- MongoDB Atlas cloud database https://account.mongodb.com/account/login
 
 ## Instructions
 
