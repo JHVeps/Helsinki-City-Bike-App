@@ -1,10 +1,14 @@
 # Helsinki-City-Bike-App CLIENT
 
 HOME
+<br/>
 ![image](https://user-images.githubusercontent.com/90003389/236700223-216d708d-bc4c-49e7-9d91-4822ac8d88bf.png)
+<br/>
 
 - Landing page where user can start navigating in app
+  <br/>
   JOURNEYS LIST VIEW
+  <br/>
   ![image](https://user-images.githubusercontent.com/90003389/236700373-2327f3d8-9f00-480d-a2c5-9fe63f998a61.png)
 - browse journeys data fetched from database
 - filter
@@ -15,10 +19,15 @@ HOME
 - select how many rows are shown
 - click Departure Station to see more info
   JOURNEYS SEARCHED
+  <br/>
   ![image](https://user-images.githubusercontent.com/90003389/236700299-7b335fd1-9119-4464-a487-4d49481a5e0a.png)
-- presents departures from searhed station
+  <br/>
+- presents departures from searched station
+  <br/>
   STATIONS LIST VIEW
+  <br/>
   ![image](https://user-images.githubusercontent.com/90003389/236700407-3e0bae74-9f7a-493f-9ddd-ed6bbc0a4dff.png)
+  <br/>
 - browse stations data fetched from database
 - filter
 - search
@@ -27,11 +36,15 @@ HOME
 - change list padding
 - select how many rows are shown
 - click Station to see more info
+  <br/>
   SINGLE STATION VIEW
+  <br/>
   ![image](https://user-images.githubusercontent.com/90003389/236700454-e24542fa-86f4-402b-aafa-bea869ff1d3c.png)
 - presents more detailed information on station
 - show station location on map
+  <br/>
   ADD NEW STATION
+  <br/>
   ![image](https://user-images.githubusercontent.com/90003389/236700271-92909621-174f-492e-af1e-084934abbae8.png)
 - fill in the form and click add station to add a new station to database
 
