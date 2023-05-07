@@ -28,7 +28,7 @@ Helsinki City Bike App is a web application that allows the user to browse infor
 
 ### E2E Testing
 
-- cypress, easy to configure
+- cypress
 
 ## Instructions
 
@@ -39,6 +39,8 @@ you have three different folders:
 2. `client:` Frontend
 
 3. `importer:` App to import CSV data to MongoDB
+
+> importer is needed when testing/reviewing this App
 
 To install, you need to go to correct directories and install their packages:
 
