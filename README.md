@@ -28,6 +28,8 @@ Cypress was used for testing the E2E application because it is easy to use and r
 
 <br/>
 
+This project also contains a simple node.js application, `the Importer App`, which is made for importing and validating a certain type of CSV data into the database. Importer App has a backend made with Node.js and Express.js. The application also has a simple Frontend/UI which consists of three .html files. The user selects the desired .CSV files and uploads them to the database. Only the specified CSV files are transferred.
+
 ## Technologies
 
 ### CLIENT / FRONTEND
