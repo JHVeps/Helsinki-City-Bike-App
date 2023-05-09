@@ -8,27 +8,17 @@ Backround picture from unsplash.com license: https://unsplash.com/license
 
 ## Description
 
-Helsinki City Bike App is a simple fullstack application that allows the user to browse information about bicycle journeys and stations stored in database. The user can also add new bicycle stations to the database.
+The Helsinki City Bike App is a comprehensive full-stack web application that offers users a variety of features related to bicycle journeys and stations. The application is built with React TypeScript and uses Redux/Redux Toolkit for state management, making it highly responsive and user-friendly. The frontend features several customizable, pre-built components from Material UI, which make it easy to develop a modular application.
 
 <br/>
 
-The application has a frontend / UI which is done with React TypeScript and it is run on a browser. Frontend state management was implemented using redux/redux Toolkit. Frontend utilizes many ready-made components of material ui because they are easy to configure and with them you can easily make the application modular.
+The backend is powered by Node.js and Express.js, providing an efficient and easy-to-use framework for developers. The application uses a cloud-based database provided by MongoDB Atlas to store and retrieve data, ensuring seamless integration and scalability.
 
 <br/>
 
-The implementation environment of the application's backend is node.js and it uses the express.js framework because it is very easy to use and configure. The backend is also made with typescript.
+To ensure the highest level of quality, the application utilizes Cypress for end-to-end testing. Additionally, the project includes the Importer App, which is a Node.js and Express.js-based application that allows users to import and validate CSV data into the database via a simple, three-page HTML frontend.
 
 <br/>
-
-The application uses MongoBb Atlas's cloud database to retrieve and store data.
-
-<br/>
-
-Cypress was used for testing the E2E application because it is easy to use and requires little configuration.
-
-<br/>
-
-This project also contains a simple node.js application, `the Importer App`, which is made for importing and validating a certain type of CSV data into the database. Importer App has a backend made with Node.js and Express.js. The application also has a simple Frontend/UI which consists of three .html files. The user selects the desired .CSV files and uploads them to the database. Only the specified CSV files are transferred.
 
 ## Technologies
 
