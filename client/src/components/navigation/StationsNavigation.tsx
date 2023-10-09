@@ -9,7 +9,7 @@ const StationsNavigation = () => {
         textDecoration="none"
         color="#FFF"
         fontSize="1.5rem"
-        path="/"
+        path="/home"
         title="HOME"
       />
       <LinkButton

@@ -100,3 +100,4 @@
 #### Bonus
 
 - [x] ~~UI has functionality for adding journeys or bicycle stations~~
+- [ ] login view

@@ -13,6 +13,7 @@ import StationSearched from "components/pages/station_searched/StationSearched";
 import NewStation from "components/pages/newstation/NewStation";
 
 import "./App.css";
+import Login from "components/pages/login/Login";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -41,7 +42,8 @@ const App = () => {
           </Typography>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Login />} />
+              <Route path="/home" element={<Home />} />
               <Route
                 path="/journeys"
                 element={<Journeys title={"JOURNEYS"} />}
