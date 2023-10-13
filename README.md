@@ -198,3 +198,4 @@ To install, you need to go to correct directories and install their packages:
 #### Bonus
 
 - [x] ~~E2E tests~~
+- [] Add user authentication
