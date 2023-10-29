@@ -7,8 +7,10 @@ const MONGODB_URI =
   process.env.NODE_ENV === "test"
     ? process.env.TEST_MONGODB_URI
     : process.env.MONGODB_URI;
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 
 export default {
   MONGODB_URI,
   PORT,
+  SENDGRID_API_KEY,
 };

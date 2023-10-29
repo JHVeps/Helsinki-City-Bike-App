@@ -2,7 +2,10 @@ import express from "express";
 import config from "./utils/config";
 import mongoose from "mongoose";
 import logger from "./utils/logger";
+import morgan from "morgan";
+import bodyParser from "body-parser";
 import cors from "cors";
+import authRouter from "./routers/auth.router";
 import journeyRouter from "./routers/journey.router";
 import stationRouter from "./routers/station.router";
 import testingRouter from "./routers/testing.router";
@@ -25,10 +28,15 @@ if (mongoUrl) {
       process.exit(1);
     });
 }
+
+app.use(morgan("dev"));
+app.use(bodyParser.json());
+
 app.use(cors());
 app.use(express.json());
 app.use(middleware.requestLogger);
 
+app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/journeys", journeyRouter);
 app.use("/api/v1/stations", stationRouter);
 

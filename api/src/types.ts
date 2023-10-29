@@ -25,3 +25,16 @@ export type StationDocument = Document & {
   x: number;
   y: number;
 };
+
+export type UserDocument = Document & {
+  name: string;
+  email: string;
+  hashed_password: string;
+  salt: string;
+  role: string;
+  resetPasswordLink: { data: string };
+  // Define methods here
+  authenticate(plainText: string): boolean;
+  encryptPassword(password: string): string;
+  makeSalt(): string;
+};
