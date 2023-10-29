@@ -12,8 +12,8 @@ const Login = () => {
       </div>
       <div className="loginScreen__body">
         <>
-          <h1>Stations, routes accross Helsinki/Espoo, Locations on map.</h1>
-          <h2>Access anywhere. Start searching now.</h2>
+          <h1>Bicycle stations and routes accross Helsinki/Espoo.</h1>
+          <h2>Access anywhere. Plan your routes..</h2>
           <h3>Sign in with your Google credentials.</h3>
           <button
             onClick={() => navigate("/home")}
