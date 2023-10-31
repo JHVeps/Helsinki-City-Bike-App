@@ -50,7 +50,7 @@ export const signup = async (
 
       sgMail.send(emailData).then((sent) => {
         console.log("SIGNUP EMAIL SENT", sent);
-        return res.json({
+        return res.status(200).json({
           message: `Email has been sent to ${email}. Follow the instructions to activate your account.`,
         });
       });
@@ -59,7 +59,7 @@ export const signup = async (
     if (error instanceof Error) {
       console.log("Invalid Request", 400, error);
       return res.json({
-        message: error.message,
+        error: error.message,
       });
     }
     next(error);

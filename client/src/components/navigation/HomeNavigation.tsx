@@ -8,6 +8,13 @@ const HomeNavigation = () => {
         textDecoration="none"
         color="#FFF"
         fontSize="1.5rem"
+        path="/signup"
+        title="SIGNUP"
+      />
+      <LinkButton
+        textDecoration="none"
+        color="#FFF"
+        fontSize="1.5rem"
         path="/home"
         title="HOME"
       />
