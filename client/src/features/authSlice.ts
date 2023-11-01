@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signupUser } from "services/auth.services";
+import { signinUser, signupUser } from "services/auth.services";
 import { authState } from "types/auth.types";
 
 const initialState: authState = {
@@ -33,6 +33,25 @@ const authSlice = createSlice({
     });
 
     builder.addCase(signupUser.fulfilled, (state, action) => {
+      state.item = action.payload?.data;
+      state.token = "";
+      state.isLoading = false;
+      state.error = false;
+    });
+
+    builder.addCase(signinUser.pending, (state) => {
+      state.token = "";
+      state.isLoading = true;
+      state.error = false;
+    });
+
+    builder.addCase(signinUser.rejected, (state) => {
+      state.token = "";
+      state.isLoading = false;
+      state.error = true;
+    });
+
+    builder.addCase(signinUser.fulfilled, (state, action) => {
       state.item = action.payload?.data;
       state.token = "";
       state.isLoading = false;

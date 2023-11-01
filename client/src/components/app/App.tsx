@@ -4,6 +4,10 @@ import { getAllJourneys } from "services/journey.services";
 import { getAllStations } from "services/station.services";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
+import LandingPage from "components/pages/landing_page/LandingPage";
+import Signup from "components/auth/signup/Signup";
+import Activate from "components/auth/activate/Activate";
+import Signin from "components/auth/signin/Signin";
 import Home from "components/pages/home/Home";
 import Journeys from "components/pages/journeys/Journeys";
 import JourneysSearched from "components/pages/journeys_searched/JourneysSearched";
@@ -13,8 +17,6 @@ import StationSearched from "components/pages/station_searched/StationSearched";
 import NewStation from "components/pages/newstation/NewStation";
 
 import "./App.css";
-import Login from "components/pages/login/Login";
-import Signup from "components/pages/signup/Signup";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -43,8 +45,10 @@ const App = () => {
           </Typography>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Login />} />
+              <Route path="/" element={<LandingPage />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/auth/activate/:token" element={<Activate />} />
+              <Route path="/signin" element={<Signin />} />
               <Route path="/home" element={<Home />} />
               <Route
                 path="/journeys"

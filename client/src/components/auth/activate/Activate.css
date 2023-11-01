@@ -1,0 +1,10 @@
+.activate {
+  color: #fff;
+  border-radius: 5px;
+  max-width: 500px;
+  padding: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(29, 29, 29, 0.85);
+  text-align: center;
+}

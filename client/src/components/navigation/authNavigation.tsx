@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import LinkButton from "components/buttons/LinkButton";
 
-const SignupNavigation = () => {
+const authNavigation = () => {
   return (
     <Box sx={{ margin: "auto", padding: "20px" }}>
       <LinkButton
@@ -9,10 +9,10 @@ const SignupNavigation = () => {
         color="#FFF"
         fontSize="1.5rem"
         path="/"
-        title="SIGNIN"
+        title="BACK"
       />
     </Box>
   );
 };
 
-export default SignupNavigation;
+export default authNavigation;

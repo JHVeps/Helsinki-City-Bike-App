@@ -1,18 +1,16 @@
-//import { useNavigate } from "react-router-dom";
 import { Box, Button, FormLabel, Typography } from "@mui/material";
 import { User } from "types/user.types";
 import { signupFormlabels } from "types/auth.types";
-import Navigation from "../../navigation/SignupNavigation";
+import Navigation from "../../navigation/authNavigation";
 import { Field, Form, Formik } from "formik";
 import { useAppDispatch } from "redux/hooks";
 import { signupUser } from "services/auth.services";
 import { ToastContainer, toast } from "react-toastify";
 
-import "react-toastify/dist/ReactToastify.css"; // Import the CSS for styling
+import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
 
 const Signup = () => {
-  //const navigate = useNavigate();
   //   const [values, setValues] = useState({
   //     name: "",
   //     email: "",
@@ -71,27 +69,20 @@ const Signup = () => {
   //   );
 
   return (
-    // <div className="loginScreen">
-    //   <h1>SIGNUP</h1>
-    //   {signupForm()}
-    // </div>
-
     <Box>
       <ToastContainer autoClose={false} />
       <Typography sx={{ padding: "20px" }} variant="h4">
         {title}
       </Typography>
       <Navigation />
-      <Box className="addstation">
+      <Box className="signup">
         <Formik
           initialValues={initialValues}
           onSubmit={async (values, { resetForm }) => {
             try {
-              // Dispatch the signupUser action
               const response = await dispatch(signupUser(values));
 
               if (signupUser.fulfilled.match(response)) {
-                // Display a success toast message
                 displayToast(response.payload.data.message, "success");
                 console.log(
                   "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RESPONSE:",
@@ -99,14 +90,12 @@ const Signup = () => {
                 );
                 resetForm();
               } else {
-                // Display an error toast message
                 displayToast(
                   response.error.message || "Signup failed. Please try again.",
                   "error"
                 );
               }
             } catch (error) {
-              // Display a generic error message if there's a problem with the API call
               displayToast("Signup failed. Please try again.", "error");
             }
           }}
@@ -119,7 +108,6 @@ const Signup = () => {
               name="name"
               type="text"
               placeholder="NAME"
-              required
             />
             <FormLabel sx={{ color: "white" }}>{formLabels.EMAIL}</FormLabel>
             <Field
@@ -128,7 +116,6 @@ const Signup = () => {
               name="email"
               type="email"
               placeholder="EMAIL"
-              required
             />
             <FormLabel sx={{ color: "white" }}>{formLabels.PASSWORD}</FormLabel>
             <Field
@@ -136,7 +123,6 @@ const Signup = () => {
               name="password"
               type="password"
               placeholder="PASSWORD"
-              required
             />
 
             <Button

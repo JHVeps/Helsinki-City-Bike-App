@@ -116,7 +116,7 @@ export const signin = async (req: Request, res: Response) => {
 
     if (!user) {
       return res.status(400).json({
-        error: "User with that email does not exist. Please sign up.",
+        error: "User with that email does not exist. Please signup.",
       });
     }
 

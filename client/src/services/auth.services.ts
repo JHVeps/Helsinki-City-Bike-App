@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_URL } from "secrets/secrets";
+import { SigninUser } from "types/auth.types";
 import { User } from "types/user.types";
 
 export const signupUser = createAsyncThunk(
@@ -10,6 +11,44 @@ export const signupUser = createAsyncThunk(
       method: "POST",
       url: `${API_URL}/auth/signup`,
       data: newUser,
+      headers: {},
+    };
+    try {
+      let res = await axios(config);
+      return { data: res.data, status: res.status };
+    } catch (error: any) {
+      throw new Error(error.response.data.error);
+    }
+  }
+);
+
+export const signinUser = createAsyncThunk(
+  "users/signin",
+  async (data: SigninUser) => {
+    const config = {
+      method: "POST",
+      url: `${API_URL}/auth/signin`,
+      data: data,
+      headers: {},
+    };
+    try {
+      let res = await axios(config);
+      return { data: res.data, status: res.status };
+    } catch (error: any) {
+      throw new Error(error.response.data.error);
+    }
+  }
+);
+
+type token = string;
+
+export const activate = createAsyncThunk(
+  "users/signin",
+  async (data: token) => {
+    const config = {
+      method: "POST",
+      url: `${API_URL}/auth/signin`,
+      data: data,
       headers: {},
     };
     try {
