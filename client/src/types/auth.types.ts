@@ -28,3 +28,5 @@ export type activateType = {
   token: string;
   show: boolean;
 };
+
+export type Token = string;

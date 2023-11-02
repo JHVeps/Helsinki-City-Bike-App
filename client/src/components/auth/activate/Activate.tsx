@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { API_URL } from "secrets/secrets";
 import { Box, Button, Typography } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import { useParams } from "react-router-dom";
@@ -8,6 +6,8 @@ import jwtDecode from "jwt-decode";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./Activate.css";
+import { useAppDispatch } from "redux/hooks";
+import { activateAccount } from "services/auth.services";
 
 const Activate = () => {
   const [values, setValues] = useState({
@@ -15,6 +15,7 @@ const Activate = () => {
     token: "",
     show: true,
   });
+  const dispatch = useAppDispatch();
   const { name, show } = values;
   const { token } = useParams<{ token: string }>();
 
@@ -29,23 +30,50 @@ const Activate = () => {
 
   const title: string = "ACCOUNT ACTIVATION";
 
-  const clickSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const displayToast = (
+    message: string,
+    type: "success" | "error" | "warning"
+  ) => {
+    toast(message, { type });
+  };
 
-    axios({
-      method: "POST",
-      url: `${API_URL}/auth/account-activation`,
-      data: { token },
-    })
-      .then((response) => {
-        console.log("ACCOUNT ACTIVATION", response);
-        setValues({ ...values, show: false });
-        toast.success(response.data.message);
-      })
-      .catch((error) => {
-        console.log("ACCOUNT ACTIVATION ERROR", error.response.data.error);
-        toast.error(error.response.data.error);
-      });
+  const clickSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    if (token) {
+      try {
+        const response = await dispatch(activateAccount(token));
+
+        if (activateAccount.fulfilled.match(response)) {
+          setValues({ ...values, show: false });
+          displayToast(
+            `ACCOUNT ACTIVATION: ${response.payload.message}`,
+            "success"
+          );
+        } else {
+          displayToast(
+            response.error.message || "ACCOUNT ACTIVATION ERROR",
+            "error"
+          );
+        }
+      } catch (error) {
+        displayToast("ACCOUNT ACTIVATION ERROR", "error");
+      }
+    }
+
+    // axios({
+    //   method: "POST",
+    //   url: `${API_URL}/auth/account-activation`,
+    //   data: { token },
+    // })
+    //   .then((response) => {
+    //     console.log("ACCOUNT ACTIVATION", response);
+    //     setValues({ ...values, show: false });
+    //     toast.success(response.data.message);
+    //   })
+    //   .catch((error) => {
+    //     console.log("ACCOUNT ACTIVATION ERROR", error.response.data.error);
+    //     toast.error(error.response.data.error);
+    //   });
   };
 
   const signupBtnTitle: string = "ACTIVATE ACCOUNT";
