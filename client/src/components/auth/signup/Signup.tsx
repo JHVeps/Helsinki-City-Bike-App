@@ -11,13 +11,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
 
 const Signup = () => {
-  //   const [values, setValues] = useState({
-  //     name: "",
-  //     email: "",
-  //     password: "",
-  //     buttonText: "Submit",
-  //   });
-
   const title: string = "SIGNUP AS NEW USER";
   const dispatch = useAppDispatch();
 
@@ -41,32 +34,6 @@ const Signup = () => {
   };
 
   const signupBtnTitle: string = "SUBMIT";
-
-  //   const { name, email, password, buttonText } = values;
-
-  //   const handleChange = (name: string) => (event: any) => {};
-
-  // const clickSubmit = (event: any) => {};
-
-  //   const signupForm = () => (
-  //     <form>
-  //       <div>
-  //         <label>Name</label>
-  //         <input onChange={handleChange("name")} type="text" />
-  //       </div>
-  //       <div>
-  //         <label>Email</label>
-  //         <input onChange={handleChange("email")} type="email" />
-  //       </div>
-  //       <div>
-  //         <label>Password</label>
-  //         <input onChange={handleChange("password")} type="password" />
-  //       </div>
-  //       <div>
-  //         <button onClick={clickSubmit}>{buttonText}</button>
-  //       </div>
-  //     </form>
-  //   );
 
   return (
     <Box>

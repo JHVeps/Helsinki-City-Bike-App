@@ -34,7 +34,7 @@ const Signin = () => {
 
   return (
     <Box>
-      <ToastContainer autoClose={false} />
+      <ToastContainer />
       <Typography sx={{ padding: "20px" }} variant="h4">
         {title}
       </Typography>
