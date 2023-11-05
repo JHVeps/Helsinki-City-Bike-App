@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "redux/hooks";
 import { getAllJourneys } from "services/journey.services";
 import { getAllStations } from "services/station.services";
@@ -7,7 +7,7 @@ import { Box, Typography } from "@mui/material";
 import LandingPage from "components/pages/landing_page/LandingPage";
 import Signup from "components/auth/signup/Signup";
 import Activate from "components/auth/activate/Activate";
-import Signin from "components/auth/signin/Signin";
+import Signin from "components/auth/signin/SigninForm";
 import Home from "components/pages/home/Home";
 import Journeys from "components/pages/journeys/Journeys";
 import JourneysSearched from "components/pages/journeys_searched/JourneysSearched";
@@ -17,6 +17,7 @@ import StationSearched from "components/pages/station_searched/StationSearched";
 import NewStation from "components/pages/newstation/NewStation";
 
 import "./App.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +28,14 @@ const App = () => {
     dispatch(getAllStations());
   }, [dispatch]);
 
+  const [toastMessage, setToastMessage] = useState("");
+
   const homeTitle: string = "HELSINKI CITY BIKE APP";
+
+  const displayToastInApp = (message: string, type: any) => {
+    toast(message, { type });
+    setToastMessage(message); // You can update the message state if needed.
+  };
 
   return (
     <Box
@@ -40,6 +48,7 @@ const App = () => {
     >
       <Box className="img__container">
         <Box className="img__container__gradient">
+          <ToastContainer />
           <Typography sx={{ textAlign: "center" }} variant="h1">
             {homeTitle}
           </Typography>
@@ -48,7 +57,10 @@ const App = () => {
               <Route path="/" element={<LandingPage />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/auth/activate/:token" element={<Activate />} />
-              <Route path="/signin" element={<Signin />} />
+              <Route
+                path="/signin"
+                element={<Signin displayToast={displayToastInApp} />}
+              />
               <Route path="/home" element={<Home />} />
               <Route
                 path="/journeys"
