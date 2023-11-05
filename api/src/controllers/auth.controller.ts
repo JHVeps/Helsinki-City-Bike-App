@@ -3,7 +3,6 @@ import User from "../models/user.model";
 import config from "../utils/config";
 import jwt from "jsonwebtoken";
 import sgMail from "@sendgrid/mail";
-import { UserDocument } from "../types";
 
 const api_key = config.SENDGRID_API_KEY;
 

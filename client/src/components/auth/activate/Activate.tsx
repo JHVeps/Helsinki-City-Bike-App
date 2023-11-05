@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import { useAppDispatch } from "redux/hooks";
 import { activateAccount } from "services/auth.services";
@@ -17,7 +17,6 @@ const Activate = () => {
   const dispatch = useAppDispatch();
   const { name, show } = values;
   const { token } = useParams<{ token: string }>();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (token) {

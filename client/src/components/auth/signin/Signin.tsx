@@ -8,6 +8,7 @@ import { signinUser } from "services/auth.services";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./Signin.css";
+import { authenticate } from "../helpers/helpers";
 
 const Signin = () => {
   const title: string = "SIGNIN";
@@ -47,15 +48,23 @@ const Signin = () => {
               const response = await dispatch(signinUser(values));
 
               if (signinUser.fulfilled.match(response)) {
-                displayToast(
-                  `Hey ${response.payload.data.user.name}, Welcome back! `,
-                  "success"
-                );
-                console.log(
-                  "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RESPONSE:",
-                  response
-                );
-                resetForm();
+                // Call the authenticate function here
+                authenticate(response, () => {
+                  // This is where you can put any logic you want to run after authentication
+                  console.log(
+                    "User authenticated:",
+                    response.payload.data.user
+                  );
+                  displayToast(
+                    `Hey ${response.payload.data.user.name}, Welcome back! `,
+                    "success"
+                  );
+                  console.log(
+                    "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RESPONSE:",
+                    response
+                  );
+                  resetForm();
+                });
               } else {
                 displayToast(
                   response.error.message || "Signin failed. Please try again.",
