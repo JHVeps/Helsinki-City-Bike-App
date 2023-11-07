@@ -2,7 +2,6 @@ import { journeysListPageProps } from "types/journey.types";
 import { useState } from "react";
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
-import Navigation from "components/navigation/JourneysNavigation";
 import AppBar from "components/appbar/AppBar";
 import JourneyTable from "components/journey_table/JourneyTable";
 import { Box, Typography } from "@mui/material";
@@ -17,7 +16,6 @@ const Journeys = ({ title }: journeysListPageProps) => {
       <Typography sx={{ padding: "20px" }} variant="h4">
         {journeysPageTitle}
       </Typography>
-      <Navigation />
       <AppBar title={"Journeys List"} text={text} setText={setText} />
       <JourneyTable
         journeys={journeys.items}

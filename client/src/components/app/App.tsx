@@ -4,6 +4,8 @@ import { getAllJourneys } from "services/journey.services";
 import { getAllStations } from "services/station.services";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import Navigation from "components/navigation/MainNavigation";
 import LandingPage from "components/pages/landing_page/LandingPage";
 import Signup from "components/auth/signup/Signup";
 import Activate from "components/auth/activate/Activate";
@@ -17,7 +19,6 @@ import StationSearched from "components/pages/station_searched/StationSearched";
 import NewStation from "components/pages/newstation/NewStation";
 
 import "./App.css";
-import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -29,12 +30,12 @@ const App = () => {
   }, [dispatch]);
 
   const [toastMessage, setToastMessage] = useState("");
-
+  console.log(toastMessage);
   const homeTitle: string = "HELSINKI CITY BIKE APP";
 
   const displayToastInApp = (message: string, type: any) => {
     toast(message, { type });
-    setToastMessage(message); // You can update the message state if needed.
+    setToastMessage(message);
   };
 
   return (
@@ -52,7 +53,9 @@ const App = () => {
           <Typography sx={{ textAlign: "center" }} variant="h1">
             {homeTitle}
           </Typography>
+
           <BrowserRouter>
+            <Navigation />
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/signup" element={<Signup />} />

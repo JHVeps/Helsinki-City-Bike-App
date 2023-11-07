@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useAppSelector } from "redux/hooks";
 import { RootState } from "redux/store";
 import { Box, Typography } from "@mui/material";
-import Navigation from "../../navigation/StationsNavigation";
 import AppBar from "components/appbar/AppBar";
 import StationTable from "components/station_table/StationTable";
 import { StationsListPageProps } from "types/station.types";
@@ -16,7 +15,6 @@ const Stations = ({ title }: StationsListPageProps) => {
       <Typography sx={{ padding: "20px" }} variant="h4">
         {stationsPageTitle}
       </Typography>
-      <Navigation />
       <AppBar title={"Stations List"} text={text} setText={setText} />
       <StationTable
         stations={stations.items}
