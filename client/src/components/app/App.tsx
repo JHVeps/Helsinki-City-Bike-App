@@ -10,6 +10,8 @@ import LandingPage from "components/pages/landing_page/LandingPage";
 import Signup from "components/auth/signup/Signup";
 import Activate from "components/auth/activate/Activate";
 import Signin from "components/auth/signin/SigninForm";
+import Admin from "components/pages/admin/Admin";
+import User from "components/pages/user/User";
 import Home from "components/pages/home/Home";
 import Journeys from "components/pages/journeys/Journeys";
 import JourneysSearched from "components/pages/journeys_searched/JourneysSearched";
@@ -64,6 +66,8 @@ const App = () => {
                 path="/signin"
                 element={<Signin displayToast={displayToastInApp} />}
               />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/user" element={<User />} />
               <Route path="/home" element={<Home />} />
               <Route
                 path="/journeys"
