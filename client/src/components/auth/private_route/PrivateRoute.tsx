@@ -11,6 +11,7 @@ const PrivateRoute = ({ children }: { children: React.ReactElement }) => {
     return (
       <Box className="privateRoute">
         <h2>You are not allowed here!</h2>
+        <h3>Only authorized users are allowed.</h3>
         <Button onClick={() => navigate("/signin")}>SIGNIN</Button>
       </Box>
     );

@@ -69,14 +69,25 @@ const MainNavigation = () => {
             path="/stations/add_new_station"
             title="ADD NEW STATION"
           />
-          {/* TODO make this into a working link to users page */}
-          <LinkButton
-            textDecoration="none"
-            color={isActive(`/user/${isAuth().name}`)}
-            fontSize="1.5rem"
-            path={`/user/${isAuth().name}`}
-            title={isAuth().name}
-          />
+          {isAuth() && isAuth().role === "user" && (
+            <LinkButton
+              textDecoration="none"
+              color={isActive(`/user/${isAuth().name}`)}
+              fontSize="1.5rem"
+              path={`/user/${isAuth().name}`}
+              title={isAuth().name}
+            />
+          )}
+
+          {isAuth() && isAuth().role === "admin" && (
+            <LinkButton
+              textDecoration="none"
+              color={isActive(`/user/${isAuth().name}`)}
+              fontSize="1.5rem"
+              path={"admin"}
+              title={isAuth().name}
+            />
+          )}
 
           <Button
             sx={{

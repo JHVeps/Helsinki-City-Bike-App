@@ -10,8 +10,9 @@ import LandingPage from "components/pages/landing_page/LandingPage";
 import Signup from "components/auth/signup/Signup";
 import Activate from "components/auth/activate/Activate";
 import Signin from "components/auth/signin/SigninForm";
-import PrivateRoute from "components/auth/private_route/PrivateRoute";
+import AdminRoute from "components/auth/admin_route/AdminRoute";
 import Admin from "components/pages/admin/Admin";
+import PrivateRoute from "components/auth/private_route/PrivateRoute";
 import User from "components/pages/user/User";
 import Home from "components/pages/home/Home";
 import Journeys from "components/pages/journeys/Journeys";
@@ -67,7 +68,14 @@ const App = () => {
                 path="/signin"
                 element={<Signin displayToast={displayToastInApp} />}
               />
-              <Route path="/admin" element={<Admin />} />
+              <Route
+                path="/admin"
+                element={
+                  <AdminRoute>
+                    <Admin />
+                  </AdminRoute>
+                }
+              />
               <Route
                 path="/user"
                 element={
@@ -76,27 +84,54 @@ const App = () => {
                   </PrivateRoute>
                 }
               />
-              <Route path="/home" element={<Home />} />
+              <Route
+                path="/home"
+                element={
+                  <PrivateRoute>
+                    <Home />
+                  </PrivateRoute>
+                }
+              />
               <Route
                 path="/journeys"
-                element={<Journeys title={"JOURNEYS"} />}
+                element={
+                  <PrivateRoute>
+                    <Journeys title={"JOURNEYS"} />
+                  </PrivateRoute>
+                }
               />
               <Route
                 path="/journeys/search/:stationName"
-                element={<JourneysSearched />}
+                element={
+                  <PrivateRoute>
+                    <JourneysSearched />
+                  </PrivateRoute>
+                }
               />
               <Route
                 path="/stations"
-                element={<Stations title={"STATIONS"} />}
+                element={
+                  <PrivateRoute>
+                    <Stations title={"STATIONS"} />
+                  </PrivateRoute>
+                }
               />
               <Route path="/stations/:FID" element={<Station />} />
               <Route
                 path="/stations/search/:stationName"
-                element={<StationSearched />}
+                element={
+                  <PrivateRoute>
+                    <StationSearched />
+                  </PrivateRoute>
+                }
               />
               <Route
                 path="/stations/add_new_station"
-                element={<NewStation />}
+                element={
+                  <AdminRoute>
+                    <NewStation />
+                  </AdminRoute>
+                }
               />
             </Routes>
           </BrowserRouter>
