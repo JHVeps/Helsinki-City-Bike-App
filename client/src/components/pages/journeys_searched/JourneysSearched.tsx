@@ -2,7 +2,6 @@ import { RootState } from "redux/store";
 import { useAppSelector } from "redux/hooks";
 import { useParams } from "react-router-dom";
 import { Journey, journeySearchedHeaders } from "types/journey.types";
-import Navigation from "components/navigation/HomeNavigation";
 import {
   Box,
   Paper,
@@ -44,7 +43,6 @@ const JourneysSearched = () => {
           <Typography sx={{ padding: "20px" }} variant="h4">
             {title}
           </Typography>
-          <Navigation />
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
               <TableHead>
@@ -138,7 +136,6 @@ const JourneysSearched = () => {
   return (
     <Box>
       <Typography variant="h2">{notFound}</Typography>
-      <Navigation />
     </Box>
   );
 };

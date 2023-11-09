@@ -1,4 +1,3 @@
-import Navigation from "components/navigation/HomeNavigation";
 import { Box, Typography } from "@mui/material";
 
 const Home = () => {
@@ -8,7 +7,6 @@ const Home = () => {
       <Typography sx={{ padding: "20px" }} variant="h4">
         {title}
       </Typography>
-      <Navigation />
     </Box>
   );
 };

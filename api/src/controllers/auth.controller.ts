@@ -3,7 +3,6 @@ import User from "../models/user.model";
 import config from "../utils/config";
 import jwt from "jsonwebtoken";
 import sgMail from "@sendgrid/mail";
-import { UserDocument } from "../types";
 
 const api_key = config.SENDGRID_API_KEY;
 
@@ -50,7 +49,7 @@ export const signup = async (
 
       sgMail.send(emailData).then((sent) => {
         console.log("SIGNUP EMAIL SENT", sent);
-        return res.json({
+        return res.status(200).json({
           message: `Email has been sent to ${email}. Follow the instructions to activate your account.`,
         });
       });
@@ -59,7 +58,7 @@ export const signup = async (
     if (error instanceof Error) {
       console.log("Invalid Request", 400, error);
       return res.json({
-        message: error.message,
+        error: error.message,
       });
     }
     next(error);
@@ -116,7 +115,7 @@ export const signin = async (req: Request, res: Response) => {
 
     if (!user) {
       return res.status(400).json({
-        error: "User with that email does not exist. Please sign up.",
+        error: "User with that email does not exist. Please signup.",
       });
     }
 

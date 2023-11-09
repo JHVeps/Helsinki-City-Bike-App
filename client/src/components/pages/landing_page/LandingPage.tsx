@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import "./Login.css";
+import "./LandingPage.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,12 +14,18 @@ const Login = () => {
         <>
           <h1>Bicycle stations and routes accross Helsinki/Espoo.</h1>
           <h2>Access anywhere. Plan your routes..</h2>
-          <h3>Sign in with your Google credentials.</h3>
           <button
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/signin")}
             className="loginScreen__signIn"
           >
-            SIGN IN
+            SIGNIN
+          </button>
+          OR
+          <button
+            onClick={() => navigate("/signup")}
+            className="loginScreen__signIn"
+          >
+            SIGNUP
           </button>
         </>
       </div>

@@ -6,7 +6,6 @@ import {
   addStationFormlabels,
 } from "types/station.types";
 import { Box, Button, FormLabel, Typography } from "@mui/material";
-import Navigation from "../../navigation/HomeNavigation";
 import { Formik, Form, Field } from "formik";
 import { addNewStation } from "services/station.services";
 
@@ -54,7 +53,6 @@ const NewStation = () => {
       <Typography sx={{ padding: "20px" }} variant="h4">
         {title}
       </Typography>
-      <Navigation />
       <Box className="addstation">
         <Formik
           initialValues={initialValues}
