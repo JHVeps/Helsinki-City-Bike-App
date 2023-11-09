@@ -56,7 +56,7 @@ userSchema.methods = {
     }
     try {
       return crypto
-        .createHmac("sha1", this.salt)
+        .createHmac("HS256", this.salt) // HS256 is the algorithm we are using to encrypt the password
         .update(password)
         .digest("hex");
     } catch (err) {

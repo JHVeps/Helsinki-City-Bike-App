@@ -3,6 +3,7 @@ import User from "../models/user.model";
 import config from "../utils/config";
 import jwt from "jsonwebtoken";
 import sgMail from "@sendgrid/mail";
+import { expressjwt } from "express-jwt";
 
 const api_key = config.SENDGRID_API_KEY;
 
@@ -149,3 +150,8 @@ export const signin = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const requireSignin = expressjwt({
+  secret: process.env.JWT_SECRET as string,
+  algorithms: ["HS256"],
+});
