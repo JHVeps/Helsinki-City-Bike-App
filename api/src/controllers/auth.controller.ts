@@ -3,6 +3,7 @@ import User from "../models/user.model";
 import config from "../utils/config";
 import jwt from "jsonwebtoken";
 import sgMail from "@sendgrid/mail";
+import { Request as JWTRequest, expressjwt } from "express-jwt";
 
 const api_key = config.SENDGRID_API_KEY;
 
@@ -144,6 +145,44 @@ export const signin = async (req: Request, res: Response) => {
     });
   } catch (error) {
     console.error("Error during signin:", error);
+    return res.status(500).json({
+      error: "Internal server error.",
+    });
+  }
+};
+
+export const requireSignin = expressjwt({
+  secret: process.env.JWT_SECRET as string,
+  algorithms: ["HS256"],
+});
+
+export const adminMiddleware = async (
+  req: JWTRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const id = req.auth?._id;
+
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(400).json({
+        error: "User not found",
+      });
+    }
+
+    if (user.role !== "admin") {
+      return res.status(400).json({
+        error: "Admin resource. Access denied.",
+      });
+    }
+
+    //req.profile = user
+
+    next();
+  } catch (error) {
+    console.error("Error during admin authorization:", error);
     return res.status(500).json({
       error: "Internal server error.",
     });

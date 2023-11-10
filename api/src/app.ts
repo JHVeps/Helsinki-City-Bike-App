@@ -6,6 +6,7 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 import cors from "cors";
 import authRouter from "./routers/auth.router";
+import userRouter from "./routers/user.router";
 import journeyRouter from "./routers/journey.router";
 import stationRouter from "./routers/station.router";
 import testingRouter from "./routers/testing.router";
@@ -37,6 +38,7 @@ app.use(express.json());
 app.use(middleware.requestLogger);
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/users", userRouter);
 app.use("/api/v1/journeys", journeyRouter);
 app.use("/api/v1/stations", stationRouter);
 
