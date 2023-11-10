@@ -50,26 +50,28 @@ export const findAllUsers = async (
   }
 };
 
+// TODO test messages for failed update in UI
 export const updateUser = async (
   req: JWTRequest,
   res: Response,
   next: NextFunction
 ) => {
-  console.log("UPDATE USER ", req.auth, "UPDATE DATA ", req.body);
-};
+  const update = {
+    name: req.body.name,
+    password: req.body.password,
+  };
+  const id = req.auth?._id;
 
-// TODO
-// ) => {
-//   try {
-//     const update = req.body;
-//     console.log("UPDATE USER ", req.auth, "UPDATE DATA ", update);
-//     const updatedUser = await userService.updateUser(update);
-//     res.json(updatedUser);
-//   } catch (error) {
-//     if (error instanceof Error && error.name == "ValidationError") {
-//       next(new BadRequestError("Invalid Request", 400, error));
-//     } else {
-//       next(error);
-//     }
-//   }
-// };
+  console.log("UPDATE USER ", req.auth, "UPDATE DATA ", update);
+
+  try {
+    const updatedUser = await userService.updateUser(id, update);
+    res.json(updatedUser);
+  } catch (error) {
+    if (error instanceof Error && error.name == "ValidationError") {
+      next(new BadRequestError("Invalid Request", 400, error));
+    } else {
+      next(error);
+    }
+  }
+};

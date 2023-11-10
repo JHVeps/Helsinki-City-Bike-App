@@ -56,27 +56,44 @@ const findAllUsers = async (): Promise<UserDocument[]> => {
   }
 };
 
-// TODO
-// const updateUser = async (
-//   _id: string,
-//   update: Partial<UserDocument>
-// ): Promise<UserDocument | null> => {
-//   try {
-//     const foundUser = await User.findByIdAndUpdate(_id, update, {
-//       new: true,
-//     });
+const updateUser = async (
+  _id: string,
+  update: {
+    name?: string;
+    password?: string;
+  }
+): Promise<UserDocument | null> => {
+  console.log(update);
 
-//     if (!foundUser) {
-//       throw new NotFoundError(`User ${_id} not found`);
-//     }
+  if (!update.name) {
+    throw new Error("Name is required");
+  }
 
-//     return foundUser;
-//   } catch (error: any) {
-//     if (error instanceof Error) {
-//       throw new Error("Error finding user " + error.message);
-//     }
-//     throw new Error("Error finding user " + error.message);
-//   }
-// };
+  if (update.password) {
+    if (update.password.length < 6) {
+      throw new Error("Password must be at least 6 characters");
+    }
+  }
 
-export default { findByEmail, findById, findAllUsers };
+  try {
+    const foundUser = await User.findByIdAndUpdate(_id, update, {
+      new: true,
+    });
+
+    if (!foundUser) {
+      throw new NotFoundError(`User ${_id} not found`);
+    }
+
+    foundUser.hashed_password = ""; // hide value
+    foundUser.salt = ""; // hide value
+
+    return foundUser;
+  } catch (error: any) {
+    if (error instanceof Error) {
+      throw new Error("Error finding user " + error.message);
+    }
+    throw new Error("Error finding user " + error.message);
+  }
+};
+
+export default { findByEmail, findById, findAllUsers, updateUser };
