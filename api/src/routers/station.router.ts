@@ -5,12 +5,13 @@ import {
   createStation,
   findByName,
 } from "../controllers/station.controller";
+import { requireSignin, adminMiddleware } from "../controllers/auth.controller";
 
 const router = express.Router();
 
 // Every path we define here will get /api/v1/stations prefix
-router.get("/", findAllStations);
-router.get("/:Nimi", findByName);
-router.post("/addstation", createStation);
+router.get("/", requireSignin, findAllStations);
+router.get("/:Nimi", requireSignin, findByName);
+router.post("/addstation", requireSignin, adminMiddleware, createStation);
 
 export default router;
