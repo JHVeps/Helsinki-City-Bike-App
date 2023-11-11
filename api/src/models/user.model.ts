@@ -52,11 +52,12 @@ userSchema.methods = {
 
   encryptPassword: function (this: UserDocument, password: string) {
     if (!password) {
-      return "";
+      throw new Error("Password cannot be empty");
     }
     try {
+      const algorithm = "sha256";
       return crypto
-        .createHmac("HS256", this.salt) // HS256 is the algorithm we are using to encrypt the password
+        .createHmac(algorithm, this.salt) // HS256 is the algorithm we are using to encrypt the password
         .update(password)
         .digest("hex");
     } catch (err) {

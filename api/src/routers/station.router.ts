@@ -10,7 +10,7 @@ import { requireSignin, adminMiddleware } from "../controllers/auth.controller";
 const router = express.Router();
 
 // Every path we define here will get /api/v1/stations prefix
-router.get("/", requireSignin, findAllStations);
+router.get("/", findAllStations);
 router.get("/:Nimi", requireSignin, findByName);
 router.post("/addstation", requireSignin, adminMiddleware, createStation);
 

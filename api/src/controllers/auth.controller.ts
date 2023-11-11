@@ -81,16 +81,17 @@ export const accountActivation = async (req: Request, res: Response) => {
       };
 
       const { name, email, password } = decoded;
+      console.log("ACCOUNT ACTIVATION DECODED", decoded);
       const user = new User({ name, email, password });
-
+      console.log("ACCOUNT ACTIVATION NEW USER", user);
       await user.save();
       return res.json({
         message: "Signup success. Please sign in.",
       });
-    } catch (error) {
+    } catch (error: any) {
       console.log("JWT VERIFY AND ACCOUNT ACTIVATION ERROR", error);
       return res.status(401).json({
-        error: "Expired link. Signup again.",
+        error: `Expired link. Signup again. ${error.message}`,
       });
     }
   } else {
@@ -177,8 +178,6 @@ export const adminMiddleware = async (
         error: "Admin resource. Access denied.",
       });
     }
-
-    //req.profile = user
 
     next();
   } catch (error) {
