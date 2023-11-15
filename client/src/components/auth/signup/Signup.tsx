@@ -1,9 +1,10 @@
+import { useAppDispatch } from "redux/hooks";
+import { useNavigate } from "react-router-dom";
 import { Box, Button, FormLabel, Typography } from "@mui/material";
 import { User } from "types/user.types";
 import { signupFormlabels } from "types/auth.types";
 import Navigation from "../../navigation/authNavigation";
 import { Field, Form, Formik } from "formik";
-import { useAppDispatch } from "redux/hooks";
 import { signupUser } from "services/auth.services";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -19,6 +20,7 @@ type SignupFormProps = {
 const Signup = ({ displayToast }: SignupFormProps) => {
   const title: string = "SIGNUP AS NEW USER";
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const initialValues: User = {
     name: "",
@@ -32,7 +34,6 @@ const Signup = ({ displayToast }: SignupFormProps) => {
     PASSWORD: "PASSWORD",
   };
 
-  // TODO make one generic display component for showing messages in ToastContainer
   const displaySignupSuccessMessage = (message: string) => {
     displayToast(`${message} `, "success");
   };
@@ -63,6 +64,7 @@ const Signup = ({ displayToast }: SignupFormProps) => {
               if (signupUser.fulfilled.match(response)) {
                 displaySignupSuccessMessage(response.payload.data.message);
                 resetForm();
+                navigate("/home");
               } else {
                 displaySignupErrorMessagewithResponse(response.error.message!);
               }

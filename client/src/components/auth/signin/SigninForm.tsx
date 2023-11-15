@@ -43,7 +43,7 @@ const SigninForm = ({ displayToast }: SigninFormProps) => {
     displayToast("Signin failed. Please try again.", "error");
   };
 
-  const signupBtnTitle: string = "SIGNIN";
+  const signinBtnTitle: string = "SIGNIN";
   return (
     <Box className="signin">
       <Formik
@@ -82,7 +82,6 @@ const SigninForm = ({ displayToast }: SigninFormProps) => {
             type="password"
             placeholder="PASSWORD"
           />
-
           <Button
             data-cy="add-user-button"
             data-testid="add_user_button"
@@ -101,7 +100,7 @@ const SigninForm = ({ displayToast }: SigninFormProps) => {
             }}
             type="submit"
           >
-            {signupBtnTitle}
+            {signinBtnTitle}
           </Button>
         </Form>
       </Formik>
