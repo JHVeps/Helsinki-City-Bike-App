@@ -45,6 +45,7 @@ userSchema
   });
 
 // methods
+// TODO bcrypt
 userSchema.methods = {
   authenticate: function (this: UserDocument, plainText: string) {
     return this.encryptPassword(plainText) === this.hashed_password;
@@ -57,7 +58,7 @@ userSchema.methods = {
     try {
       const algorithm = "sha256";
       return crypto
-        .createHmac(algorithm, this.salt) // HS256 is the algorithm we are using to encrypt the password
+        .createHmac(algorithm, this.salt) // sha256 is the algorithm we are using to encrypt the password
         .update(password)
         .digest("hex");
     } catch (err) {

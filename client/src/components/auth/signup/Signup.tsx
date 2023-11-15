@@ -5,12 +5,18 @@ import Navigation from "../../navigation/authNavigation";
 import { Field, Form, Formik } from "formik";
 import { useAppDispatch } from "redux/hooks";
 import { signupUser } from "services/auth.services";
-import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./Signup.css";
 
-const Signup = () => {
+type SignupFormProps = {
+  displayToast: (
+    message: string,
+    type: "success" | "error" | "warning"
+  ) => void;
+};
+
+const Signup = ({ displayToast }: SignupFormProps) => {
   const title: string = "SIGNUP AS NEW USER";
   const dispatch = useAppDispatch();
 
@@ -26,18 +32,23 @@ const Signup = () => {
     PASSWORD: "PASSWORD",
   };
 
-  const displayToast = (
-    message: string,
-    type: "success" | "error" | "warning"
-  ) => {
-    toast(message, { type });
+  // TODO make one generic display component for showing messages in ToastContainer
+  const displaySignupSuccessMessage = (message: string) => {
+    displayToast(`${message} `, "success");
+  };
+
+  const displaySignupErrorMessagewithResponse = (message: string) => {
+    displayToast(message || "Signup failed. Please try again.", "error");
+  };
+
+  const displaySignupErrorMessage = () => {
+    displayToast("Signup failed. Please try again.", "error");
   };
 
   const signupBtnTitle: string = "SUBMIT";
 
   return (
     <Box>
-      <ToastContainer autoClose={false} />
       <Typography sx={{ padding: "20px" }} variant="h4">
         {title}
       </Typography>
@@ -50,20 +61,13 @@ const Signup = () => {
               const response = await dispatch(signupUser(values));
 
               if (signupUser.fulfilled.match(response)) {
-                displayToast(response.payload.data.message, "success");
-                console.log(
-                  "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RESPONSE:",
-                  response
-                );
+                displaySignupSuccessMessage(response.payload.data.message);
                 resetForm();
               } else {
-                displayToast(
-                  response.error.message || "Signup failed. Please try again.",
-                  "error"
-                );
+                displaySignupErrorMessagewithResponse(response.error.message!);
               }
             } catch (error) {
-              displayToast("Signup failed. Please try again.", "error");
+              displaySignupErrorMessage();
             }
           }}
         >

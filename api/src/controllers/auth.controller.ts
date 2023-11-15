@@ -6,6 +6,10 @@ import sgMail from "@sendgrid/mail";
 import { Request as JWTRequest, expressjwt } from "express-jwt";
 
 const api_key = config.SENDGRID_API_KEY;
+const account_activation_key = process.env.JWT_ACCOUNT_ACTIVATION;
+const jwt_secret = process.env.JWT_SECRET;
+const sender_email = process.env.EMAIL_FROM;
+const url = process.env.CLIENT_URL;
 
 if (api_key) {
   sgMail.setApiKey(api_key);
@@ -30,21 +34,21 @@ export const signup = async (
 
       const token = jwt.sign(
         { name, email, password },
-        process.env.JWT_ACCOUNT_ACTIVATION as string,
+        account_activation_key as string,
         { expiresIn: "10m" }
       );
 
-      //This message will be sent to user
+      //This message will be sent to email address provided by the user
       const emailData = {
-        from: process.env.EMAIL_FROM as string,
+        from: sender_email as string,
         to: email,
         subject: `Account activation link`,
         html: `
          <h1>Please use the following link to activate your account</h1>
-         <p>${process.env.CLIENT_URL}/auth/activate/${token}</p>
+         <p>${url}/auth/activate/${token}</p>
          <hr />
          <p>This email may contain sensitive information</p>
-         <p>${process.env.CLIENT_URL}</p>
+         <p>${url}</p>
     `,
       };
 
@@ -71,10 +75,7 @@ export const accountActivation = async (req: Request, res: Response) => {
 
   if (token) {
     try {
-      const decoded = jwt.verify(
-        token,
-        process.env.JWT_ACCOUNT_ACTIVATION as string
-      ) as {
+      const decoded = jwt.verify(token, account_activation_key as string) as {
         name: string;
         email: string;
         password: string;
@@ -128,11 +129,9 @@ export const signin = async (req: Request, res: Response) => {
     }
 
     // User is authenticated, handle the success case here
-    const token = jwt.sign(
-      { _id: user._id },
-      process.env.JWT_SECRET as string,
-      { expiresIn: "7d" }
-    );
+    const token = jwt.sign({ _id: user._id }, jwt_secret as string, {
+      expiresIn: "7d",
+    });
     const foundUser = {
       _id: user._id,
       name: user.name,
@@ -152,8 +151,9 @@ export const signin = async (req: Request, res: Response) => {
   }
 };
 
+// auth middlewares
 export const requireSignin = expressjwt({
-  secret: process.env.JWT_SECRET as string,
+  secret: jwt_secret as string,
   algorithms: ["HS256"],
 });
 

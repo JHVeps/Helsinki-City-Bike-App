@@ -62,7 +62,10 @@ const App = () => {
             <Navigation />
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/signup" element={<Signup />} />
+              <Route
+                path="/signup"
+                element={<Signup displayToast={displayToastInApp} />}
+              />
               <Route path="/auth/activate/:token" element={<Activate />} />
               <Route
                 path="/signin"

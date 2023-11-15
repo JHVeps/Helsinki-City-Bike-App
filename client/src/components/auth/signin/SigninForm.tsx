@@ -1,4 +1,5 @@
 import { useAppDispatch } from "redux/hooks";
+import { useNavigate } from "react-router-dom";
 import { SigninUser, signinFormlabels } from "types/auth.types";
 import { Box, Button, FormLabel } from "@mui/material";
 import { authenticate } from "../helpers/helpers";
@@ -7,7 +8,6 @@ import { signinUser } from "services/auth.services";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./SigninForm.css";
-import { useNavigate } from "react-router-dom";
 
 type SigninFormProps = {
   displayToast: (
@@ -53,15 +53,8 @@ const SigninForm = ({ displayToast }: SigninFormProps) => {
             const response = await dispatch(signinUser(values));
 
             if (signinUser.fulfilled.match(response)) {
-              // Call the authenticate function here
               authenticate(response, () => {
-                // This is where you can put any logic you want to run after authentication
-                console.log("User authenticated:", response.payload.data.user);
                 displaySignInSuccessMessage(response.payload.data.user.name);
-                console.log(
-                  "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RESPONSE:",
-                  response
-                );
                 resetForm();
                 navigate("/home");
               });
